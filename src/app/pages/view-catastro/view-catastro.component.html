@@ -1,51 +1,207 @@
-<div class="">
+<p-fluid>
+  <!-- Componente Registro de turismo -->
+    <p-panel>
+      <h1 class="text-3xl font-bold mb-8">Registro de turismo</h1>
+        <div class="grid grid-cols-12 gap-6">
+            <!-- Numero de registro -->
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Número de registro"> </label>
+                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" readonly />
+            </div>
+            <!-- Fecha de registro -->
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Fecha de registro"> </label>
+                <input pInputText [value]="catastro.catastro.fechaRegistro" readonly />
+            </div>
+            <!-- Estado de registro -->
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Estado de registro"> </label>
+                <input type="text" pInputText [value]="catastro.establecimiento.ruc.estadoContribuyente.codigo" readonly />
+            </div>
+            <!-- Actividad -->
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Actividad"> </label>
+                <input type="text" pInputText [value]="catastro.actividad.nombre" readonly />
+            </div>
+            <!-- Clasificación -->
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Clasificación"> </label>
+                <input type="text" pInputText [value]="catastro.clasificacion.nombre" readonly />
+            </div>
+            <!-- Categoría -->
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Categoría"> </label>
+                <input type="text" pInputText [value]="catastro.categoria.nombre" readonly />
+            </div>
 
-  <!-- Primer bloque -->
-  <p-card class="col-12 md:col-6 lg:col-4">
-    <h2>Datos del catastro</h2>
-
-     <div class="flex">
-        <span class="font-medium mr-2">RUC:</span>
-        <span class="font-extrabold">1792072018001</span>
-      </div>
-
-      <div class="flex">
-        <span class="font-medium mr-2">Estado:</span>
-        <span class="font-extrabold">Activo</span>
-      </div>
-
-       <div class="flex">
-        <span class="font-medium mr-2">Razón Social:</span>
-        <span class="font-extrabold">DELI INTERNACIONAL S.A.</span>
-      </div>
-
-      <div class="flex">
-        <span class="font-medium mr-2">Tipo de Contribuyente:</span>
-        <span class="font-extrabold">Persona Jurídica</span>
-      </div>
-
-      <div class="flex">
-        <span class="font-medium mr-2">Identificación Representante Legal:</span>
-        <span class="font-extrabold">1704196912</span>
-      </div>
-
-      <div class="flex">
-        <span class="font-medium mr-2">Nombre Representante Legal:</span>
-        <span class="font-extrabold">GUARDERAS RIOFRIO ESTEBAN</span>
-      </div>
-
-      <div class="flex">
-        <span class="font-medium mr-2">Actividad Económica Principal:</span>
-      </div>
+            <!-- Tiene Deuda -->
+            <div class="col-span-12 flex flex-col gap-2">
+                <label appLabel label="Tiene Deuda"> </label>
+                <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm w-fit"> NO </span>
+            </div>
+        </div>
+    </p-panel>
     
-  </p-card>
+    <!-- Componente Local y Persona Jurídica -->
+    <p-panel>
+        <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-3 flex flex-col gap-2">
+                <label appLabel label="Su local es"> </label>
+                <input type="text" pInputText [value]="catastro.tipoLocal" readonly />
+            </div>
 
-  <!-- Segundo bloque -->
-  <p-card header="Datos del Catastro">
-    <div class="flex">
-      <span class="font-medium mr-2">Número de Expediente :</span>
-      <span class="font-extrabold">157271</span>
-    </div>
-  </p-card>
+            <div class="col-span-6 flex flex-col gap-2">
+                <label appLabel label="Tipo Personería Jurídica"> </label>
+                <input type="text" pInputText [value]="catastro.personeriaJuridica.denominacion" readonly />
+            </div>
+        </div>
+    </p-panel>
 
-</div>
+    <!-- Componente Establecimiento -->
+
+    <p-panel>
+      <h1 class="text-3xl font-bold mb-8">Establecimiento</h1>
+        <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-2 flex flex-col gap-2">
+                <label appLabel label="Número"> </label>
+                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" readonly />
+            </div>
+
+            <div class="col-span-10 flex flex-col gap-2">
+                <label appLabel label="Nombre Comercial"> </label>
+                <input type="text" pInputText [value]="catastro.establecimiento.nombreComercial" readonly />
+            </div>
+
+            <div class="col-span-8 flex flex-col gap-2">
+                <label appLabel label="Página Web"> </label>
+                <input type="text" pInputText [value]="catastro.establecimiento.paginaWeb" readonly />
+            </div>
+
+             <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Estado"> </label>
+                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" readonly />
+            </div>
+
+        </div>
+    </p-panel>
+
+    <!-- Componente DPA -->
+    <p-panel class="text-">
+      <h1 class="text-3xl font-bold mb-8">DPA</h1>
+        <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Provincia"> </label>
+                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" readonly />
+            </div>
+
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Cantón"> </label>
+                <input type="text" pInputText [value]="catastro.establecimiento.nombreComercial" readonly />
+            </div>
+
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Parroquia"> </label>
+                <input type="text" pInputText [value]="catastro.establecimiento.paginaWeb" readonly />
+            </div>
+
+        </div>
+    </p-panel>
+
+    <!-- Componente Ubicación -->
+    <p-panel class="text-">
+      <h1 class="text-3xl font-bold mb-8">Ubicación</h1>
+        <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Calle Principal"> </label>
+                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" readonly />
+            </div>
+
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Numeración"> </label>
+                <input type="text" pInputText [value]="catastro.establecimiento.nombreComercial" readonly />
+            </div>
+
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Calle Intersección"> </label>
+                <input type="text" pInputText [value]="catastro.establecimiento.paginaWeb" readonly />
+            </div>
+
+             <div class="col-span-8 flex flex-col gap-2">
+                <label appLabel label="Referencia de Ubicación"> </label>
+                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" readonly />
+            </div>
+
+             <div class="col-span-2 flex flex-col gap-2">
+                <label appLabel label="Latitud"> </label>
+                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" readonly />
+            </div>
+
+             <div class="col-span-2 flex flex-col gap-2">
+                <label appLabel label="Longitud"> </label>
+                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" readonly />
+            </div>
+
+        </div>
+    </p-panel>
+
+    <p-panel class="text-">
+      <h1 class="text-3xl font-bold mb-8">Persona de Contacto</h1>
+        <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Cédula de Identidad"> </label>
+                <input type="text" pInputText [value]="catastro.establecimiento.personaContacto.identificacion" readonly />
+            </div>
+
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Datos del registro civil"> </label>
+                <input type="text" pInputText [value]="catastro.establecimiento.personaContacto.nombres" readonly />
+            </div>
+
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Correo Electrónico Propietario"> </label>
+                <input type="text" pInputText [value]="catastro.establecimiento.personaContacto.correoPropietario" readonly />
+            </div>
+
+            <div class="col-span-3 flex flex-col gap-2">
+                <label appLabel label="Número de Teléfono Principal"> </label>
+                <input type="text" pInputText [value]="catastro.establecimiento.personaContacto.telefonoPrincipal" readonly />
+            </div>
+
+            <div class="col-span-3 flex flex-col gap-2">
+                <label appLabel label="Número de Teléfono Secundario"> </label>
+                <input type="text" pInputText [value]="catastro.establecimiento.personaContacto.secundarioTelefono" readonly />
+            </div>
+
+            <div class="col-span-3 flex flex-col gap-2">
+                <label appLabel label="Correo Electrónico"> </label>
+                <input type="text" pInputText [value]="catastro.establecimiento.personaContacto.correo" readonly />
+            </div>
+        </div>
+    </p-panel>
+
+    <p-panel class="text-">
+      <h1 class="text-3xl font-bold mb-8">Personal del Establecimiento</h1>
+        <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-6 flex flex-col gap-2">
+                <label appLabel label="Total de hombres, que trabajan en el establecimiento"> </label>
+                <input type="text" pInputText [value]="catastro.totalHombres" readonly />
+            </div>
+
+            <div class="col-span-6 flex flex-col gap-2">
+                <label appLabel label="Del total hombres, cuantos tienen discapacidad"> </label>
+                <input type="text" pInputText [value]="catastro.totalHombresDiscapacidad" readonly />
+            </div>
+
+            <div class="col-span-6 flex flex-col gap-2">
+                <label appLabel label="Total de mujeres, que trabajan en el establecimiento"> </label>
+                <input type="text" pInputText [value]="catastro.totalMujeres" readonly />
+            </div>
+
+            <div class="col-span-6 flex flex-col gap-2">
+                <label appLabel label="Del total mujeres, cuantas tienen discapacidad"> </label>
+                <input type="text" pInputText [value]="catastro.totalMujeresDiscapacidad" readonly />
+            </div>
+
+        </div>
+    </p-panel>
+</p-fluid>
