@@ -11,14 +11,27 @@ import { IftaLabelModule } from 'primeng/iftalabel';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 
-
 @Component({
-  selector: 'app-view-catastro',
-  imports: [CardModule, FluidModule, InputTextModule, CustomLabelDirective, PanelModule, TagModule, IftaLabelModule, ButtonModule, TableModule],
-  templateUrl: './view-catastro.component.html',
-  styleUrl: './view-catastro.component.scss'
+    selector: 'app-view-catastro',
+    imports: [CardModule, FluidModule, InputTextModule, CustomLabelDirective, PanelModule, TagModule, IftaLabelModule, ButtonModule, TableModule],
+    templateUrl: './view-catastro.component.html',
+    styleUrl: './view-catastro.component.scss'
 })
 export class ViewCatastroComponent {
-  protected catastro : CatastroInterface = catastroData 
-  constructor() {}
+    protected catastro: CatastroInterface = catastroData;
+
+    constructor() {}
+
+    dataPerson = [
+        {
+            ruc: 1720000001001,
+            nombre: 'Carlos Pérez',
+            identificacion: '20231002',
+            razon: 'Revisión Inicial',
+            titulo: 'Asignado para revisión de apertura.',
+            contrato: 'Asignado para revisión de apertura.',
+            experiencia: 'Asignado para revisión de apertura.',
+            guia: 'Si'
+        }
+    ];
 }

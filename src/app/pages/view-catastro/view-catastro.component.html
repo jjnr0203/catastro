@@ -207,18 +207,18 @@
         <h1 class="text-3xl font-bold mb-8">Modalidad de Turismo Aventura</h1>
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-12 flex flex-col gap-2">
-                <!-- <label appLabel label="Modalidad de Turismo Aventura"> </label> -->
-                <!-- <input type="text" pInputText [value]="catastro.modalidadesTurismoAventura" [disabled]="true" /> -->
+                
             </div>
         </div>
     </p-panel>
 
+    <!-- Representantes de Ventas -->
     <p-panel>
         <h1 class="text-3xl font-bold mb-8">Representantes de Ventas</h1>
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-12 flex flex-col gap-2">
-                <p-table [tableStyle]="{ 'min-width': '50rem' }">
-                    <ng-template #header >
+                <p-table [value]="dataPerson" [tableStyle]="{ 'min-width': '65rem' }">
+                    <ng-template #header>
                         <tr>
                             <th>RUC</th>
                             <th>Razón Social</th>
@@ -227,9 +227,63 @@
                             <th>Experiencia Probada</th>
                         </tr>
                     </ng-template>
-                    <ng-template #body let-rowData let-columns="columns">
+                    <ng-template #body let-dataPerson>
                         <tr>
-                            <td></td>
+                            <td>{{dataPerson.ruc}}</td>
+                            <td>{{dataPerson.razon}}</td>
+                            <td>{{dataPerson.titulo}}</td>
+                            <td>{{dataPerson.contrato}}</td>
+                            <td>{{dataPerson.experiencia}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </p-panel>
+
+    <!-- Guias de Turismo -->
+    <p-panel>
+        <h1 class="text-3xl font-bold mb-8">Guías de Turismo</h1>
+        <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-12 flex flex-col gap-2">
+                <p-table [value]="dataPerson" [tableStyle]="{ 'min-width': '60rem' }">
+                    <ng-template #header>
+                        <tr>
+                            <th>Identificación</th>
+                            <th>Nombres Completo</th>
+                            <th>Es Guía</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template #body let-dataPerson>
+                        <tr>
+                            <td>{{dataPerson.identificacion}}</td>
+                            <td>{{dataPerson.nombre}}</td>
+                            <td>{{dataPerson.guia}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </p-panel>
+
+    <!-- Compañías de Transporte Turístico -->
+    <p-panel>
+        <h1 class="text-3xl font-bold mb-8">Guías de Turismo</h1>
+        <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-12 flex flex-col gap-2">
+                <p-table [value]="dataPerson" [tableStyle]="{ 'min-width': '65rem' }">
+                    <ng-template #header>
+                        <tr>
+                            <th>RUC</th>
+                            <th>Razón Social</th>
+                            <th>Tipo Contribuyente</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template #body let-dataPerson>
+                        <tr>
+                            <td>{{dataPerson.ruc}}</td>
+                            <td>{{dataPerson.razon}}</td>
+                            <td>{{dataPerson.tipo}}</td>
                         </tr>
                     </ng-template>
                 </p-table>
