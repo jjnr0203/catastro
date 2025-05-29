@@ -1,7 +1,7 @@
 <p-fluid>
-  <!-- Componente Registro de turismo -->
+    <!-- Componente Registro de turismo -->
     <p-panel>
-      <h1 class="text-3xl font-bold mb-8">Registro de turismo</h1>
+        <h1 class="text-3xl font-bold mb-8">Registro de turismo</h1>
         <div class="grid grid-cols-12 gap-6">
             <!-- Numero de registro -->
             <div class="col-span-4 flex flex-col gap-2">
@@ -35,13 +35,13 @@
             </div>
 
             <!-- Tiene Deuda -->
-            <div class="col-span-12 flex flex-col gap-2">
+            <div class="col-span-2 flex flex-col gap-2">
                 <label appLabel label="Tiene Deuda"> </label>
-                <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm w-fit"> NO </span>
+                <p-button [label]="catastro.establecimiento.ruc.pago.tieneDeuda ? 'Sí' : 'No'" [disabled]="true" />
             </div>
         </div>
     </p-panel>
-    
+
     <!-- Componente Local y Persona Jurídica -->
     <p-panel>
         <div class="grid grid-cols-12 gap-6">
@@ -58,9 +58,8 @@
     </p-panel>
 
     <!-- Componente Establecimiento -->
-
     <p-panel>
-      <h1 class="text-3xl font-bold mb-8">Establecimiento</h1>
+        <h1 class="text-3xl font-bold mb-8">Establecimiento</h1>
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-2 flex flex-col gap-2">
                 <label appLabel label="Número"> </label>
@@ -77,17 +76,16 @@
                 <input type="text" pInputText [value]="catastro.establecimiento.paginaWeb" [disabled]="true" />
             </div>
 
-             <div class="col-span-4 flex flex-col gap-2">
+            <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Estado"> </label>
                 <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" [disabled]="true" />
             </div>
-
         </div>
     </p-panel>
 
     <!-- Componente DPA -->
     <p-panel class="text-">
-      <h1 class="text-3xl font-bold mb-8">DPA</h1>
+        <h1 class="text-3xl font-bold mb-8">DPA</h1>
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Provincia"> </label>
@@ -103,13 +101,12 @@
                 <label appLabel label="Parroquia"> </label>
                 <input type="text" pInputText [value]="catastro.establecimiento.paginaWeb" [disabled]="true" />
             </div>
-
         </div>
     </p-panel>
 
     <!-- Componente Ubicación -->
     <p-panel class="text-">
-      <h1 class="text-3xl font-bold mb-8">Ubicación</h1>
+        <h1 class="text-3xl font-bold mb-8">Ubicación</h1>
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Calle Principal"> </label>
@@ -126,26 +123,26 @@
                 <input type="text" pInputText [value]="catastro.establecimiento.paginaWeb" [disabled]="true" />
             </div>
 
-             <div class="col-span-8 flex flex-col gap-2">
+            <div class="col-span-8 flex flex-col gap-2">
                 <label appLabel label="Referencia de Ubicación"> </label>
                 <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" [disabled]="true" />
             </div>
 
-             <div class="col-span-2 flex flex-col gap-2">
+            <div class="col-span-2 flex flex-col gap-2">
                 <label appLabel label="Latitud"> </label>
                 <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" [disabled]="true" />
             </div>
 
-             <div class="col-span-2 flex flex-col gap-2">
+            <div class="col-span-2 flex flex-col gap-2">
                 <label appLabel label="Longitud"> </label>
-                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" [disabled]="true"  />
+                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" [disabled]="true" />
             </div>
         </div>
     </p-panel>
 
     <!-- Componente Persona de Contacto -->
     <p-panel>
-      <h1 class="text-3xl font-bold mb-8">Persona de Contacto</h1>
+        <h1 class="text-3xl font-bold mb-8">Persona de Contacto</h1>
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Cédula de Identidad"> </label>
@@ -181,7 +178,7 @@
 
     <!-- Componente Personal del Establecimiento -->
     <p-panel>
-      <h1 class="text-3xl font-bold mb-8">Personal del Establecimiento</h1>
+        <h1 class="text-3xl font-bold mb-8">Personal del Establecimiento</h1>
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-6 flex flex-col gap-2">
                 <label appLabel label="Total de hombres, que trabajan en el establecimiento"> </label>
@@ -201,6 +198,41 @@
             <div class="col-span-6 flex flex-col gap-2">
                 <label appLabel label="Del total mujeres, cuantas tienen discapacidad"> </label>
                 <input type="text" pInputText [value]="catastro.totalMujeresDiscapacidad" [disabled]="true" />
+            </div>
+        </div>
+    </p-panel>
+
+    <!-- Modalidad de Turiamo Aventura -->
+    <p-panel>
+        <h1 class="text-3xl font-bold mb-8">Modalidad de Turismo Aventura</h1>
+        <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-12 flex flex-col gap-2">
+                <!-- <label appLabel label="Modalidad de Turismo Aventura"> </label> -->
+                <!-- <input type="text" pInputText [value]="catastro.modalidadesTurismoAventura" [disabled]="true" /> -->
+            </div>
+        </div>
+    </p-panel>
+
+    <p-panel>
+        <h1 class="text-3xl font-bold mb-8">Representantes de Ventas</h1>
+        <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-12 flex flex-col gap-2">
+                <p-table [tableStyle]="{ 'min-width': '50rem' }">
+                    <ng-template #header >
+                        <tr>
+                            <th>RUC</th>
+                            <th>Razón Social</th>
+                            <th>Título Profesional</th>
+                            <th>Contrato Suscrito</th>
+                            <th>Experiencia Probada</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template #body let-rowData let-columns="columns">
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </ng-template>
+                </p-table>
             </div>
         </div>
     </p-panel>

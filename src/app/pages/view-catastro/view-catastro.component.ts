@@ -8,11 +8,13 @@ import { CatastroInterface } from './interfaces/catastro.interface';
 import { catastroData } from './data';
 import { TagModule } from 'primeng/tag';
 import { IftaLabelModule } from 'primeng/iftalabel';
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
 
 
 @Component({
   selector: 'app-view-catastro',
-  imports: [CardModule, FluidModule, InputTextModule, CustomLabelDirective, PanelModule, TagModule, IftaLabelModule],
+  imports: [CardModule, FluidModule, InputTextModule, CustomLabelDirective, PanelModule, TagModule, IftaLabelModule, ButtonModule, TableModule],
   templateUrl: './view-catastro.component.html',
   styleUrl: './view-catastro.component.scss'
 })
