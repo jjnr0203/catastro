@@ -6,32 +6,32 @@
             <!-- Numero de registro -->
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Número de registro"> </label>
-                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" readonly />
+                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" [disabled]="true" />
             </div>
             <!-- Fecha de registro -->
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Fecha de registro"> </label>
-                <input pInputText [value]="catastro.catastro.fechaRegistro" readonly />
+                <input pInputText [value]="catastro.catastro.fechaRegistro" [disabled]="true" />
             </div>
             <!-- Estado de registro -->
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Estado de registro"> </label>
-                <input type="text" pInputText [value]="catastro.establecimiento.ruc.estadoContribuyente.codigo" readonly />
+                <input type="text" pInputText [value]="catastro.establecimiento.ruc.estadoContribuyente.codigo" [disabled]="true" />
             </div>
             <!-- Actividad -->
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Actividad"> </label>
-                <input type="text" pInputText [value]="catastro.actividad.nombre" readonly />
+                <input type="text" pInputText [value]="catastro.actividad.nombre" [disabled]="true" />
             </div>
             <!-- Clasificación -->
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Clasificación"> </label>
-                <input type="text" pInputText [value]="catastro.clasificacion.nombre" readonly />
+                <input type="text" pInputText [value]="catastro.clasificacion.nombre" [disabled]="true" />
             </div>
             <!-- Categoría -->
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Categoría"> </label>
-                <input type="text" pInputText [value]="catastro.categoria.nombre" readonly />
+                <input type="text" pInputText [value]="catastro.categoria.nombre" [disabled]="true" />
             </div>
 
             <!-- Tiene Deuda -->
@@ -47,12 +47,12 @@
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-3 flex flex-col gap-2">
                 <label appLabel label="Su local es"> </label>
-                <input type="text" pInputText [value]="catastro.tipoLocal" readonly />
+                <input type="text" pInputText [value]="catastro.tipoLocal" [disabled]="true" />
             </div>
 
             <div class="col-span-6 flex flex-col gap-2">
                 <label appLabel label="Tipo Personería Jurídica"> </label>
-                <input type="text" pInputText [value]="catastro.personeriaJuridica.denominacion" readonly />
+                <input type="text" pInputText [value]="catastro.personeriaJuridica.denominacion" [disabled]="true" />
             </div>
         </div>
     </p-panel>
@@ -64,22 +64,22 @@
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-2 flex flex-col gap-2">
                 <label appLabel label="Número"> </label>
-                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" readonly />
+                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" [disabled]="true" />
             </div>
 
             <div class="col-span-10 flex flex-col gap-2">
                 <label appLabel label="Nombre Comercial"> </label>
-                <input type="text" pInputText [value]="catastro.establecimiento.nombreComercial" readonly />
+                <input type="text" pInputText [value]="catastro.establecimiento.nombreComercial" [disabled]="true" />
             </div>
 
             <div class="col-span-8 flex flex-col gap-2">
                 <label appLabel label="Página Web"> </label>
-                <input type="text" pInputText [value]="catastro.establecimiento.paginaWeb" readonly />
+                <input type="text" pInputText [value]="catastro.establecimiento.paginaWeb" [disabled]="true" />
             </div>
 
              <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Estado"> </label>
-                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" readonly />
+                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" [disabled]="true" />
             </div>
 
         </div>
@@ -91,17 +91,17 @@
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Provincia"> </label>
-                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" readonly />
+                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" [disabled]="true" />
             </div>
 
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Cantón"> </label>
-                <input type="text" pInputText [value]="catastro.establecimiento.nombreComercial" readonly />
+                <input type="text" pInputText [value]="catastro.establecimiento.nombreComercial" [disabled]="true" />
             </div>
 
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Parroquia"> </label>
-                <input type="text" pInputText [value]="catastro.establecimiento.paginaWeb" readonly />
+                <input type="text" pInputText [value]="catastro.establecimiento.paginaWeb" [disabled]="true" />
             </div>
 
         </div>
@@ -113,95 +113,95 @@
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Calle Principal"> </label>
-                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" readonly />
+                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" [disabled]="true" />
             </div>
 
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Numeración"> </label>
-                <input type="text" pInputText [value]="catastro.establecimiento.nombreComercial" readonly />
+                <input type="text" pInputText [value]="catastro.establecimiento.nombreComercial" [disabled]="true" />
             </div>
 
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Calle Intersección"> </label>
-                <input type="text" pInputText [value]="catastro.establecimiento.paginaWeb" readonly />
+                <input type="text" pInputText [value]="catastro.establecimiento.paginaWeb" [disabled]="true" />
             </div>
 
              <div class="col-span-8 flex flex-col gap-2">
                 <label appLabel label="Referencia de Ubicación"> </label>
-                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" readonly />
+                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" [disabled]="true" />
             </div>
 
              <div class="col-span-2 flex flex-col gap-2">
                 <label appLabel label="Latitud"> </label>
-                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" readonly />
+                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" [disabled]="true" />
             </div>
 
              <div class="col-span-2 flex flex-col gap-2">
                 <label appLabel label="Longitud"> </label>
-                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" readonly />
+                <input type="text" pInputText [value]="catastro.catastro.numeroRegistro" [disabled]="true"  />
             </div>
-
         </div>
     </p-panel>
 
-    <p-panel class="text-">
+    <!-- Componente Persona de Contacto -->
+    <p-panel>
       <h1 class="text-3xl font-bold mb-8">Persona de Contacto</h1>
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Cédula de Identidad"> </label>
-                <input type="text" pInputText [value]="catastro.establecimiento.personaContacto.identificacion" readonly />
+                <input type="text" pInputText [value]="catastro.establecimiento.personaContacto.identificacion" [disabled]="true" />
             </div>
 
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Datos del registro civil"> </label>
-                <input type="text" pInputText [value]="catastro.establecimiento.personaContacto.nombres" readonly />
+                <input type="text" pInputText [value]="catastro.establecimiento.personaContacto.nombres" [disabled]="true" />
             </div>
 
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Correo Electrónico Propietario"> </label>
-                <input type="text" pInputText [value]="catastro.establecimiento.personaContacto.correoPropietario" readonly />
+                <input type="text" pInputText [value]="catastro.establecimiento.personaContacto.correoPropietario" [disabled]="true" />
             </div>
 
             <div class="col-span-3 flex flex-col gap-2">
                 <label appLabel label="Número de Teléfono Principal"> </label>
-                <input type="text" pInputText [value]="catastro.establecimiento.personaContacto.telefonoPrincipal" readonly />
+                <input type="text" pInputText [value]="catastro.establecimiento.personaContacto.telefonoPrincipal" [disabled]="true" />
             </div>
 
             <div class="col-span-3 flex flex-col gap-2">
                 <label appLabel label="Número de Teléfono Secundario"> </label>
-                <input type="text" pInputText [value]="catastro.establecimiento.personaContacto.secundarioTelefono" readonly />
+                <input type="text" pInputText [value]="catastro.establecimiento.personaContacto.secundarioTelefono" [disabled]="true" />
             </div>
 
             <div class="col-span-3 flex flex-col gap-2">
                 <label appLabel label="Correo Electrónico"> </label>
-                <input type="text" pInputText [value]="catastro.establecimiento.personaContacto.correo" readonly />
+                <input type="text" pInputText [value]="catastro.establecimiento.personaContacto.correo" [disabled]="true" />
             </div>
         </div>
     </p-panel>
 
-    <p-panel class="text-">
+    <!-- Componente Personal del Establecimiento -->
+    <p-panel>
       <h1 class="text-3xl font-bold mb-8">Personal del Establecimiento</h1>
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-6 flex flex-col gap-2">
                 <label appLabel label="Total de hombres, que trabajan en el establecimiento"> </label>
-                <input type="text" pInputText [value]="catastro.totalHombres" readonly />
+                <input type="text" pInputText [value]="catastro.totalHombres" [disabled]="true" />
             </div>
 
             <div class="col-span-6 flex flex-col gap-2">
                 <label appLabel label="Del total hombres, cuantos tienen discapacidad"> </label>
-                <input type="text" pInputText [value]="catastro.totalHombresDiscapacidad" readonly />
+                <input type="text" pInputText [value]="catastro.totalHombresDiscapacidad" [disabled]="true" />
             </div>
 
             <div class="col-span-6 flex flex-col gap-2">
                 <label appLabel label="Total de mujeres, que trabajan en el establecimiento"> </label>
-                <input type="text" pInputText [value]="catastro.totalMujeres" readonly />
+                <input type="text" pInputText [value]="catastro.totalMujeres" [disabled]="true" />
             </div>
 
             <div class="col-span-6 flex flex-col gap-2">
                 <label appLabel label="Del total mujeres, cuantas tienen discapacidad"> </label>
-                <input type="text" pInputText [value]="catastro.totalMujeresDiscapacidad" readonly />
+                <input type="text" pInputText [value]="catastro.totalMujeresDiscapacidad" [disabled]="true" />
             </div>
-
         </div>
     </p-panel>
 </p-fluid>

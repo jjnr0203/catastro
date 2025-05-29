@@ -128,7 +128,7 @@ export interface Catastro {
     id:                  number;
     estado:              CatastroEstado;
     numeroRegistro:      string;
-    fechaRegistro:       Date;
+    fechaRegistro:       Date | number;
     sistemOrigen:        string;
     observaciones:       null;
     modificacionSistema: null;

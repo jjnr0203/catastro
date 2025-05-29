@@ -96,7 +96,7 @@ export const catastroData: CatastroInterface = {
             esVisible: true
         },
         numeroRegistro: 'CAT-2024-001',
-        fechaRegistro: new Date(),
+        fechaRegistro: new Date('2024-01-01'),
         sistemOrigen: 'Sistema Central',
         observaciones: null,
         modificacionSistema: null
