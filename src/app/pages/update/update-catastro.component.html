@@ -1,0 +1,204 @@
+<p-fluid>
+    <!-- Componente Registro de turismo -->
+    <p-panel>
+        <h1 class="text-3xl font-bold mb-8">Registro de turismo</h1>
+        <div class="grid grid-cols-12 gap-6">
+            <!-- Numero de registro -->
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Número de registro"> </label>
+                <input type="text" pInputText />
+            </div>
+            <!-- Fecha de registro -->
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Fecha de registro"> </label>
+                <input pInputText />
+            </div>
+            <!-- Estado de registro -->
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Estado de registro"> </label>
+                <input type="text" pInputText />
+            </div>
+            <!-- Actividad -->
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Actividad"> </label>
+                <input type="text" pInputText  />
+            </div>
+            <!-- Clasificación -->
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Clasificación"> </label>
+                <input type="text" pInputText />
+            </div>
+            <!-- Categoría -->
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Categoría"> </label>
+                <input type="text" pInputText  />
+            </div>
+
+            <!-- Tiene Deuda -->
+            <div class="col-span-2 flex flex-col gap-2">
+                <label appLabel label="Tiene Deuda"> </label>
+                <p-button/>
+            </div>
+        </div>
+    </p-panel>
+
+    <!-- Componente Local y Persona Jurídica -->
+    <p-panel>
+        <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-3 flex flex-col gap-2">
+                <label appLabel label="Su local es"> </label>
+                <input type="text" pInputText/>
+            </div>
+
+            <div class="col-span-6 flex flex-col gap-2">
+                <label appLabel label="Tipo Personería Jurídica"> </label>
+                <input type="text" pInputText />
+            </div>
+        </div>
+    </p-panel>
+
+    <!-- Componente Establecimiento -->
+    <p-panel>
+        <h1 class="text-3xl font-bold mb-8">Establecimiento</h1>
+        <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-2 flex flex-col gap-2">
+                <label appLabel label="Número"> </label>
+                <input type="text" pInputText />
+            </div>
+
+            <div class="col-span-10 flex flex-col gap-2">
+                <label appLabel label="Nombre Comercial"> </label>
+                <input type="text" pInputText  />
+            </div>
+
+            <div class="col-span-8 flex flex-col gap-2">
+                <label appLabel label="Página Web"> </label>
+                <input type="text" pInputText />
+            </div>
+
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Estado"> </label>
+                <input type="text" pInputText />
+            </div>
+        </div>
+    </p-panel>
+
+    <!-- Componente DPA -->
+    <p-panel class="text-">
+        <h1 class="text-3xl font-bold mb-8">DPA</h1>
+        <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Provincia"> </label>
+                <input type="text" pInputText />
+            </div>
+
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Cantón"> </label>
+                <input type="text" pInputText  />
+            </div>
+
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Parroquia"> </label>
+                <input type="text" pInputText  />
+            </div>
+        </div>
+    </p-panel>
+
+    <!-- Componente Ubicación -->
+    <p-panel class="text-">
+        <h1 class="text-3xl font-bold mb-8">Ubicación</h1>
+        <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Calle Principal"> </label>
+                <input type="text" pInputText />
+            </div>
+
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Numeración"> </label>
+                <input type="text" pInputText  />
+            </div>
+
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Calle Intersección"> </label>
+                <input type="text" pInputText  />
+            </div>
+
+            <div class="col-span-8 flex flex-col gap-2">
+                <label appLabel label="Referencia de Ubicación"> </label>
+                <input type="text" pInputText />
+            </div>
+
+            <div class="col-span-2 flex flex-col gap-2">
+                <label appLabel label="Latitud"> </label>
+                <input type="text" pInputText />
+            </div>
+
+            <div class="col-span-2 flex flex-col gap-2">
+                <label appLabel label="Longitud"> </label>
+                <input type="text" pInputText />
+            </div>
+        </div>
+    </p-panel>
+
+    <!-- Componente Persona de Contacto -->
+    <p-panel>
+        <h1 class="text-3xl font-bold mb-8">Persona de Contacto</h1>
+        <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Cédula de Identidad"> </label>
+                <input type="text" pInputText  />
+            </div>
+
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Datos del registro civil"> </label>
+                <input type="text" pInputText  />
+            </div>
+
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Correo Electrónico Propietario"> </label>
+                <input type="text" pInputText  />
+            </div>
+
+            <div class="col-span-3 flex flex-col gap-2">
+                <label appLabel label="Número de Teléfono Principal"> </label>
+                <input type="text" pInputText  />
+            </div>
+
+            <div class="col-span-3 flex flex-col gap-2">
+                <label appLabel label="Número de Teléfono Secundario"> </label>
+                <input type="text" pInputText  />
+            </div>
+
+            <div class="col-span-3 flex flex-col gap-2">
+                <label appLabel label="Correo Electrónico"> </label>
+                <input type="text" pInputText />
+            </div>
+        </div>
+    </p-panel>
+
+    <!-- Componente Personal del Establecimiento -->
+    <p-panel>
+        <h1 class="text-3xl font-bold mb-8">Personal del Establecimiento</h1>
+        <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-6 flex flex-col gap-2">
+                <label appLabel label="Total de hombres, que trabajan en el establecimiento"> </label>
+                <input type="text"  />
+            </div>
+
+            <div class="col-span-6 flex flex-col gap-2">
+                <label appLabel label="Del total hombres, cuantos tienen discapacidad"> </label>
+                <input type="text" pInputText  />
+            </div>
+
+            <div class="col-span-6 flex flex-col gap-2">
+                <label appLabel label="Total de mujeres, que trabajan en el establecimiento"> </label>
+                <input type="text" pInputText />
+            </div>
+
+            <div class="col-span-6 flex flex-col gap-2">
+                <label appLabel label="Del total mujeres, cuantas tienen discapacidad"> </label>
+                <input type="text" pInputText/>
+            </div>
+        </div>
+    </p-panel>
+</p-fluid>
