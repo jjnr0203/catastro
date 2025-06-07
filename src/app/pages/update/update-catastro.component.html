@@ -1,4 +1,5 @@
 <p-fluid>
+    <form [formGroup]="form">
     <!-- Componente Registro de turismo --> 
     <p-panel>
         <h1 class="text-3xl font-bold mb-8">Registro de turismo</h1>
@@ -6,38 +7,37 @@
             <!-- Numero de registro -->
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Número de registro"> </label>
-                <input type="text" pInputText />
+                <input pInputText type="text" [value]="" formControlName="registerNumber"/>
             </div>
             <!-- Fecha de registro -->
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Fecha de registro"> </label>
-                <input pInputText />
+                <input pInputText type="date" formControlName="registerDate"/>
             </div>
             <!-- Estado de registro -->
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Estado de registro"> </label>
-                <input type="text" pInputText />
+                <input pInputText type="text" formControlName="registerState"/>
             </div>
             <!-- Actividad -->
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Actividad"> </label>
-                <input type="text" pInputText  />
+                <input pInputText type="text" formControlName="activities"/>
             </div>
             <!-- Clasificación -->
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Clasificación"> </label>
-                <input type="text" pInputText />
+                <input pInputText type="text" formControlName="classification"/>
             </div>
             <!-- Categoría -->
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Categoría"> </label>
-                <input type="text" pInputText  />
+                <input pInputText type="text" formControlName="categorie"/>
             </div>
 
             <!-- Tiene Deuda -->
             <div class="col-span-2 flex flex-col gap-2">
-                <label appLabel label="Tiene Deuda"> </label>
-                <p-button/>
+                <label appLabel label="Tiene Deuda" formaControlName="debt" > </label>
             </div>
         </div>
     </p-panel>
@@ -47,12 +47,12 @@
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-3 flex flex-col gap-2">
                 <label appLabel label="Su local es"> </label>
-                <input type="text" pInputText/>
+                <input pInputText type="text" formControlName="isLocal"/>
             </div>
 
             <div class="col-span-6 flex flex-col gap-2">
                 <label appLabel label="Tipo Personería Jurídica"> </label>
-                <input type="text" pInputText />
+                <input pInputText type="text" formControlName="personeriaType"/>
             </div>
         </div>
     </p-panel>
@@ -63,22 +63,22 @@
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-2 flex flex-col gap-2">
                 <label appLabel label="Número"> </label>
-                <input type="text" pInputText />
+                <input pInputText type="text" formControlName="number"/>
             </div>
 
             <div class="col-span-10 flex flex-col gap-2">
                 <label appLabel label="Nombre Comercial"> </label>
-                <input type="text" pInputText  />
+                <input pInputText type="text" formControlName="comercialName"/>
             </div>
 
             <div class="col-span-8 flex flex-col gap-2">
                 <label appLabel label="Página Web"> </label>
-                <input type="text" pInputText />
+                <input pInputText type="text" formControlName="webApp"/>
             </div>
 
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Estado"> </label>
-                <input type="text" pInputText />
+                <input pInputText type="text" formControlName="state"/>
             </div>
         </div>
     </p-panel>
@@ -89,17 +89,17 @@
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Provincia"> </label>
-                <input type="text" pInputText />
+                <input pInputText type="text" formControlName="province"/>
             </div>
 
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Cantón"> </label>
-                <input type="text" pInputText  />
+                <input pInputText type="text" formControlName="canton"/>
             </div>
 
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Parroquia"> </label>
-                <input type="text" pInputText  />
+                <input pInputText type="text" formControlName="parroquial"/>
             </div>
         </div>
     </p-panel>
@@ -110,32 +110,32 @@
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Calle Principal"> </label>
-                <input type="text" pInputText />
+                <input pInputText type="text" formControlName="princialStreet"/>
             </div>
 
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Numeración"> </label>
-                <input type="text" pInputText  />
+                <input pInputText type="text" formControlName="numeration"/>
             </div>
 
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Calle Intersección"> </label>
-                <input type="text" pInputText  />
+                <input pInputText type="text" formControlName="intersectionStreet"/>
             </div>
 
             <div class="col-span-8 flex flex-col gap-2">
                 <label appLabel label="Referencia de Ubicación"> </label>
-                <input type="text" pInputText />
+                <input pInputText type="text" formControlName="referenceUbication"/>
             </div>
 
             <div class="col-span-2 flex flex-col gap-2">
                 <label appLabel label="Latitud"> </label>
-                <input type="text" pInputText />
+                <input pInputText type="text" formControlName="latitude"/>
             </div>
 
             <div class="col-span-2 flex flex-col gap-2">
                 <label appLabel label="Longitud"> </label>
-                <input type="text" pInputText />
+                <input pInputText type="text" formControlName="longitude"/>
             </div>
         </div>
     </p-panel>
@@ -146,32 +146,32 @@
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Cédula de Identidad"> </label>
-                <input type="text" pInputText  />
+                <input pInputText type="number" formControlName="identityCard"/>
             </div>
 
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Datos del registro civil"> </label>
-                <input type="text" pInputText  />
+                <input pInputText type="text"  formControlName="civilRegisterData"/>
             </div>
 
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Correo Electrónico Propietario"> </label>
-                <input type="text" pInputText  />
+                <input pInputText type="email" formControlName="emailProprietary"/>
             </div>
 
             <div class="col-span-3 flex flex-col gap-2">
                 <label appLabel label="Número de Teléfono Principal"> </label>
-                <input type="text" pInputText  />
+                <input pInputText type="number" formControlName="phonePrincipal" />
             </div>
 
             <div class="col-span-3 flex flex-col gap-2">
                 <label appLabel label="Número de Teléfono Secundario"> </label>
-                <input type="text" pInputText  />
+                <input pInputText type="number" formControlName="phoneSecondary"/>
             </div>
 
             <div class="col-span-3 flex flex-col gap-2">
                 <label appLabel label="Correo Electrónico"> </label>
-                <input type="text" pInputText />
+                <input pInputText type="email" formControlName="email"/>
             </div>
         </div>
     </p-panel>
@@ -182,49 +182,24 @@
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-6 flex flex-col gap-2">
                 <label appLabel label="Total de hombres, que trabajan en el establecimiento"> </label>
-                <input type="text"  />
+                <input pInputText type="text" formControlName="menTotal"/>
             </div>
 
             <div class="col-span-6 flex flex-col gap-2">
                 <label appLabel label="Del total hombres, cuantos tienen discapacidad"> </label>
-                <input type="text" pInputText  />
+                <input pInputText type="text"  formControlName="disabledMen"/>
             </div>
 
             <div class="col-span-6 flex flex-col gap-2">
                 <label appLabel label="Total de mujeres, que trabajan en el establecimiento"> </label>
-                <input type="text" pInputText />
+                <input pInputText type="text" formControlName="womenTotal"/>
             </div>
 
             <div class="col-span-6 flex flex-col gap-2">
                 <label appLabel label="Del total mujeres, cuantas tienen discapacidad"> </label>
-                <input type="text" pInputText/>
+                <input pInputText type="text" formControlName="disabledWomen"/>
             </div>
         </div>
     </p-panel>
-
-    <!--To do activities-->
-    p-panel>
-        <h1 class="text-3xl font-bold mb-8">Personal del Establecimiento</h1>
-        <div class="grid grid-cols-12 gap-6">
-            <div class="col-span-6 flex flex-col gap-2">
-                <label appLabel label="Total de hombres, que trabajan en el establecimiento"> </label>
-                <input type="text"  />
-            </div>
-
-            <div class="col-span-6 flex flex-col gap-2">
-                <label appLabel label="Del total hombres, cuantos tienen discapacidad"> </label>
-                <input type="text" pInputText  />
-            </div>
-
-            <div class="col-span-6 flex flex-col gap-2">
-                <label appLabel label="Total de mujeres, que trabajan en el establecimiento"> </label>
-                <input type="text" pInputText/>
-            </div>
-
-            <div class="col-span-6 flex flex-col gap-2">
-                <label appLabel label="Del total mujeres, cuantas tienen discapacidad"> </label>
-                <input type="text" pInputText/>
-            </div>
-        </div>
-    </p-panel>
+    </form>
 </p-fluid>
