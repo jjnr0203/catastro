@@ -9,26 +9,25 @@ import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { CustomLabelDirective } from '../../shared/directives/custom-label.directive';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { catastroData } from './data';
-import { CatastroInterface } from './interfaces/catastro.interface';
+import { InputNumberModule } from 'primeng/inputnumber';
+
 
 @Component({
     selector: 'app-update-catastro',
-    imports: [CardModule, ReactiveFormsModule, FluidModule, InputTextModule, CustomLabelDirective, PanelModule, TagModule, IftaLabelModule, ButtonModule, TableModule],
+    imports: [CardModule, ReactiveFormsModule, FluidModule, InputTextModule, CustomLabelDirective, PanelModule, TagModule, IftaLabelModule, ButtonModule, TableModule, InputNumberModule],
     templateUrl: './update-catastro.component.html',
     styleUrl: './update-catastro.component.scss'
 })
 export class UpdateCatastroComponent {
 
-    protected catastro: CatastroInterface = catastroData;
     protected formbuilder = inject(FormBuilder);
     protected form!: FormGroup;
     
     constructor() {
-        this.buildform();
+        this.registroTurismoForm();
     }
 
-    buildform() {
+    registroTurismoForm() {
         this.form = this.formbuilder.group({
           registerNumber: ['1720446846001', [Validators.required]],
           registerDate : ['20/02/2013', [Validators.required]],
@@ -38,9 +37,9 @@ export class UpdateCatastroComponent {
           categorie: ['Categoría Uníca', [Validators.required]],
           debt : ['', [Validators.required]],
           isLocal: ['', [Validators.required]],
-          personeriaType : ['', [Validators.required]],
-          number: ['', [Validators.required]],
-          comercialName: ['', [Validators.required]],
+          personeriaType : ['Sociedad Anónima', [Validators.required]],
+          number: ['CAT-2024-001', [Validators.required]],
+          comercialName: ['Hotel Central', [Validators.required]],
           webApp: ['', [Validators.required]],
           state: ['', [Validators.required]],
           province : ['', [Validators.required]],

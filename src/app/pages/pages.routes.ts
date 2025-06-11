@@ -11,5 +11,6 @@ export default [
     { path: 'empty', component: Empty },
     { path: 'view-catastro', component: ViewCatastroComponent },
     { path: 'update-catastro', component: UpdateCatastroComponent },
+    { path: 'update', loadChildren: () => import('./update/update.routes') },
     { path: '**', redirectTo: '/notfound' }
 ] as Routes;
