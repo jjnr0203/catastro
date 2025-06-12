@@ -1,6 +1,8 @@
 import { Routes } from "@angular/router";
-import { AcomodationComponent } from "./acomodation/acomodation.component";
+import { AcomodationComponent } from "./activities/acomodation/acomodation.component";
+import { FoodComponent } from "./activities/food/food.component";
 
 export default [
-    {path:'acomodation', component: AcomodationComponent}
+    {path:'acomodation', component: AcomodationComponent},
+    {path:'food', component: FoodComponent}
 ] as Routes;
