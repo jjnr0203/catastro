@@ -1,0 +1,51 @@
+<p-fluid>
+    <form [formGroup]="form">
+        <!-- Componente Registro de turismo -->
+        <p-panel>
+            <h1 class="text-3xl font-bold mb-8">Datos 14-37</h1>
+            <div class="grid grid-cols-12 gap-6">
+                <!-- Tipo de Establecimieto-->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Tipo de Establecimiento"></label>
+                    <p-select  optionLabel="label" formControlName="typeEstablishment" placeholder="Seleccione una opción"> </p-select>
+                </div>
+                <!-- Nombre(Franquicia o Cadena)-->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Nombre"> </label>
+                    <p-select optionLabel="label" formControlName="name" placeholder="Seleccione un nombre"> </p-select>
+                </div>
+                <!-- Tipo de Personería-->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Tipo de Personería"> </label>
+                    <p-select optionLabel="label" formControlName="typeLegalStatus" placeholder="Seleccione una opción"> </p-select>
+                </div>
+
+                <!-- Tipo de Parroquía-->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Tipo de parroquia"> </label>
+                    <input pInputText type="text" formControlName="parishType" />
+                </div>
+                <!-- Dirección-->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Dirección"> </label>
+                    <input pInputText type="text" formControlName="direction" />
+                </div>
+                <!-- Estado Registro del establecimiento-->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Estado Registro del establecimiento"> </label>
+                    <input pInputText type="text" formControlName="establishmentStatus" />
+                </div>
+                <!-- Sistema de origen-->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Sistema de origen"> </label>
+                    <input pInputText type="text" formControlName="origenSystem" />
+                </div>
+                <!-- Total trabajadores-->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Total trabajadores"> </label>
+                    <input pInputText type="text" formControlName="totalWorker" />
+                </div>
+            </div>
+        </p-panel>
+    </form>
+</p-fluid>

@@ -1,7 +1,6 @@
 <p-fluid>
     <form [formGroup]="form">
         <!-- Componente Registro de turismo -->
-        <p-panel>
             <h1 class="text-3xl font-bold mb-8">Datos 1-11</h1>
             <div class="grid grid-cols-12 gap-6">
                 <!-- RUC-->
@@ -13,43 +12,13 @@
                 <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Código de establecimiento RUC"> </label>
                     <input pInputText type="text" formControlName="establishmentCode"/>
-                    
                 </div>
                 <!-- Estado RUC-->
                 <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Estado RUC"> </label>
                     <input pInputText type="text" formControlName="stateRuc" />
                 </div>
-                <!-- Nombre Comercial -->
-                <div class="col-span-4 flex flex-col gap-2">
-                    <label appLabel label="Nombre Comercial"> </label>
-                    <input pInputText type="text" formControlName="commercialName" />
-                </div>
-                <!-- Número de Registro -->
-                <div class="col-span-4 flex flex-col gap-2">
-                    <label appLabel label="Número de Registro"> </label>
-                    <input pInputText type="text" formControlName="registrationNumber" />
-                </div>
-                <!-- Fecha de Registro -->
-                <div class="col-span-4 flex flex-col gap-2">
-                    <label appLabel label="Fecha de Registro"> </label>
-                    <input pInputText type="date" formControlName="registrationDate" />
-                </div>
-                <!-- Actividad -->
-                <div class="col-span-4 flex flex-col gap-2">
-                    <label appLabel label="Actividad"> </label>
-                    <input pInputText type="text" formControlName="ativitiy" />
-                </div>
-                <!-- Clasificación -->
-                <div class="col-span-4 flex flex-col gap-2">
-                    <label appLabel label="Clasificación"> </label>
-                    <input pInputText type="text" formControlName="clasification" />
-                </div>
-                <!-- Categoría -->
-                <div class="col-span-4 flex flex-col gap-2">
-                    <label appLabel label="Categoría"> </label>
-                    <input pInputText type="text" formControlName="category" />
-                </div>
+                
                 <!-- Razón Social-->
                 <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Razón social (Propietario)"> </label>
@@ -61,7 +30,6 @@
                     <input pInputText type="text" formControlName="legalRepresentative" />
                 </div>
             </div>
-        </p-panel>
     </form>
 </p-fluid>
 
