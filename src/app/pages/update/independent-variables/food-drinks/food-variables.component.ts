@@ -1,11 +1,60 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CardModule } from 'primeng/card';
+import { FluidModule } from 'primeng/fluid';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { InputTextModule } from 'primeng/inputtext';
+import { PanelModule } from 'primeng/panel';
+import { SelectModule } from 'primeng/select';
+import { TagModule } from 'primeng/tag';
+import { CustomLabelDirective } from '../../../../shared/directives/custom-label.directive';
 
 @Component({
   selector: 'app-food-variables',
-  imports: [],
+  imports: [ReactiveFormsModule, CustomLabelDirective, SelectModule, PanelModule, FluidModule, InputTextModule, InputNumberModule, CardModule, TagModule, SelectModule],
   templateUrl: './food-variables.component.html',
   styleUrl: './food-variables.component.scss'
 })
 export class FoodVariablesComponent {
+      protected form!: FormGroup;
+      protected formBuilder = inject(FormBuilder);
 
+      constructor(){
+        this.foodForm();
+      }
+
+      foodForm() {
+        this.form = this.formBuilder.group({
+           totalTables: ['', [Validators.required]],
+           totalCapacityNumberPeople: ['', [Validators.required]],
+           typeCuisine: ['', [Validators.required]],
+           typeService: ['', [Validators.required]],
+           aventureTourismModalities: ['', [Validators.required]],
+           permittedActivities: ['', [Validators.required]],
+        })
+      }
+
+      get totalTables(): AbstractControl {
+          return this.form.controls['totalTables'];
+      }
+
+      get totalCapacityNumberPeople(): AbstractControl {
+          return this.form.controls['totalCapacityNumberPeople'];
+      }
+
+      get typeCuisine(): AbstractControl {
+          return this.form.controls['typeCuisine'];
+      }
+
+      get typeService(): AbstractControl {
+          return this.form.controls['typeService'];
+      }     
+
+      get aventureTourismModalities(): AbstractControl {
+          return this.form.controls['aventureTourismModalities'];
+      }
+
+      get permittedActivities(): AbstractControl {
+          return this.form.controls['permittedActivities'];
+      }
 }

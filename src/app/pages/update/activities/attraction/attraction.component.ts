@@ -5,10 +5,11 @@ import { Dates1_12Component } from "../../dates/dates-1-12/dates-1-12.component"
 import { PanelModule } from 'primeng/panel';
 import { FluidModule } from 'primeng/fluid';
 import { DividerModule } from 'primeng/divider';
+import { AttraccionVariablesComponent } from "../../independent-variables/attraction/attraction-variables.component";
 
 @Component({
   selector: 'app-attraction',
-  imports: [Dates_79_84Component, Dates_14_37Component, Dates1_12Component, PanelModule, FluidModule, DividerModule],
+  imports: [Dates_79_84Component, Dates_14_37Component, Dates1_12Component, PanelModule, FluidModule, DividerModule, AttraccionVariablesComponent],
   templateUrl: './attraction.component.html',
   styleUrl: './attraction.component.scss'
 })

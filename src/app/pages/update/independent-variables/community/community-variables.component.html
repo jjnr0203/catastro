@@ -1,1 +1,81 @@
-<p>community-variables works!</p>
+<p-fluid>
+    <form [formGroup]="form">
+        <!-- Componente Registro de turismo -->
+            <h1 class="text-3xl font-bold mb-8">Datos Independientes de Centro de turismo comunitario</h1>
+            <div class="grid grid-cols-12 gap-6">
+
+                 <!-- Total habitaciones / tiendas de campaña -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Total habitaciones / tiendas de campaña"> </label>
+                    <input pInputText type="text" formControlName="totalRooms" />
+                </div>
+
+                <!--Total camas -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Total camas "> </label>
+                    <input pInputText type="text" formControlName="totalBeds" />
+                </div>
+                
+                 <!--Total plazas -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Total plazas"> </label>
+                    <input pInputText type="text" formControlName="totalPlaces" />
+                </div>
+
+                 <!--Total capacidades servicios complementarios -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Total capacidades servicios complementarios"> </label>
+                    <input pInputText type="text" formControlName="totalComplementaryServices" />
+                </div>
+
+                <!-- Total de mesas  -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Total de mesas"> </label>
+                    <input pInputText type="text" formControlName="totalTables" />
+                </div>
+
+                 <!--Total capacidades en número de personas -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Total capacidades en número de personas"> </label>
+                    <input pInputText type="text" formControlName="totalCapacityNumberPeople" />
+                </div>
+
+                <!--Modalidades de turismo de aventura -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Modalidades de turismo de aventura "> </label>
+                    <input pInputText type="text" formControlName="aventureTourismModalities" />
+                </div>
+
+                <!--Actividades permitidas CTC  -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Actividades permitidas CTC"> </label>
+                    <input pInputText type="text" formControlName="permittedActivities" />
+                </div>
+
+                 <!--Identificaciones de Guías de Turismo-->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Identificaciones de Guías de Turismo"> </label>
+                    <input pInputText type="text" formControlName="tourGuideId" />
+                </div>
+
+                 <!--Nombres de Guías de Turismo  -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Nombres de Guías de Turismo "> </label>
+                    <input pInputText type="text" formControlName="nameTourGuides" />
+                </div>
+
+                <!--RUC de Compañías de Transporte -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="RUC de Compañías de Transporte"> </label>
+                    <input pInputText type="text" formControlName="rucTransportationCompanies" />
+                </div>
+
+                <!--Razón Social de Compañías de Transporte -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Razón Social de Compañías de Transporte "> </label>
+                    <input pInputText type="text" formControlName="companyNameTransportation" />
+                </div>
+
+            </div>
+    </form>
+</p-fluid>
