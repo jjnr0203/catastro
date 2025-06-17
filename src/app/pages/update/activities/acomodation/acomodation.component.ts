@@ -16,8 +16,8 @@ import { AccommodationVariablesComponent } from '../../independent-variables/acc
 
 @Component({
     selector: 'app-acomodation',
-    imports: [ReactiveFormsModule, SelectModule, DividerModule, PanelModule, FluidModule, InputTextModule, InputNumberModule, 
-        CardModule, TagModule, Dates1_12Component, Dates_14_37Component, Dates_79_84Component],
+    imports: [ReactiveFormsModule, SelectModule, DividerModule, PanelModule, FluidModule, InputTextModule, InputNumberModule,
+    CardModule, TagModule, Dates1_12Component, Dates_14_37Component, Dates_79_84Component, AccommodationVariablesComponent],
     templateUrl: './acomodation.component.html',
     styleUrl: './acomodation.component.scss'
 })
