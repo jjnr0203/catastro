@@ -21,21 +21,4 @@ import { AccommodationVariablesComponent } from '../../independent-variables/acc
     templateUrl: './acomodation.component.html',
     styleUrl: './acomodation.component.scss'
 })
-export class AcomodationComponent {
-    protected form!: FormGroup;
-    protected formBuilder = inject(FormBuilder);
-
-    constructor() {
-        this.acomodationForm();
-    }
-
-    acomodationForm() {
-        this.form = this.formBuilder.group({
-            typePermises: ['', Validators.required]
-        });
-    }
-
-    get typePermises(): AbstractControl {
-        return this.form.controls['typePermises'];
-    }
-}
+export class AcomodationComponent {}
