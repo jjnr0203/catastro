@@ -5,17 +5,17 @@ import { FluidModule } from 'primeng/fluid';
 import { InputTextModule } from 'primeng/inputtext';
 import { PanelModule } from 'primeng/panel';
 import { TagModule } from 'primeng/tag';
-import { CustomLabelDirective } from '../../../shared/directives/custom-label.directive';
 import { SelectModule } from 'primeng/select';
+import { CustomLabelDirective } from '../../../../shared/directives/custom-label.directive';
 
 @Component({
-    selector: 'app-independent-accommodation-variables',
-    imports: [ReactiveFormsModule, PanelModule, InputTextModule, FluidModule, CardModule, TagModule, CustomLabelDirective, 
-      SelectModule],
-    templateUrl: './independent-accommodation-variables.component.html',
-    styleUrl: './independent-accommodation-variables.component.scss'
+    selector: 'app-accommodation-variables',
+    imports: [ReactiveFormsModule, PanelModule, InputTextModule, FluidModule, CardModule, TagModule, 
+        CustomLabelDirective, SelectModule],
+    templateUrl: './accommodation-variables.component.html',
+    styleUrl: './accommodation-variables.component.scss'
 })
-export class IndependentAccommodationVariablesComponent {
+export class AccommodationVariablesComponent{
     protected form!: FormGroup;
     protected formBuilder = inject(FormBuilder);
 
