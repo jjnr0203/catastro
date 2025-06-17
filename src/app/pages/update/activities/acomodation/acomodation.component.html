@@ -1,16 +1,8 @@
 <p-fluid>
     <form [formGroup]="form">
-        <p-panel>
-            <app-update-catastro />
-            <app-dates-1-11 />
-            <!-- Tipo de Local-->
-            <div class="grid grid-cols-12 gap-6">
-                <div class="col-span-4 flex flex-col gap-2">
-                    <label appLabel label="Tipo de Local"></label>
-                    <input pInputText type="text" formControlName="typePermises" />
-                </div>
-            </div>
-            <app-dates-14-37 />
-        </p-panel>
+        <app-dates-1-12 [showLocalType]="true"/>
+        <app-dates-14-37/>
+        <app-independent-accommodation-variables/>
+        <app-dates-79-84/>
     </form>
 </p-fluid>

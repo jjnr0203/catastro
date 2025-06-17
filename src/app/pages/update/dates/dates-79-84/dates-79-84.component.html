@@ -1,0 +1,46 @@
+<p-fluid>
+    <form [formGroup]="form">
+        <!-- Componente Registro de turismo -->
+        <p-panel>
+            <h1 class="text-3xl font-bold mb-8">Datos 79-84</h1>
+            <div class="grid grid-cols-12 gap-6">
+
+                 <!-- Persona de contacto -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Persona de contacto "> </label>
+                    <input pInputText type="text" formControlName="contactPerson" />
+                </div>
+
+                <!--Correo electrónico de la persona de contacto-->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Correo electrónico de la persona de contacto"> </label>
+                    <input pInputText type="text" formControlName="emailContactPerson" />
+                </div>
+
+                 <!--Tipo trámite -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Tipo trámite"> </label>
+                    <input pInputText type="text" formControlName="typeProcedure" />
+                </div>
+
+                <!--Fecha de trámite -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Fecha de trámite"> </label>
+                    <input pInputText type="text" formControlName="dateProcessing" />
+                </div>
+
+                <!--Modificación sistema -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Modificación sistema"> </label>
+                    <input pInputText type="text" formControlName="systemModication" />
+                </div>
+
+                <!--Observaciones modificación sistema -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Observaciones modificación sistema"> </label>
+                    <input pInputText type="text" formControlName="systemsModificationObservation" />
+                </div>
+            </div>
+        </p-panel>
+    </form>
+</p-fluid>

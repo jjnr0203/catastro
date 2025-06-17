@@ -9,37 +9,140 @@
                     <label appLabel label="Tipo de Establecimiento"></label>
                     <p-select  optionLabel="label" formControlName="typeEstablishment" placeholder="Seleccione una opción"> </p-select>
                 </div>
+
                 <!-- Nombre(Franquicia o Cadena)-->
                 <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Nombre"> </label>
                     <p-select optionLabel="label" formControlName="name" placeholder="Seleccione un nombre"> </p-select>
                 </div>
+
                 <!-- Tipo de Personería-->
                 <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Tipo de Personería"> </label>
                     <p-select optionLabel="label" formControlName="typeLegalStatus" placeholder="Seleccione una opción"> </p-select>
                 </div>
 
-                <!-- Tipo de Parroquía-->
+                 <!-- Personería Jurídica-->
                 <div class="col-span-4 flex flex-col gap-2">
-                    <label appLabel label="Tipo de parroquia"> </label>
+                    <label appLabel label="Personería jurídica"> </label>
+                    <input pInputText type="text" formControlName="legalStatus" />
+                </div>
+
+                <!--Provincia-->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Provincia"> </label>
+                    <input pInputText type="text" formControlName="province" />
+                </div>
+
+                 <!--Cantón -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Cantón"> </label>
+                    <input pInputText type="text" formControlName="canton" />
+                </div>
+
+                <!--Parroquia -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Parroquia"> </label>
+                    <input pInputText type="text" formControlName="parroquial" />
+                </div>
+
+                <!--Tipo de parroquia-->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Tipo de parroquia "> </label>
                     <input pInputText type="text" formControlName="parishType" />
                 </div>
-                <!-- Dirección-->
+
+                <!--Dirección -->
                 <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Dirección"> </label>
-                    <input pInputText type="text" formControlName="direction" />
+                    <input pInputText type="text" formControlName="address" />
                 </div>
+
+                <!--Referencia de dirección-->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Referencia de dirección"> </label>
+                    <input pInputText type="text" formControlName="referenceUbication" />
+                </div>
+
+                <!--Teléfono principal -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Teléfono principal"> </label>
+                    <input pInputText type="text" formControlName="phonePrincipal" />
+                </div>
+
+                <!--Teléfono secundario-->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Teléfono secundario"> </label>
+                    <input pInputText type="text" formControlName="phoneSecondary" />
+                </div>
+
+                <!--Latitud-->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Latitud"> </label>
+                    <input pInputText type="text" formControlName="latitude" />
+                </div>
+
+                <!--Longitud-->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Longitud"> </label>
+                    <input pInputText type="text" formControlName="longitude" />
+                </div>
+
+                <!-- Correo electrónico-->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Correo electrónico"> </label>
+                    <input pInputText type="text" formControlName="email" />
+                </div>
+
+                 <!-- Dirección Web -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Dirección Web "> </label>
+                    <input pInputText type="text" formControlName="webApp" />
+                </div>
+                
                 <!-- Estado Registro del establecimiento-->
                 <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Estado Registro del establecimiento"> </label>
                     <input pInputText type="text" formControlName="establishmentStatus" />
                 </div>
+
                 <!-- Sistema de origen-->
                 <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Sistema de origen"> </label>
                     <input pInputText type="text" formControlName="origenSystem" />
                 </div>
+
+                <!-- Estado del Registro con deuda -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Estado del Registro con deuda "> </label>
+                    <input pInputText type="text" formControlName="debtregistration" />
+                </div>
+
+                
+                <!-- Total de trabajadores Hombres  -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Total de trabajadores Hombres  "> </label>
+                    <input pInputText type="number" formControlName="menTotal" />
+                </div>
+                
+                <!-- Total de trabajadores Mujeres -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Total de trabajadores Mujeres "> </label>
+                    <input pInputText type="number" formControlName="womenTotal" />
+                </div>
+
+                 <!-- Total de trabajadores Hombres con discapacidad  -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Total de trabajadores Hombres con discapacidad  "> </label>
+                    <input pInputText type="number" formControlName="disabledMen" />
+                </div>
+
+                 <!-- Total de trabajadores Mujeres con discapacidad -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Total de trabajadores Mujeres con discapacidad "> </label>
+                    <input pInputText type="number" formControlName="disabledWomen" />
+                </div>
+
                 <!-- Total trabajadores-->
                 <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Total trabajadores"> </label>

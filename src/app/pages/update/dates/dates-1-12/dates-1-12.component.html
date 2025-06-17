@@ -1,0 +1,83 @@
+<p-fluid>
+    <form [formGroup]="form">
+        <!-- Componente Registro de turismo -->
+        <p-panel>
+            <h1 class="text-3xl font-bold mb-8">Datos 1-12</h1>
+            <div class="grid grid-cols-12 gap-6">
+                <!-- RUC-->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="RUC"></label>
+                    <input pInputText type="text" formControlName="ruc" />
+                </div>
+
+                <!-- Código de Establecimiento RUC-->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Código de establecimiento RUC"> </label>
+                    <input pInputText type="text" formControlName="establishmentCode" />
+                </div>
+
+                <!-- Estado RUC-->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Estado RUC"> </label>
+                    <input pInputText type="text" formControlName="stateRuc" />
+                </div>
+
+                <!-- Nombre Comercial-->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Nombre Comercial"> </label>
+                    <input pInputText type="text" formControlName="comercialName" />
+                </div>
+
+                <!-- Número de Registro-->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Número de Registro"> </label>
+                    <input pInputText type="text" formControlName="registerNumber" />
+                </div>
+
+                <!-- Fecha de registro -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Fecha de registro"> </label>
+                    <input pInputText type="date" formControlName="registerDate" />
+                </div>
+
+                <!-- Actividad -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Actividad"> </label>
+                    <input pInputText type="text" formControlName="activities" />
+                </div>
+
+                <!-- Clasificación -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Clasificación"> </label>
+                    <input pInputText type="text" formControlName="classification" />
+                </div>
+
+                <!-- Categoría -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Categoría"> </label>
+                    <input pInputText type="text" formControlName="categorie" />
+                </div>
+
+                <!-- Razón Social-->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Razón social (Propietario)"> </label>
+                    <input pInputText type="text" formControlName="socialReason" />
+                </div>
+
+                <!-- Respresentante legal-->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Representante legal"> </label>
+                    <input pInputText type="text" formControlName="legalRepresentative" />
+                </div>
+
+                <!-- Tipo de Local -->
+                @if (showLocalType()) {
+                    <div class="col-span-4 flex flex-col gap-2">
+                        <label appLabel label="Tipo de Local"> </label>
+                        <p-select optionLabel="label" formControlName="localType" placeholder="Seleccione un local"/>
+                    </div>
+                }
+            </div>
+        </p-panel>
+    </form>
+</p-fluid>

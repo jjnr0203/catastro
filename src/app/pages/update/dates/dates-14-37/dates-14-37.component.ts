@@ -9,63 +9,77 @@ import { CustomLabelDirective } from '../../../../shared/directives/custom-label
 import { SelectModule } from 'primeng/select';
 
 @Component({
-  selector: 'app-dates-14-37',
-  imports: [ReactiveFormsModule, PanelModule, InputTextModule, FluidModule, CardModule, TagModule, CustomLabelDirective, SelectModule],
-  templateUrl: './dates-14-37.component.html',
-  styleUrl: './dates-14-37.component.scss'
+    selector: 'app-dates-14-37',
+    imports: [ReactiveFormsModule, PanelModule, InputTextModule, FluidModule, CardModule, TagModule, CustomLabelDirective, SelectModule],
+    templateUrl: './dates-14-37.component.html',
+    styleUrl: './dates-14-37.component.scss'
 })
 export class Dates_14_37Component {
-  protected form!: FormGroup;
-  protected formBuilder = inject(FormBuilder);
-  
-  
-  constructor() {
-    this.dates();
-  }
+    protected form!: FormGroup;
+    protected formBuilder = inject(FormBuilder);
 
-  dates(){
-    this.form = this.formBuilder.group({
-      typeEstablishment: ['', Validators.required],
-      name: ['', Validators.required],
-      typeLegalStatus: ['', Validators.required],
-      parishType: ['', Validators.required],
-      direction: ['', Validators.required],
-      establishmentStatus: ['', Validators.required],
-      origenSystem: ['', Validators.required],
-      totalWorker: ['', Validators.required],
-    });
-  };
+    constructor() {
+        this.dates();
+    }
 
-  get typeEstablishmentField() : AbstractControl {
-    return this.form.controls['typeEstablishment'];
-  };
+    dates() {
+        this.form = this.formBuilder.group({
+            typeEstablishment: ['', Validators.required],
+            name: ['', Validators.required],
+            typeLegalStatus: ['', Validators.required],
+            legalStatus: ['', Validators.required],
+            province: ['', [Validators.required]],
+            canton: ['', [Validators.required]],
+            parroquial: ['', [Validators.required]],
+            parishType: ['', Validators.required],
+            address: ['', Validators.required],
+            referenceUbication: ['', [Validators.required]],
+            phonePrincipal: ['', [Validators.required]],
+            phoneSecondary: ['', [Validators.required]],
+            email: ['', [Validators.required, Validators.email]],
+            webApp: ['', [Validators.required]],
+            latitude: ['', [Validators.required]],
+            longitude: ['', [Validators.required]],
+            establishmentStatus: ['', Validators.required],
+            origenSystem: ['', Validators.required],
+            debtregistration: ['', [Validators.required]],
+            menTotal: ['', [Validators.required]],
+            womenTotal: ['', [Validators.required]],
+            disabledMen: ['', [Validators.required]],
+            disabledWomen: ['', [Validators.required]],
+            totalWorker: ['', Validators.required]
+        });
+    }
 
-  get nameField() : AbstractControl {
-    return this.form.controls['name'];
-  };
+    get typeEstablishmentField(): AbstractControl {
+        return this.form.controls['typeEstablishment'];
+    }
 
-  get typeLegalStatusField() : AbstractControl {
-    return this.form.controls['typeLegalStatus'];
-  };
+    get nameField(): AbstractControl {
+        return this.form.controls['name'];
+    }
 
-  get parishTypeField() : AbstractControl {
-    return this.form.controls['parishType'];
-  };
+    get typeLegalStatusField(): AbstractControl {
+        return this.form.controls['typeLegalStatus'];
+    }
 
-  get directionField() : AbstractControl {
-    return this.form.controls['direction'];
-  };
+    get parishTypeField(): AbstractControl {
+        return this.form.controls['parishType'];
+    }
 
-  get establishmentStatusField() : AbstractControl {
-    return this.form.controls['establishmentStatus'];
-  };
+    get directionField(): AbstractControl {
+        return this.form.controls['direction'];
+    }
 
-  get origenSystemField() : AbstractControl {
-    return this.form.controls['origenSystem'];
-  };
+    get establishmentStatusField(): AbstractControl {
+        return this.form.controls['establishmentStatus'];
+    }
 
-  get totalWorkerField() : AbstractControl {
-    return this.form.controls['totalWorker'];
-  };
+    get origenSystemField(): AbstractControl {
+        return this.form.controls['origenSystem'];
+    }
 
+    get totalWorkerField(): AbstractControl {
+        return this.form.controls['totalWorker'];
+    }
 }
