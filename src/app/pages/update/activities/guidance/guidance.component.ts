@@ -4,10 +4,11 @@ import { Dates_14_37Component } from "../../dates/dates-14-37/dates-14-37.compon
 import { Dates_79_84Component } from "../../dates/dates-79-84/dates-79-84.component";
 import { PanelModule } from 'primeng/panel';
 import { FluidModule } from 'primeng/fluid';
+import { DividerModule } from 'primeng/divider';
 
 @Component({
   selector: 'app-guidance',
-  imports: [Dates1_12Component, Dates_14_37Component, Dates_79_84Component, PanelModule, FluidModule],
+  imports: [Dates1_12Component, Dates_14_37Component, Dates_79_84Component, PanelModule, FluidModule, DividerModule],
   templateUrl: './guidance.component.html',
   styleUrl: './guidance.component.scss'
 })

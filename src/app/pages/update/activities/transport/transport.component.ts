@@ -4,10 +4,11 @@ import { Dates_14_37Component } from "../../dates/dates-14-37/dates-14-37.compon
 import { Dates_79_84Component } from "../../dates/dates-79-84/dates-79-84.component";
 import { FluidModule } from 'primeng/fluid';
 import { PanelModule } from 'primeng/panel';
+import { DividerModule } from 'primeng/divider';
 
 @Component({
   selector: 'app-transport',
-  imports: [Dates1_12Component, Dates_14_37Component, Dates_79_84Component, FluidModule, PanelModule],
+  imports: [Dates1_12Component, Dates_14_37Component, Dates_79_84Component, FluidModule, PanelModule, DividerModule],
   templateUrl: './transport.component.html',
   styleUrl: './transport.component.scss'
 })
