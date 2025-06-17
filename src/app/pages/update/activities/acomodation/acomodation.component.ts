@@ -1,8 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { UpdateCatastroComponent } from '../../update-catastro.component';
 import { PanelModule } from 'primeng/panel';
 import { FluidModule } from 'primeng/fluid';
-import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CardModule } from 'primeng/card';
@@ -16,7 +15,8 @@ import { AccommodationVariablesComponent } from '../../independent-variables/acc
 
 @Component({
     selector: 'app-acomodation',
-    imports: [ReactiveFormsModule, SelectModule, DividerModule, PanelModule, FluidModule, InputTextModule, InputNumberModule,
+    imports: [ReactiveFormsModule, SelectModule, DividerModule, PanelModule, FluidModule, 
+        InputTextModule, InputNumberModule,
     CardModule, TagModule, Dates1_12Component, Dates_14_37Component, Dates_79_84Component, AccommodationVariablesComponent],
     templateUrl: './acomodation.component.html',
     styleUrl: './acomodation.component.scss'
