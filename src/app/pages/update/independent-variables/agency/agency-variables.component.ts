@@ -15,6 +15,7 @@ import { CustomLabelDirective } from '../../../../shared/directives/custom-label
   styleUrl: './agency-variables.component.scss'
 })
 export class AgencyVariablesComponent {
+  
    protected form!: FormGroup;
    protected formBuilder = inject(FormBuilder);
   

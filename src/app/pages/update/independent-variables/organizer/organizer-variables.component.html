@@ -1,1 +1,15 @@
-<p>organizer-variables works!</p>
+<p-fluid>
+    <form [formGroup]="form">
+        <!-- Componente Registro de turismo -->
+            <h1 class="text-3xl font-bold mb-8">Datos Independientes de Organizadores de eventos</h1>
+            <div class="grid grid-cols-12 gap-6">
+
+                 <!-- Total capacidades otras actividades  -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Total capacidades otras actividades"> </label>
+                    <input pInputText type="text" formControlName="totalCapacityActivies" />
+                </div>
+
+            </div>
+    </form>
+</p-fluid>

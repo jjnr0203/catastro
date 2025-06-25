@@ -5,10 +5,11 @@ import { Dates_79_84Component } from "../../dates/dates-79-84/dates-79-84.compon
 import { FluidModule } from 'primeng/fluid';
 import { PanelModule } from 'primeng/panel';
 import { DividerModule } from 'primeng/divider';
+import { OrganizerVariablesComponent } from '../../independent-variables/organizer/organizer-variables.component';
 
 @Component({
   selector: 'app-organizer',
-  imports: [Dates1_12Component, Dates_14_37Component, Dates_79_84Component, FluidModule, PanelModule, DividerModule],
+  imports: [Dates1_12Component, Dates_14_37Component, Dates_79_84Component, OrganizerVariablesComponent, FluidModule, PanelModule, DividerModule],
   templateUrl: './organizer.component.html',
   styleUrl: './organizer.component.scss'
 })

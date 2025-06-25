@@ -9,31 +9,31 @@ import { TagModule } from 'primeng/tag';
 import { CustomLabelDirective } from '../../../../shared/directives/custom-label.directive';
 
 @Component({
-  selector: 'app-attraccion-variables',
-  imports: [ReactiveFormsModule, PanelModule, InputTextModule, FluidModule, CardModule, TagModule, CustomLabelDirective, SelectModule],
-  templateUrl: './attraction-variables.component.html',
-  styleUrl: './attraction-variables.component.scss'
+    selector: 'app-attraccion-variables',
+    imports: [ReactiveFormsModule, PanelModule, InputTextModule, FluidModule, CardModule, TagModule, CustomLabelDirective, SelectModule],
+    templateUrl: './attraction-variables.component.html',
+    styleUrl: './attraction-variables.component.scss'
 })
 export class AttraccionVariablesComponent {
-      protected form!: FormGroup;
-      protected formBuilder = inject(FormBuilder);
-  
-      constructor() {
+    protected form!: FormGroup;
+    protected formBuilder = inject(FormBuilder);
+
+    constructor() {
         this.attractionForm();
-      }
+    }
 
-      attractionForm() {
-          this.form = this.formBuilder.group({
-              totalCapacityActivies: ['', [Validators.required]],
-              aventureTourismModalities: ['', [Validators.required]],
-          });
-      }
+    attractionForm() {
+        this.form = this.formBuilder.group({
+            totalCapacityActivies: ['', [Validators.required]],
+            aventureTourismModalities: ['', [Validators.required]]
+        });
+    }
 
-      get totalCapacityActivies() {
+    get totalCapacityActivies() {
         return this.form.get('totalCapacityActivies');
-      }
+    }
 
-      get aventureTourismModalities() {
+    get aventureTourismModalities() {
         return this.form.get('aventureTourismModalities');
-      }
+    }
 }
