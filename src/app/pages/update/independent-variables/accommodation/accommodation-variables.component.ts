@@ -28,7 +28,7 @@ export class AccommodationVariablesComponent{
             totalRooms: ['', [Validators.required]],
             totalBeds: ['', [Validators.required]],
             totalPlaces: ['', [Validators.required]],
-            totalComplementaryServices: ['', [Validators.required]],
+            complementaryServices: ['', [Validators.required]],
             yearStatementRackTariff: ['', [Validators.required]],
             declarationDateRack: ['', [Validators.required]],
             typesCapacities: ['', [Validators.required]],
@@ -36,7 +36,7 @@ export class AccommodationVariablesComponent{
             placesTypeCapacity: ['', [Validators.required]],
             rateTypeCapacity: ['', [Validators.required]],
             aventureTourismModalities: ['', [Validators.required]],
-            permittedActivities: ['', [Validators.required]],        
+            ctcActivities: ['', [Validators.required]],        
         });
     }
 
@@ -54,8 +54,8 @@ export class AccommodationVariablesComponent{
         return this.form.controls['totalPlaces'];
     }
 
-    get totalComplementaryServices(): AbstractControl {
-        return this.form.controls['totalComplementaryServices'];
+    get complementaryServices(): AbstractControl {
+        return this.form.controls['complementaryServices'];
     }
 
     get yearStatementRackTariff(): AbstractControl {
@@ -86,7 +86,7 @@ export class AccommodationVariablesComponent{
         return this.form.controls['aventureTourismModalities'];
     }
 
-    get permittedActivities(): AbstractControl {
-        return this.form.controls['permittedActivities'];
+    get ctcActivities(): AbstractControl {
+        return this.form.controls['ctcActivities'];
     }
 }

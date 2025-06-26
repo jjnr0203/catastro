@@ -27,10 +27,10 @@ export class FoodVariablesComponent {
         this.form = this.formBuilder.group({
            totalTables: ['', [Validators.required]],
            totalCapacityNumberPeople: ['', [Validators.required]],
-           typeCuisine: ['', [Validators.required]],
+           kitchenTypes: ['', [Validators.required]],
            typeService: ['', [Validators.required]],
            aventureTourismModalities: ['', [Validators.required]],
-           permittedActivities: ['', [Validators.required]],
+           ctcActivities: ['', [Validators.required]],
         })
       }
 
@@ -42,8 +42,8 @@ export class FoodVariablesComponent {
           return this.form.controls['totalCapacityNumberPeople'];
       }
 
-      get typeCuisine(): AbstractControl {
-          return this.form.controls['typeCuisine'];
+      get kitchenTypes(): AbstractControl {
+          return this.form.controls['kitchenTypes'];
       }
 
       get typeService(): AbstractControl {
@@ -54,7 +54,7 @@ export class FoodVariablesComponent {
           return this.form.controls['aventureTourismModalities'];
       }
 
-      get permittedActivities(): AbstractControl {
-          return this.form.controls['permittedActivities'];
+      get ctcActivities(): AbstractControl {
+          return this.form.controls['ctcActivities'];
       }
 }

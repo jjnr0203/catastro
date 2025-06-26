@@ -29,7 +29,7 @@ export class Dates_79_84Component {
             typeProcedure: ['', Validators.required],
             dateProcessing: ['', Validators.required],
             systemModication: ['', Validators.required],
-            systemsModificationObservation: ['', Validators.required]
+            observation: ['', Validators.required]
         });
     }
 
@@ -53,7 +53,7 @@ export class Dates_79_84Component {
         return this.form.controls['systemModication'];
     }
 
-    get systemsModificationObservation(): AbstractControl {
-        return this.form.controls['systemsModificationObservation'];
+    get observation(): AbstractControl {
+        return this.form.controls['observation'];
     }
 }

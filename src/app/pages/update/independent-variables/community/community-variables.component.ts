@@ -31,7 +31,7 @@ export class CommunityVariablesComponent {
              totalTables: ['', [Validators.required]],
              totalCapacityNumberPeople: ['', [Validators.required]],
              aventureTourismModalities: ['', [Validators.required]],
-             permittedActivities: ['', [Validators.required]],
+             ctcActivities: ['', [Validators.required]],
              tourGuideId: ['', [Validators.required]],
              nameTourGuides: ['', [Validators.required]],
              rucTransportationCompanies: ['', [Validators.required]],
@@ -67,8 +67,8 @@ export class CommunityVariablesComponent {
         return this.form.get('aventureTourismModalities');
       }     
 
-      get permittedActivities() {
-        return this.form.get('permittedActivities');
+      get ctcActivities() {
+        return this.form.get('ctcActivities');
       }   
 
       get tourGuideId() {

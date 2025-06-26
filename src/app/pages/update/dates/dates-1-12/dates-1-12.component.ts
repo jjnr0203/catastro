@@ -36,11 +36,11 @@ export class Dates1_12Component {
             ruc: ['', Validators.required],
             establishmentCode: ['', Validators.required],
             stateRuc: ['', Validators.required],
-            comercialName: ['', [Validators.required]],
+            tradeName: ['', [Validators.required]],
             registerNumber: ['', [Validators.required]],
-            registerDate: ['', [Validators.required]],
+            registeredAt: ['', [Validators.required]],
             activities: ['', [Validators.required]],
-            classification: ['', [Validators.required]],
+            sort: ['', [Validators.required]],
             categorie: ['', [Validators.required]],
             socialReason: ['', Validators.required],
             legalRepresentative: ['', Validators.required],
@@ -61,24 +61,24 @@ export class Dates1_12Component {
         return this.form.controls['stateRuc'];
     };
 
-    get comercialNameField(): AbstractControl {
-        return this.form.controls['comercialName'];
+    get tradeNameField(): AbstractControl {
+        return this.form.controls['tradeName'];
     };
 
     get registerNumberField(): AbstractControl {
         return this.form.controls['registerNumber'];
     };
 
-    get registerDateField(): AbstractControl {
-        return this.form.controls['registerDate'];
+    get registeredAtField(): AbstractControl {
+        return this.form.controls['registeredAtField'];
     };
 
     get activitiesField(): AbstractControl {
         return this.form.controls['activities'];
     };
 
-    get classificationField(): AbstractControl {
-        return this.form.controls['classification'];
+    get sortField(): AbstractControl {
+        return this.form.controls['sort'];
     };
 
     get categorieField(): AbstractControl {
