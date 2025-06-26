@@ -12,13 +12,18 @@ import { Dates1_12Component } from '../../dates/dates-1-12/dates-1-12.component'
 import { DividerModule } from 'primeng/divider';
 import { Dates_79_84Component } from '../../dates/dates-79-84/dates-79-84.component';
 import { AccommodationVariablesComponent } from '../../independent-variables/accommodation/accommodation-variables.component';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
     selector: 'app-acomodation',
     imports: [ReactiveFormsModule, SelectModule, DividerModule, PanelModule, FluidModule, 
-        InputTextModule, InputNumberModule,
-    CardModule, TagModule, Dates1_12Component, Dates_14_37Component, Dates_79_84Component, AccommodationVariablesComponent],
+        InputTextModule, InputNumberModule, CardModule, TagModule, Dates1_12Component, Dates_14_37Component, 
+        Dates_79_84Component, AccommodationVariablesComponent, ButtonModule],
     templateUrl: './acomodation.component.html',
     styleUrl: './acomodation.component.scss'
 })
-export class AcomodationComponent {}
+export class AcomodationComponent {
+    onSubmit(){
+
+    }
+}

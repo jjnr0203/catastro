@@ -40,6 +40,8 @@ export class AccommodationVariablesComponent{
         });
     }
 
+
+
     get totalRooms(): AbstractControl {
         return this.form.controls['totalRooms'];
     }
