@@ -28,23 +28,22 @@ export class Dates1_12Component {
     });
 
     constructor() {
-        this.dates();
+        this.buildForm();
     }
 
-    dates() {
+    buildForm() {
         this.form = this.formBuilder.group({
             ruc: ['', Validators.required],
-            establishmentCode: ['', Validators.required],
-            stateRuc: ['', Validators.required],
+            code: ['', Validators.required],
+            stateRuc: ['', Validators.required], //review name variable
             tradeName: ['', [Validators.required]],
             registerNumber: ['', [Validators.required]],
             registeredAt: ['', [Validators.required]],
             activities: ['', [Validators.required]],
             sort: ['', [Validators.required]],
             categorie: ['', [Validators.required]],
-            socialReason: ['', Validators.required],
-            legalRepresentative: ['', Validators.required],
-            localType: ['', Validators.required]
+            socialReason: ['', Validators.required], //review name variable
+            legalName: ['', Validators.required],
         });
     }
 
@@ -53,8 +52,8 @@ export class Dates1_12Component {
         return this.form.controls['ruc'];
     };
 
-    get establishmentCodeField(): AbstractControl {
-        return this.form.controls['establishmentCode'];
+    get codeField(): AbstractControl {
+        return this.form.controls['code'];
     };
 
     get stateRucField(): AbstractControl {
@@ -70,7 +69,7 @@ export class Dates1_12Component {
     };
 
     get registeredAtField(): AbstractControl {
-        return this.form.controls['registeredAtField'];
+        return this.form.controls['registeredAt'];
     };
 
     get activitiesField(): AbstractControl {
@@ -89,11 +88,7 @@ export class Dates1_12Component {
         return this.form.controls['socialReason'];
     };
 
-    get legalRepresentativeField(): AbstractControl {
-        return this.form.controls['legalRepresentative'];
-    };
-
-    get localTypeField(): AbstractControl | null {
-        return this.form.controls['localType'] || null;
+    get legalNameField(): AbstractControl {
+        return this.form.controls['legalName'];
     };
 }

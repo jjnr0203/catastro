@@ -24,8 +24,8 @@ export class Dates_79_84Component {
 
     dates() {
         this.form = this.formBuilder.group({
-            contactPerson: ['', Validators.required],
-            emailContactPerson: ['', Validators.required],
+            name: ['', Validators.required],
+            email: ['', Validators.required],
             typeProcedure: ['', Validators.required],
             dateProcessing: ['', Validators.required],
             systemModication: ['', Validators.required],
@@ -33,12 +33,12 @@ export class Dates_79_84Component {
         });
     }
 
-    get contactPerson(): AbstractControl {
-        return this.form.controls['contactPerson'];
+    get nameField(): AbstractControl {
+        return this.form.controls['name'];
     }
 
-    get emailContactPerson(): AbstractControl {
-        return this.form.controls['emailContactPerson'];
+    get emailField(): AbstractControl {
+        return this.form.controls['email'];
     }
 
     get typeProcedure(): AbstractControl {

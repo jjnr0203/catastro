@@ -19,67 +19,127 @@ export class Dates_14_37Component {
     protected formBuilder = inject(FormBuilder);
 
     constructor() {
-        this.dates();
+        this.buildForm();
     }
 
-    dates() {
+    buildForm() {
         this.form = this.formBuilder.group({
-            typeEstablishment: ['', Validators.required],
+            establishments: ['', Validators.required],
             name: ['', Validators.required],
-            typeLegalStatus: ['', Validators.required],
+            juridicalPersons: ['', Validators.required],
             legalStatus: ['', Validators.required],
             province: ['', [Validators.required]],
             canton: ['', [Validators.required]],
-            parroquial: ['', [Validators.required]],
+            parish: ['', [Validators.required]],
             parishType: ['', Validators.required],
             address: ['', Validators.required],
             referenceStreet: ['', [Validators.required]],
-            phonePrincipal: ['', [Validators.required]],
-            phoneSecondary: ['', [Validators.required]],
+            phone: ['', [Validators.required]],
+            secondaryPhone: ['', [Validators.required]],
             email: ['', [Validators.required, Validators.email]],
             webPage: ['', [Validators.required]],
             latitude: ['', [Validators.required]],
             longitude: ['', [Validators.required]],
             establishmentStatus: ['', Validators.required],
-            origenSystem: ['', Validators.required],
-            debtregistration: ['', [Validators.required]],
-            menTotal: ['', [Validators.required]],
-            womenTotal: ['', [Validators.required]],
-            disabledMen: ['', [Validators.required]],
-            disabledWomen: ['', [Validators.required]],
+            systemOrigin: ['', Validators.required],
+            hasDebt: ['', [Validators.required]],
+            totalMen: ['', [Validators.required]],
+            totalWomen: ['', [Validators.required]],
+            totalMenDisability: ['', [Validators.required]],
+            totalWomenDisability: ['', [Validators.required]],
             totalWorker: ['', Validators.required]
         });
     }
 
-    get typeEstablishmentField(): AbstractControl {
-        return this.form.controls['typeEstablishment'];
+    get establishmentsField(): AbstractControl {
+        return this.form.controls['establishments'];
     }
 
     get nameField(): AbstractControl {
         return this.form.controls['name'];
     }
 
-    get typeLegalStatusField(): AbstractControl {
-        return this.form.controls['typeLegalStatus'];
+    get juridicalPersonsField(): AbstractControl {
+        return this.form.controls['juridicalPersons'];
+    }
+
+    get legalStatusField(): AbstractControl {
+        return this.form.controls['legalStatus'];
+    }
+
+    get provinceField(): AbstractControl {
+        return this.form.controls['province'];
+    }
+
+    get cantonField(): AbstractControl {
+        return this.form.controls['canton'];
+    }
+
+    get parishField(): AbstractControl {
+        return this.form.controls['parish'];
     }
 
     get parishTypeField(): AbstractControl {
         return this.form.controls['parishType'];
     }
 
-    get directionField(): AbstractControl {
-        return this.form.controls['direction'];
+    get addressField(): AbstractControl {
+        return this.form.controls['address'];
+    }
+
+    get referenceStreetField(): AbstractControl {
+        return this.form.controls['referenceStreet'];
+    }
+
+    get phoneField(): AbstractControl {
+        return this.form.controls['phone'];
+    }
+
+    get secondaryPhoneField(): AbstractControl {
+        return this.form.controls['secondaryPhone'];
+    }
+
+    get latitudeField(): AbstractControl {
+        return this.form.controls['latitude'];
+    }
+
+    get longitudeField(): AbstractControl {
+        return this.form.controls['longitude'];
+    }
+
+    get emailField(): AbstractControl {
+        return this.form.controls['email'];
+    }
+
+    get webPageField(): AbstractControl {
+        return this.form.controls['webPage'];
     }
 
     get establishmentStatusField(): AbstractControl {
         return this.form.controls['establishmentStatus'];
     }
 
-    get origenSystemField(): AbstractControl {
-        return this.form.controls['origenSystem'];
+    get systemOriginField(): AbstractControl {
+        return this.form.controls['systemOrigin'];
     }
 
-    get totalWorkerField(): AbstractControl {
-        return this.form.controls['totalWorker'];
+    get hasDebtField(): AbstractControl {
+        return this.form.controls['hasDebt'];
+    }
+
+    get totalMenField(): AbstractControl {
+        return this.form.controls['totalMen'];
+    }
+
+    get totalWomenField(): AbstractControl {
+        return this.form.controls['totalWomen'];
+    }
+    
+    get totalMenDisabilityField(): AbstractControl {
+        return this.form.controls['totalMenDisability'];
+    }
+    
+    get totalWomenDisabilityField(): AbstractControl {
+        return this.form.controls['totalWomenDisability'];
     }
 }
