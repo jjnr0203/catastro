@@ -20,73 +20,76 @@ export class AccommodationVariablesComponent{
     protected formBuilder = inject(FormBuilder);
 
     constructor() {
-      this.accomodationForm();
+      this.buildForm();
     }
 
-    accomodationForm() {
+    buildForm() {
         this.form = this.formBuilder.group({
+            localTypeId: ['', [Validators.required]],
             totalRooms: ['', [Validators.required]],
             totalBeds: ['', [Validators.required]],
             totalPlaces: ['', [Validators.required]],
-            complementaryServices: ['', [Validators.required]],
-            yearStatementRackTariff: ['', [Validators.required]],
-            declarationDateRack: ['', [Validators.required]],
-            typesCapacities: ['', [Validators.required]],
+            totalCapacities: ['', [Validators.required]],
+            rackYear: ['', [Validators.required]],
+            declarationAt: ['', [Validators.required]],
+            typesCapacities: ['', [Validators.required]], //review repeat
             quantityByTypeCapacity: ['', [Validators.required]],
             placesTypeCapacity: ['', [Validators.required]],
             rateTypeCapacity: ['', [Validators.required]],
             aventureTourismModalities: ['', [Validators.required]],
-            ctcActivities: ['', [Validators.required]],        
+            ctcActivities: ['', [Validators.required]],  //Eliminar    
         });
     }
 
+    get localTypeIdField(): AbstractControl {
+        return this.form.controls['localTypeId'];
+    }
 
-
-    get totalRooms(): AbstractControl {
+    get totalRoomsField(): AbstractControl {
         return this.form.controls['totalRooms'];
     }
 
-    get totalBeds(): AbstractControl {
+    get totalBedsField(): AbstractControl {
         return this.form.controls['totalBeds'];
     }
 
-    get totalPlaces(): AbstractControl {
+    get totalPlacesField(): AbstractControl {
         return this.form.controls['totalPlaces'];
     }
 
-    get complementaryServices(): AbstractControl {
-        return this.form.controls['complementaryServices'];
+    get totalCapacitiesField(): AbstractControl {
+        return this.form.controls['totalCapacities'];
     }
 
-    get yearStatementRackTariff(): AbstractControl {
-        return this.form.controls['yearStatementRackTariff'];
+    get rackYearField(): AbstractControl {
+        return this.form.controls['rackYear'];
     }
 
-    get declarationDateRack(): AbstractControl {
-        return this.form.controls['declarationDateRack'];
+    get declarationAtField(): AbstractControl {
+        return this.form.controls['declarationAt'];
     }
 
-    get typesCapacities(): AbstractControl {
+    get typesCapacitiesField(): AbstractControl {
         return this.form.controls['typesCapacities'];
     }
 
-    get quantityByTypeCapacity(): AbstractControl {
+    get quantityByTypeCapacityField(): AbstractControl {
         return this.form.controls['quantityByTypeCapacity'];
     }
 
-    get placesTypeCapacity(): AbstractControl {
+    get placesTypeCapacityField(): AbstractControl {
         return this.form.controls['placesTypeCapacity'];
     }
 
-    get rateTypeCapacity(): AbstractControl {
+    get rateTypeCapacityField(): AbstractControl {
         return this.form.controls['rateTypeCapacity'];
     }
 
-    get aventureTourismModalities(): AbstractControl {
+    get aventureTourismModalitiesField(): AbstractControl {
         return this.form.controls['aventureTourismModalities'];
     }
 
-    get ctcActivities(): AbstractControl {
+    get ctcActivitiesField(): AbstractControl {
         return this.form.controls['ctcActivities'];
     }
 }

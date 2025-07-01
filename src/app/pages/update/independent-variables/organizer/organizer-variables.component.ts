@@ -15,12 +15,21 @@ export class OrganizerVariablesComponent {
     protected formBuilder = inject(FormBuilder);
 
     constructor() {
-        this.organizerForm();
+        this.buildForm();
     }
 
-    organizerForm() {
+    buildForm() {
         this.form = this.formBuilder.group({
-            totalCapacityActivies: ['', [Validators.required]]
+             localTypeId: ['', [Validators.required]],
+             totalCapacity: ['', [Validators.required]]
         });
+    }
+
+    get localTypeIdField(){
+        return this.form.controls['localTypeId'];
+    }
+
+    get totalCapacityField() {
+        return this.form.controls['totalCapacity'];
     }
 }

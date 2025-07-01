@@ -10,51 +10,51 @@ import { TagModule } from 'primeng/tag';
 import { CustomLabelDirective } from '../../../../shared/directives/custom-label.directive';
 
 @Component({
-  selector: 'app-food-variables',
-  imports: [ReactiveFormsModule, CustomLabelDirective, SelectModule, PanelModule, FluidModule, InputTextModule, InputNumberModule, CardModule, TagModule, SelectModule],
-  templateUrl: './food-variables.component.html',
-  styleUrl: './food-variables.component.scss'
+    selector: 'app-food-variables',
+    imports: [ReactiveFormsModule, CustomLabelDirective, SelectModule, PanelModule, FluidModule, InputTextModule, InputNumberModule, CardModule, TagModule, SelectModule],
+    templateUrl: './food-variables.component.html',
+    styleUrl: './food-variables.component.scss'
 })
 export class FoodVariablesComponent {
-      protected form!: FormGroup;
-      protected formBuilder = inject(FormBuilder);
+    protected form!: FormGroup;
+    protected formBuilder = inject(FormBuilder);
 
-      constructor(){
-        this.foodForm();
-      }
+    constructor() {
+        this.buildForm();
+    }
 
-      foodForm() {
+    buildForm() {
         this.form = this.formBuilder.group({
-           totalTables: ['', [Validators.required]],
-           totalCapacityNumberPeople: ['', [Validators.required]],
-           kitchenTypes: ['', [Validators.required]],
-           typeService: ['', [Validators.required]],
-           aventureTourismModalities: ['', [Validators.required]],
-           ctcActivities: ['', [Validators.required]],
-        })
-      }
+            totalTables: ['', [Validators.required]],
+            totalCapacities: ['', [Validators.required]],
+            // kitchenTypes: ['', [Validators.required]],
+            serviceType: ['', [Validators.required]],
+            aventureTourismModalities: ['', [Validators.required]],
+            ctcActivities: ['', [Validators.required]]
+        });
+    }
 
-      get totalTables(): AbstractControl {
-          return this.form.controls['totalTables'];
-      }
+    get totalTablesField(): AbstractControl {
+        return this.form.controls['totalTables'];
+    }
 
-      get totalCapacityNumberPeople(): AbstractControl {
-          return this.form.controls['totalCapacityNumberPeople'];
-      }
+    get totalCapacitiesField(): AbstractControl {
+        return this.form.controls['totalCapacities'];
+    }
 
-      get kitchenTypes(): AbstractControl {
-          return this.form.controls['kitchenTypes'];
-      }
+    /* get kitchenTypes(): AbstractControl {
+        return this.form.controls['kitchenTypes'];
+    } */
 
-      get typeService(): AbstractControl {
-          return this.form.controls['typeService'];
-      }     
+    get serviceTypeField(): AbstractControl {
+        return this.form.controls['serviceType'];
+    }
 
-      get aventureTourismModalities(): AbstractControl {
-          return this.form.controls['aventureTourismModalities'];
-      }
+    get aventureTourismModalitiesField(): AbstractControl {
+        return this.form.controls['aventureTourismModalities'];
+    }
 
-      get ctcActivities(): AbstractControl {
-          return this.form.controls['ctcActivities'];
-      }
+    get ctcActivitiesField(): AbstractControl {
+        return this.form.controls['ctcActivities'];
+    }
 }

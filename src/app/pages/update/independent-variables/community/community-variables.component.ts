@@ -9,81 +9,81 @@ import { TagModule } from 'primeng/tag';
 import { CustomLabelDirective } from '../../../../shared/directives/custom-label.directive';
 
 @Component({
-  selector: 'app-community-variables',
-  imports: [ReactiveFormsModule, PanelModule, InputTextModule, FluidModule, CardModule, TagModule, CustomLabelDirective, SelectModule],
-  templateUrl: './community-variables.component.html',
-  styleUrl: './community-variables.component.scss'
+    selector: 'app-community-variables',
+    imports: [ReactiveFormsModule, PanelModule, InputTextModule, FluidModule, CardModule, TagModule, CustomLabelDirective, SelectModule],
+    templateUrl: './community-variables.component.html',
+    styleUrl: './community-variables.component.scss'
 })
 export class CommunityVariablesComponent {
-      protected form!: FormGroup;
-      protected formBuilder = inject(FormBuilder);
-  
-      constructor() {
-        this.communityForm();
-      }
+    protected form!: FormGroup;
+    protected formBuilder = inject(FormBuilder);
 
-      communityForm() {
-          this.form = this.formBuilder.group({
-             totalRooms: ['', [Validators.required]],
-             totalBeds: ['', [Validators.required]],
-             totalPlaces: ['', [Validators.required]],
-             totalComplementaryServices: ['', [Validators.required]],
-             totalTables: ['', [Validators.required]],
-             totalCapacityNumberPeople: ['', [Validators.required]],
-             aventureTourismModalities: ['', [Validators.required]],
-             ctcActivities: ['', [Validators.required]],
-             tourGuideId: ['', [Validators.required]],
-             nameTourGuides: ['', [Validators.required]],
-             rucTransportationCompanies: ['', [Validators.required]],
-             companyNameTransportation: ['', [Validators.required]],
-          });
-      }
+    constructor() {
+        this.buildForm();
+    }
 
-      get totalRooms() {
-        return this.form.get('totalRooms');
-      } 
+    buildForm() {
+        this.form = this.formBuilder.group({
+            totalRooms: ['', [Validators.required]],
+            totalBeds: ['', [Validators.required]],
+            totalPlaces: ['', [Validators.required]],
+            totalComplementaryServices: ['', [Validators.required]],
+            totalTables: ['', [Validators.required]],
+            totalCapacities: ['', [Validators.required]],
+            aventureTourismModalities: ['', [Validators.required]],
+            //ctcActivities: ['', [Validators.required]], //delete
+            identification: ['', [Validators.required]],
+            name: ['', [Validators.required]],
+            ruc: ['', [Validators.required]],
+            touristTransportCompanies: ['', [Validators.required]]
+        });
+    }
 
-      get totalBeds() {
-        return this.form.get('totalBeds');
-      } 
+    get totalRoomsField() {
+        return this.form.controls['totalRooms'];
+    }
 
-      get totalPlaces() {
-        return this.form.get('totalPlaces');
-      } 
+    get totalBedsField() {
+        return this.form.controls['totalBeds'];
+    }
 
-      get totalComplementaryServices() {
-        return this.form.get('totalComplementaryServices');
-      }   
+    get totalPlacesField() {
+        return this.form.controls['totalPlaces'];
+    }
 
-      get totalTables() {
-        return this.form.get('totalTables');
-      }
+    get totalComplementaryServicesField() {
+        return this.form.controls['totalComplementaryServices'];
+    }
 
-      get totalCapacityNumberPeople() {
-        return this.form.get('totalCapacityNumberPeople');
-      } 
+    get totalTablesField() {
+        return this.form.controls['totalTables'];
+    }
 
-      get aventureTourismModalities() {
-        return this.form.get('aventureTourismModalities');
-      }     
+    get totalCapacitiesField() {
+        return this.form.controls['totalCapacities'];
+    }
 
-      get ctcActivities() {
-        return this.form.get('ctcActivities');
-      }   
+    get aventureTourismModalitiesField() {
+        return this.form.controls['aventureTourismModalities'];
+    }
 
-      get tourGuideId() {
-        return this.form.get('tourGuideId');
-      } 
+    /* get ctcActivitiesField() {
+        return this.form.controls['ctcActivities'];
+    } */
 
-      get nameTourGuides() {
-        return this.form.get('nameTourGuides');
-      } 
+    get identificationField() {
+        return this.form.controls['identification'];
+    }
 
-      get rucTransportationCompanies() {
-        return this.form.get('rucTransportationCompanies');
-      } 
+    get nameField() {
+        return this.form.controls['name'];
+    }
 
-      get companyNameTransportation() {
-        return this.form.get('companyNameTransportation');
-      } 
+    get rucField() {
+        return this.form.controls['ruc'];
+    }
+
+    get touristTransportCompaniesField() {
+        return this.form.controls['touristTransportCompanies'];
+    }
 }

@@ -24,16 +24,21 @@ export class AttraccionVariablesComponent {
 
     attractionForm() {
         this.form = this.formBuilder.group({
-            totalCapacityActivies: ['', [Validators.required]],
+            localTypeId: ['', [Validators.required]],
+            totalCapacity: ['', [Validators.required]],
             aventureTourismModalities: ['', [Validators.required]]
         });
     }
 
-    get totalCapacityActivies() {
-        return this.form.get('totalCapacityActivies');
+    get localTypeId() {
+        return this.form.get('localType');
+    }
+
+    get totalCapacityField() {
+        return this.form.controls['localTypeId'];
     }
 
     get aventureTourismModalities() {
-        return this.form.get('aventureTourismModalities');
+        return this.form.controls['localTypeId']
     }
 }
