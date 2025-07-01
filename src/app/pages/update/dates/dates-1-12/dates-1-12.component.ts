@@ -1,4 +1,4 @@
-import { Component, effect, inject, input } from '@angular/core';
+import { Component, effect, EventEmitter, inject, Input, input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CardModule } from 'primeng/card';
 import { FluidModule } from 'primeng/fluid';
@@ -8,6 +8,8 @@ import { PanelModule } from 'primeng/panel';
 import { TagModule } from 'primeng/tag';
 import { CustomLabelDirective } from '../../../../shared/directives/custom-label.directive';
 import { SelectModule } from 'primeng/select';
+import { PrimeIcons } from 'primeng/api';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
 
 @Component({
     selector: 'app-dates-1-12',
@@ -15,9 +17,17 @@ import { SelectModule } from 'primeng/select';
     templateUrl: './dates-1-12.component.html',
     styleUrl: './dates-1-12.component.scss'
 })
-export class Dates1_12Component {
+export class Dates1_12Component implements OnInit {
+
+    @Input() data!: string | undefined;
+    @Output() dataOut = new EventEmitter<FormGroup>();
+    @Output() fieldErrorsOut = new EventEmitter<string[]>();
+
+    private readonly formBuilder = inject(FormBuilder);
+    /* protected readonly customMessageService = inject(CustomMessageService); */
+    protected readonly PrimeIcons = PrimeIcons;
+
     protected form!: FormGroup;
-    protected formBuilder = inject(FormBuilder);
     
     showLocalType = input<boolean>(true);
     showLocalTypeEffect = effect(() => {
@@ -29,6 +39,10 @@ export class Dates1_12Component {
 
     constructor() {
         this.buildForm();
+    }
+
+    ngOnInit() {
+        this.loadData();
     }
 
     buildForm() {
@@ -45,7 +59,24 @@ export class Dates1_12Component {
             socialReason: ['', Validators.required], //review name variable
             legalName: ['', Validators.required],
         });
+
+        this.watchFormChanges();
     }
+
+    watchFormChanges() {
+        this.form.valueChanges.pipe(debounceTime(300), distinctUntilChanged()).subscribe((_) => {
+            if (this.form.valid) {
+                this.dataOut.emit(this.form);
+            }
+        });
+    }
+
+    getFormErrors(): string[] {
+        const errors: string[] = [];
+        return [];
+    }
+
+    loadData() {}
 
     //Geters for form controls
     get rucField(): AbstractControl {

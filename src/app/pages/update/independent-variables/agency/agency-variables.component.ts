@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CardModule } from 'primeng/card';
 import { FluidModule } from 'primeng/fluid';
@@ -7,6 +7,8 @@ import { PanelModule } from 'primeng/panel';
 import { SelectModule } from 'primeng/select';
 import { TagModule } from 'primeng/tag';
 import { CustomLabelDirective } from '../../../../shared/directives/custom-label.directive';
+import { PrimeIcons } from 'primeng/api';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
 
 @Component({
   selector: 'app-agency-variables',
@@ -14,14 +16,24 @@ import { CustomLabelDirective } from '../../../../shared/directives/custom-label
   templateUrl: './agency-variables.component.html',
   styleUrl: './agency-variables.component.scss'
 })
-export class AgencyVariablesComponent {
+export class AgencyVariablesComponent implements OnInit {
+    @Input() data!: string | undefined;
+    @Output() dataOut = new EventEmitter<FormGroup>();
+    @Output() fieldErrorsOut = new EventEmitter<string[]>();
+
+    private readonly formBuilder = inject(FormBuilder);
+    /* protected readonly customMessageService = inject(CustomMessageService); */
+    protected readonly PrimeIcons = PrimeIcons;
   
-   protected form!: FormGroup;
-   protected formBuilder = inject(FormBuilder);
+    protected form!: FormGroup;
   
       constructor() {
         this.buildForm();
       }
+
+      ngOnInit() {
+        this.loadData();
+    }
 
       buildForm() {
         this.form = this.formBuilder.group({
@@ -35,7 +47,25 @@ export class AgencyVariablesComponent {
           sales_representatives: ['', [Validators.required]],
           legalName: ['', [Validators.required]],
         });
+
+        this.watchFormChanges();
       }
+
+      watchFormChanges() {
+        this.form.valueChanges.pipe(debounceTime(300), distinctUntilChanged()).subscribe((_) => {
+            if (this.form.valid) {
+                this.dataOut.emit(this.form);
+            }
+        });
+    }
+
+    getFormErrors(): string[] {
+        const errors: string[] = [];
+
+        return [];
+    }
+
+    loadData() {}
 
       get localTypeIdField(): AbstractControl {
           return this.form.controls['localTypeId'];

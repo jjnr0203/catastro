@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CardModule } from 'primeng/card';
 import { FluidModule } from 'primeng/fluid';
@@ -7,6 +7,8 @@ import { PanelModule } from 'primeng/panel';
 import { TagModule } from 'primeng/tag';
 import { SelectModule } from 'primeng/select';
 import { CustomLabelDirective } from '../../../../shared/directives/custom-label.directive';
+import { PrimeIcons } from 'primeng/api';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
 
 @Component({
     selector: 'app-accommodation-variables',
@@ -15,12 +17,23 @@ import { CustomLabelDirective } from '../../../../shared/directives/custom-label
     templateUrl: './accommodation-variables.component.html',
     styleUrl: './accommodation-variables.component.scss'
 })
-export class AccommodationVariablesComponent{
+export class AccommodationVariablesComponent implements OnInit {
+    @Input() data!: string | undefined;
+    @Output() dataOut = new EventEmitter<FormGroup>();
+    @Output() fieldErrorsOut = new EventEmitter<string[]>();
+
+    private readonly formBuilder = inject(FormBuilder);
+    /* protected readonly _customMessageService = inject(CustomMessageService); */
+    protected readonly PrimeIcons = PrimeIcons;
+
     protected form!: FormGroup;
-    protected formBuilder = inject(FormBuilder);
 
     constructor() {
       this.buildForm();
+    }
+
+    ngOnInit() {
+        this.loadData();
     }
 
     buildForm() {
@@ -39,7 +52,32 @@ export class AccommodationVariablesComponent{
             aventureTourismModalities: ['', [Validators.required]],
             ctcActivities: ['', [Validators.required]],  //Eliminar    
         });
+
+        this.watchFormChanges();
     }
+
+    watchFormChanges() {
+        this.form.valueChanges.pipe(debounceTime(300), distinctUntilChanged()).subscribe((_) => {
+            if (this.form.valid) {
+                this.dataOut.emit(this.form);
+            }
+        });
+    }
+
+    getFormErrors(): string[] {
+        const errors: string[] = [];
+
+        /* if (this.totalAccreditedStaffLanguageField.invalid) errors.push('¿Cuántas personas están acreditadas como mínimo el nivel B1 de conocimiento de al menos un idioma extranjero de acuerdo al Marco Común Europeo para las Lenguas?');
+
+        if (errors.length > 0) {
+            this.form.markAllAsTouched();
+            return errors;
+        } */
+
+        return [];
+    }
+
+    loadData() {}
 
     get localTypeIdField(): AbstractControl {
         return this.form.controls['localTypeId'];

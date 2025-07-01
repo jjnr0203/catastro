@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CardModule } from 'primeng/card';
 import { FluidModule } from 'primeng/fluid';
@@ -7,6 +7,8 @@ import { PanelModule } from 'primeng/panel';
 import { TagModule } from 'primeng/tag';
 import { CustomLabelDirective } from '../../../../shared/directives/custom-label.directive';
 import { SelectModule } from 'primeng/select';
+import { PrimeIcons } from 'primeng/api';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
 
 @Component({
     selector: 'app-dates-79-84',
@@ -14,15 +16,26 @@ import { SelectModule } from 'primeng/select';
     templateUrl: './dates-79-84.component.html',
     styleUrl: './dates-79-84.component.scss'
 })
-export class Dates_79_84Component {
+export class Dates_79_84Component implements OnInit {
+    @Input() data!: string | undefined;
+    @Output() dataOut = new EventEmitter<FormGroup>();
+    @Output() fieldErrorsOut = new EventEmitter<string[]>();
+
+    protected readonly PrimeIcons = PrimeIcons;
+    private readonly formBuilder = inject(FormBuilder);
+    //protected readonly customMessageService = inject(CustomMessageService);
+
     protected form!: FormGroup;
-    protected formBuilder = inject(FormBuilder);
 
     constructor() {
-        this.dates();
+        this.buildForm();
     }
 
-    dates() {
+    ngOnInit() {
+        this.loadData();
+    }
+
+    buildForm() {
         this.form = this.formBuilder.group({
             name: ['', Validators.required],
             email: ['', Validators.required],
@@ -31,7 +44,24 @@ export class Dates_79_84Component {
             systemModication: ['', Validators.required],
             observation: ['', Validators.required]
         });
+        this.watchFormChanges();
     }
+
+    watchFormChanges() {
+        this.form.valueChanges.pipe(debounceTime(300), distinctUntilChanged()).subscribe((_) => {
+            if (this.form.valid) {
+                this.dataOut.emit(this.form);
+            }
+        });
+    }
+
+    getFormErrors(): string[] {
+        const errors: string[] = [];
+
+        return [];
+    }
+
+    loadData() {}
 
     get nameField(): AbstractControl {
         return this.form.controls['name'];
