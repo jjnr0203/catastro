@@ -22,7 +22,7 @@ export class AttraccionVariablesComponent implements OnInit {
     @Output() fieldErrorsOut = new EventEmitter<string[]>();
 
     private readonly formBuilder = inject(FormBuilder);
-   /*  protected readonly customMessageService = inject(CustomMessageService); */
+    /*  protected readonly customMessageService = inject(CustomMessageService); */
     protected readonly PrimeIcons = PrimeIcons;
 
     protected form!: FormGroup;
@@ -55,13 +55,22 @@ export class AttraccionVariablesComponent implements OnInit {
 
     getFormErrors(): string[] {
         const errors: string[] = [];
+
+        if (this.localTypeId.invalid) errors.push('El tipo de local es obligatorio.');
+        if (this.totalCapacityField.invalid) errors.push('La capacidad total es obligatoria.');
+        if (this.aventureTourismModalities.invalid) errors.push('Las modalidades de turismo de aventura son obligatorias.');
+
+        if (errors.length > 0) {
+            this.form.markAllAsTouched();
+            return errors;
+        }
         return [];
     }
 
     loadData() {}
 
     get localTypeId() {
-        return this.form.get('localType');
+        return this.form.controls['localType'];
     }
 
     get totalCapacityField() {
@@ -69,6 +78,6 @@ export class AttraccionVariablesComponent implements OnInit {
     }
 
     get aventureTourismModalities() {
-        return this.form.controls['localTypeId']
+        return this.form.controls['localTypeId'];
     }
 }

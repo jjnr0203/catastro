@@ -4,16 +4,15 @@ import { PrimeIcons } from 'primeng/api';
 import { debounceTime, distinctUntilChanged } from 'rxjs';
 
 @Component({
-  selector: 'app-guidance-variables',
-  imports: [],
-  templateUrl: './guidance-variables.component.html',
-  styleUrl: './guidance-variables.component.scss'
+    selector: 'app-guidance-variables',
+    imports: [],
+    templateUrl: './guidance-variables.component.html',
+    styleUrl: './guidance-variables.component.scss'
 })
-export class GuidanceVariablesComponent implements OnInit{
+export class GuidanceVariablesComponent implements OnInit {
     @Input() data!: string | undefined;
     @Output() dataOut = new EventEmitter<FormGroup>();
     @Output() fieldErrorsOut = new EventEmitter<string[]>();
-
 
     protected readonly PrimeIcons = PrimeIcons;
     private readonly formBuilder = inject(FormBuilder);
@@ -33,7 +32,7 @@ export class GuidanceVariablesComponent implements OnInit{
         this.form = this.formBuilder.group({
             code: ['', [Validators.required]],
             issueAt: ['', [Validators.required]],
-            expirationAt: ['', [Validators.required]],
+            expirationAt: ['', [Validators.required]]
         });
         this.watchFormChanges();
     }
@@ -48,6 +47,15 @@ export class GuidanceVariablesComponent implements OnInit{
 
     getFormErrors(): string[] {
         const errors: string[] = [];
+
+        if (this.codeField.invalid) errors.push('El código es obligatorio.');
+        if (this.issueAtField.invalid) errors.push('La fecha de emisión es obligatoria.');
+        if (this.expirationAtField.invalid) errors.push('La fecha de expiración es obligatoria.');
+
+        if (errors.length > 0) {
+            this.form.markAllAsTouched();
+            return errors;
+        }
 
         return [];
     }
@@ -65,5 +73,4 @@ export class GuidanceVariablesComponent implements OnInit{
     get expirationAtField(): AbstractControl {
         return this.form.controls['expirationAt'];
     }
-
 }

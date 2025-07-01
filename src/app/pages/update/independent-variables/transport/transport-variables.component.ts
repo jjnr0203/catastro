@@ -11,24 +11,22 @@ import { debounceTime, distinctUntilChanged } from 'rxjs';
     styleUrl: './transport-variables.component.scss'
 })
 export class TransportVariablesComponent implements OnInit {
-
     @Input() data!: string | undefined;
     @Output() dataOut = new EventEmitter<FormGroup>();
     @Output() fieldErrorsOut = new EventEmitter<string[]>();
-    
+
     protected readonly formBuilder = inject(FormBuilder);
     //protected readonly customMessageService = inject(CustomMessageService);
     protected readonly PrimeIcons = PrimeIcons;
 
     protected form!: FormGroup;
 
-
     constructor() {
         this.buildForm();
     }
 
     ngOnInit() {
-        this.loadData()
+        this.loadData();
     }
 
     buildForm() {
@@ -63,12 +61,26 @@ export class TransportVariablesComponent implements OnInit {
     getFormErrors(): string[] {
         const errors: string[] = [];
 
-        /* if (this.totalAccreditedStaffLanguageField.invalid) errors.push('¿Cuántas personas están acreditadas como mínimo el nivel B1 de conocimiento de al menos un idioma extranjero de acuerdo al Marco Común Europeo para las Lenguas?');
+        if (this.enablingTitleField.invalid) errors.push('El título habilitante es obligatorio.');
+        if (this.issueAtField.invalid) errors.push('La fecha de emisión es obligatoria.');
+        if (this.expirationAtField.invalid) errors.push('La fecha de expiración es obligatoria.');
+        if (this.typeVehicleField.invalid) errors.push('El tipo de vehículo es obligatorio.');
+        if (this.registrationField.invalid) errors.push('El número de matrícula es obligatorio.');
+        if (this.registrationAtField.invalid) errors.push('La fecha de matrícula es obligatoria.');
+        if (this.registrationExpirationAtField.invalid) errors.push('La fecha de expiración de la matrícula es obligatoria.');
+        if (this.capacityField.invalid) errors.push('La capacidad es obligatoria.');
+        if (this.totalUnitsField.invalid) errors.push('El total de unidades es obligatorio.');
+        if (this.totalSeatsField.invalid) errors.push('El total de asientos es obligatorio.');
+        if (this.typeTransportLocationField.invalid) errors.push('El tipo de ubicación de transporte es obligatorio.');
+        if (this.typeBoatsField.invalid) errors.push('El tipo de embarcaciones es obligatorio.');
+        if (this.boatModalityField.invalid) errors.push('La modalidad de embarcación es obligatoria.');
+        if (this.enrollBoatsField.invalid) errors.push('El enrolamiento de embarcaciones es obligatorio.');
+        if (this.totalBoatCapacitiesField.invalid) errors.push('El total de capacidades de embarcaciones es obligatorio.');
 
         if (errors.length > 0) {
             this.form.markAllAsTouched();
             return errors;
-        } */
+        }
 
         return [];
     }
@@ -134,6 +146,4 @@ export class TransportVariablesComponent implements OnInit {
     get totalBoatCapacitiesField() {
         return this.form.controls['totalBoatCapacities'];
     }
-
-    
 }

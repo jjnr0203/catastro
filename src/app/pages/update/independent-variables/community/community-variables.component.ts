@@ -25,7 +25,6 @@ export class CommunityVariablesComponent implements OnInit {
     /* protected readonly customMessageService = inject(CustomMessageService); */
     protected readonly PrimeIcons = PrimeIcons;
 
-
     protected form!: FormGroup;
 
     constructor() {
@@ -65,6 +64,22 @@ export class CommunityVariablesComponent implements OnInit {
 
     getFormErrors(): string[] {
         const errors: string[] = [];
+
+        if (this.totalBedsField.invalid) errors.push('El total de camas es obligatorio.');
+        if (this.totalPlacesField.invalid) errors.push('El total de plazas es obligatorio.');
+        if (this.totalComplementaryServicesField.invalid) errors.push('El total de servicios complementarios es obligatorio.');
+        if (this.totalTablesField.invalid) errors.push('El total de mesas es obligatorio.');
+        if (this.totalCapacitiesField.invalid) errors.push('El total de capacidades es obligatorio.');
+        if (this.aventureTourismModalitiesField.invalid) errors.push('Las modalidades de aventureTourismModalities son obligatorias.');
+        if (this.identificationField.invalid) errors.push('La identificación es obligatoria.');
+        if (this.nameField.invalid) errors.push('El nombre es obligatorio.');
+        if (this.rucField.invalid) errors.push('El RUC es obligatorio.');
+        if (this.touristTransportCompaniesField.invalid) errors.push('Las empresas de transporte turístico son obligatorias.');
+
+        if (errors.length > 0) {
+            this.form.markAllAsTouched();
+            return errors;
+        }
         return [];
     }
 

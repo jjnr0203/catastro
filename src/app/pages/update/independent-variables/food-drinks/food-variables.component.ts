@@ -17,7 +17,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs';
     templateUrl: './food-variables.component.html',
     styleUrl: './food-variables.component.scss'
 })
-export class FoodVariablesComponent implements OnInit{
+export class FoodVariablesComponent implements OnInit {
     @Input() data!: string | undefined;
     @Output() dataOut = new EventEmitter<FormGroup>();
     @Output() fieldErrorsOut = new EventEmitter<string[]>();
@@ -42,8 +42,8 @@ export class FoodVariablesComponent implements OnInit{
             totalCapacities: ['', [Validators.required]],
             // kitchenTypes: ['', [Validators.required]],
             serviceType: ['', [Validators.required]],
-            aventureTourismModalities: ['', [Validators.required]],
-            ctcActivities: ['', [Validators.required]]
+            aventureTourismModalities: ['', [Validators.required]]
+            //ctcActivities: ['', [Validators.required]] //delete
         });
         this.watchFormChanges();
     }
@@ -59,6 +59,15 @@ export class FoodVariablesComponent implements OnInit{
     getFormErrors(): string[] {
         const errors: string[] = [];
 
+        if (this.totalTablesField.invalid) errors.push('El total de mesas es obligatorio.');
+        if (this.totalCapacitiesField.invalid) errors.push('El total de capacidades es obligatorio.');
+        if (this.serviceTypeField.invalid) errors.push('El tipo de servicio es obligatorio.');
+        if (this.aventureTourismModalitiesField.invalid) errors.push('Las modalidades de turismo de aventura son obligatorias.');
+
+        if (errors.length > 0) {
+            this.form.markAllAsTouched();
+            return errors;
+        }
         return [];
     }
 

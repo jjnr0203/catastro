@@ -12,8 +12,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs';
 
 @Component({
     selector: 'app-accommodation-variables',
-    imports: [ReactiveFormsModule, PanelModule, InputTextModule, FluidModule, CardModule, TagModule, 
-        CustomLabelDirective, SelectModule],
+    imports: [ReactiveFormsModule, PanelModule, InputTextModule, FluidModule, CardModule, TagModule, CustomLabelDirective, SelectModule],
     templateUrl: './accommodation-variables.component.html',
     styleUrl: './accommodation-variables.component.scss'
 })
@@ -29,7 +28,7 @@ export class AccommodationVariablesComponent implements OnInit {
     protected form!: FormGroup;
 
     constructor() {
-      this.buildForm();
+        this.buildForm();
     }
 
     ngOnInit() {
@@ -49,8 +48,8 @@ export class AccommodationVariablesComponent implements OnInit {
             quantityByTypeCapacity: ['', [Validators.required]],
             placesTypeCapacity: ['', [Validators.required]],
             rateTypeCapacity: ['', [Validators.required]],
-            aventureTourismModalities: ['', [Validators.required]],
-            ctcActivities: ['', [Validators.required]],  //Eliminar    
+            aventureTourismModalities: ['', [Validators.required]]
+            /* ctcActivities: ['', [Validators.required]], */ //Eliminar
         });
 
         this.watchFormChanges();
@@ -67,12 +66,36 @@ export class AccommodationVariablesComponent implements OnInit {
     getFormErrors(): string[] {
         const errors: string[] = [];
 
-        /* if (this.totalAccreditedStaffLanguageField.invalid) errors.push('¿Cuántas personas están acreditadas como mínimo el nivel B1 de conocimiento de al menos un idioma extranjero de acuerdo al Marco Común Europeo para las Lenguas?');
+        if (this.localTypeIdField.invalid) errors.push('Su local es');
+
+        if (this.totalRoomsField.invalid) errors.push('Total Habitaciones');
+
+        if (this.totalBedsField.invalid) errors.push('Total Camas');
+
+        if (this.totalPlacesField.invalid) errors.push('Total Plazas');
+
+        if (this.totalCapacitiesField.invalid) errors.push('Total capacidades servicios complementarios');
+
+        if (this.rackYearField.invalid) errors.push('Año de declaración del tarifario rack');
+
+        if (this.declarationAtField.invalid) errors.push('Fecha de declaración del tarifario rack');
+
+        if (this.typesCapacitiesField.invalid) errors.push('Tipos capacidades');
+
+        if (this.quantityByTypeCapacityField.invalid) errors.push('Cantidad por tipo de capacidad ');
+
+        if (this.placesTypeCapacityField.invalid) errors.push('Plazas por tipo de capacidad ');
+
+        if (this.rateTypeCapacityField.invalid) errors.push('Tarifa por tipo de capacidad');
+
+        if (this.aventureTourismModalitiesField.invalid) errors.push('Modalidades de turismo aventura');
+
+        /*  if (this.ctcActivitiesField.invalid) errors.push('Actividades permitidas CTC'); */
 
         if (errors.length > 0) {
             this.form.markAllAsTouched();
             return errors;
-        } */
+        }
 
         return [];
     }
@@ -127,7 +150,7 @@ export class AccommodationVariablesComponent implements OnInit {
         return this.form.controls['aventureTourismModalities'];
     }
 
-    get ctcActivitiesField(): AbstractControl {
+    /*  get ctcActivitiesField(): AbstractControl {
         return this.form.controls['ctcActivities'];
-    }
+    } */
 }

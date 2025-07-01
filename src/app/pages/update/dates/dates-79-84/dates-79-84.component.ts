@@ -58,6 +58,18 @@ export class Dates_79_84Component implements OnInit {
     getFormErrors(): string[] {
         const errors: string[] = [];
 
+        if(this.nameField.invalid) errors.push('Su nombre es obligatorio.');
+        if(this.emailField.invalid) errors.push('Su correo electrónico es obligatorio.');
+        if(this.typeProcedure.invalid) errors.push('El tipo de procedimiento es obligatorio.');
+        if(this.dateProcessing.invalid) errors.push('La fecha de procesamiento es obligatoria.');
+        if(this.systemModication.invalid) errors.push('El sistema de modificación es obligatorio.');
+        if(this.observation.invalid) errors.push('La observación es obligatoria.');
+
+        if (errors.length > 0) {
+            this.form.markAllAsTouched();
+            return errors;
+        }
+
         return [];
     }
 

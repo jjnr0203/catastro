@@ -50,7 +50,13 @@ export class OrganizerVariablesComponent implements OnInit {
     getFormErrors(): string[] {
         const errors: string[] = [];
 
+        if (this.localTypeIdField.invalid) errors.push('El tipo de local es obligatorio.');
+        if (this.totalCapacityField.invalid) errors.push('La capacidad total es obligatoria.');
 
+        if (errors.length > 0) {
+            this.form.markAllAsTouched();
+            return errors;
+        }
         return [];
     }
 

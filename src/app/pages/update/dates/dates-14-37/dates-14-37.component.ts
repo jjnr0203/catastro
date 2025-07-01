@@ -74,6 +74,58 @@ export class Dates_14_37Component implements OnInit {
 
     getFormErrors(): string[] {
         const errors: string[] = [];
+        if(this.establishmentsField.invalid) errors.push('Su Establecimiento es')
+
+        if(this.nameField.invalid) errors.push('Nombre')
+
+        if(this.juridicalPersonsField.invalid) errors.push('Tipo de Personería')
+
+        if(this.legalStatusField.invalid) errors.push('Personería jurídica')
+
+        if(this.provinceField.invalid) errors.push('Provincia')
+
+        if(this.cantonField.invalid) errors.push('Cantón')
+
+        if(this.parishField.invalid) errors.push('Parroquia')
+
+        if(this.parishTypeField.invalid) errors.push('Tipo de parroquia')
+
+        if(this.addressField.invalid) errors.push('Dirección')
+
+        if(this.referenceStreetField.invalid) errors.push('Referencia de dirección')
+
+        if(this.phoneField.invalid) errors.push('Teléfono principal ')
+
+        if(this.secondaryPhoneField.invalid) errors.push('Teléfono secundario ')
+
+        if(this.latitudeField.invalid) errors.push('Latitud')
+
+        if(this.longitudeField.invalid) errors.push('Longitud')
+
+        if(this.emailField.invalid) errors.push('Correo electrónico')
+
+        if(this.webPageField.invalid) errors.push('Dirección Web')
+
+        if(this.establishmentStatusField.invalid) errors.push('Estado Registro del establecimiento')
+
+        if(this.systemOriginField.invalid) errors.push('Sistema de origen')
+
+        if(this.hasDebtField.invalid) errors.push('Estado del Registro con deuda')
+
+        if(this.totalMenField.invalid) errors.push('Total de trabajadores Hombres')
+
+        if(this.totalWomenField.invalid) errors.push('Total de trabajadores Mujeres')
+
+        if(this.totalMenDisabilityField.invalid) errors.push('Total de trabajadores Hombres con discapacidad')
+
+        if(this.totalWomenDisabilityField.invalid) errors.push('Total de trabajadores Mujeres con discapacidad')
+
+        if(this.totalWorker.invalid) errors.push('Total trabajadores ')
+
+        if (errors.length > 0) {
+            this.form.markAllAsTouched();
+            return errors;
+        }
 
         return [];
     }
@@ -169,6 +221,10 @@ export class Dates_14_37Component implements OnInit {
     }
 
     get totalWomenDisabilityField(): AbstractControl {
+        return this.form.controls['totalWomenDisability'];
+    }
+
+    get totalWorker(): AbstractControl {
         return this.form.controls['totalWomenDisability'];
     }
 }

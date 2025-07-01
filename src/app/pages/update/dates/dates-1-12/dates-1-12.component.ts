@@ -73,6 +73,24 @@ export class Dates1_12Component implements OnInit {
 
     getFormErrors(): string[] {
         const errors: string[] = [];
+
+        if(this.rucField.invalid) errors.push('Su ruc es.');
+        if(this.codeField.invalid) errors.push('Codigo.')
+        if(this.stateRucField.invalid) errors.push('Estado del RUC.');
+        if(this.tradeNameField.invalid) errors.push('Nombre comercial.');
+        if(this.registerNumberField.invalid) errors.push('Numero de registro.');
+        if(this.registeredAtField.invalid) errors.push('Fecha de registro.');
+        if(this.activitiesField.invalid) errors.push('Actividades.');
+        if(this.sortField.invalid) errors.push('Orden.');
+        if(this.categorieField.invalid) errors.push('Categoria.');
+        if(this.socialReasonField.invalid) errors.push('Razón social.');
+        if(this.legalNameField.invalid) errors.push('Nombre legal.');
+
+        if (errors.length > 0) {
+            this.form.markAllAsTouched();
+            return errors;
+        }
+
         return [];
     }
 
