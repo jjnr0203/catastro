@@ -37,14 +37,13 @@ export class AgencyVariablesComponent implements OnInit {
 
     buildForm() {
         this.form = this.formBuilder.group({
-            localTypeId: ['', [Validators.required]],
-            permanentPhysicalSpaceId: ['', [Validators.required]],
+            permanentPhysicalSpace: ['', [Validators.required]],
             aventureTourismModalities: ['', [Validators.required]],
             identification: ['', [Validators.required]],
             name: ['', [Validators.required]],
             ruc: ['', [Validators.required]],
             touristTransportCompanies: ['', [Validators.required]],
-            sales_representatives: ['', [Validators.required]],
+            salesRepresentatives: ['', [Validators.required]],
             legalName: ['', [Validators.required]]
         });
 
@@ -62,14 +61,13 @@ export class AgencyVariablesComponent implements OnInit {
     getFormErrors(): string[] {
         const errors: string[] = [];
 
-        if (this.localTypeIdField.invalid) errors.push('El tipo de local es obligatorio.');
-        if (this.permanentPhysicalSpaceIdField.invalid) errors.push('El espacio físico permanente es obligatorio.');
+        if (this.permanentPhysicalSpaceField.invalid) errors.push('El espacio físico permanente es obligatorio.');
         if (this.aventureTourismModalitiesField.invalid) errors.push('Las modalidades de turismo de aventura son obligatorias.');
         if (this.identificationField.invalid) errors.push('La identificación es obligatoria.');
         if (this.nameField.invalid) errors.push('El nombre es obligatorio.');
         if (this.rucField.invalid) errors.push('El RUC es obligatorio.');
         if (this.touristTransportCompaniesField.invalid) errors.push('Las empresas de transporte turístico son obligatorias.');
-        if (this.sales_representativesField.invalid) errors.push('Los representantes de ventas son obligatorios.');
+        if (this.salesRepresentativesField.invalid) errors.push('Los representantes de ventas son obligatorios.');
         if (this.legalNameField.invalid) errors.push('El nombre legal es obligatorio.');
 
         if (errors.length > 0) {
@@ -82,11 +80,7 @@ export class AgencyVariablesComponent implements OnInit {
 
     loadData() {}
 
-    get localTypeIdField(): AbstractControl {
-        return this.form.controls['localTypeId'];
-    }
-
-    get permanentPhysicalSpaceIdField(): AbstractControl {
+    get permanentPhysicalSpaceField(): AbstractControl {
         return this.form.controls['permanentPhysicalSpaceId'];
     }
 
@@ -110,7 +104,7 @@ export class AgencyVariablesComponent implements OnInit {
         return this.form.controls['touristTransportCompanies'];
     }
 
-    get sales_representativesField(): AbstractControl {
+    get salesRepresentativesField(): AbstractControl {
         return this.form.controls['sales_representatives'];
     }
 

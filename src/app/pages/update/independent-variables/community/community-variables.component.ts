@@ -44,7 +44,6 @@ export class CommunityVariablesComponent implements OnInit {
             totalTables: ['', [Validators.required]],
             totalCapacities: ['', [Validators.required]],
             aventureTourismModalities: ['', [Validators.required]],
-            //ctcActivities: ['', [Validators.required]], //delete
             identification: ['', [Validators.required]],
             name: ['', [Validators.required]],
             ruc: ['', [Validators.required]],
@@ -112,10 +111,6 @@ export class CommunityVariablesComponent implements OnInit {
     get aventureTourismModalitiesField() {
         return this.form.controls['aventureTourismModalities'];
     }
-
-    /* get ctcActivitiesField() {
-        return this.form.controls['ctcActivities'];
-    } */
 
     get identificationField() {
         return this.form.controls['identification'];

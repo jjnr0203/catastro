@@ -1,12 +1,19 @@
 import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PrimeIcons } from 'primeng/api';
+import { CardModule } from 'primeng/card';
 import { FluidModule } from 'primeng/fluid';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { InputTextModule } from 'primeng/inputtext';
+import { PanelModule } from 'primeng/panel';
+import { SelectModule } from 'primeng/select';
+import { TagModule } from 'primeng/tag';
 import { debounceTime, distinctUntilChanged } from 'rxjs';
+import { CustomLabelDirective } from '../../../../shared/directives/custom-label.directive';
 
 @Component({
     selector: 'app-transport-variables',
-    imports: [ReactiveFormsModule, FluidModule],
+    imports: [ReactiveFormsModule, CustomLabelDirective, SelectModule, PanelModule, FluidModule, InputTextModule, InputNumberModule, CardModule, TagModule, SelectModule],
     templateUrl: './transport-variables.component.html',
     styleUrl: './transport-variables.component.scss'
 })
@@ -34,7 +41,7 @@ export class TransportVariablesComponent implements OnInit {
             enablingTitle: ['', [Validators.required]],
             issueAt: ['', [Validators.required]],
             expirationAt: ['', [Validators.required]],
-            typeVehicle: ['', [Validators.required]],
+            landTransports: ['', [Validators.required]],
             registration: ['', [Validators.required]],
             registrationAt: ['', [Validators.required]],
             registrationExpirationAt: ['', [Validators.required]],
@@ -64,7 +71,7 @@ export class TransportVariablesComponent implements OnInit {
         if (this.enablingTitleField.invalid) errors.push('El título habilitante es obligatorio.');
         if (this.issueAtField.invalid) errors.push('La fecha de emisión es obligatoria.');
         if (this.expirationAtField.invalid) errors.push('La fecha de expiración es obligatoria.');
-        if (this.typeVehicleField.invalid) errors.push('El tipo de vehículo es obligatorio.');
+        if (this.landTransportsField.invalid) errors.push('El tipo de vehículo es obligatorio.');
         if (this.registrationField.invalid) errors.push('El número de matrícula es obligatorio.');
         if (this.registrationAtField.invalid) errors.push('La fecha de matrícula es obligatoria.');
         if (this.registrationExpirationAtField.invalid) errors.push('La fecha de expiración de la matrícula es obligatoria.');
@@ -99,7 +106,7 @@ export class TransportVariablesComponent implements OnInit {
         return this.form.controls['expirationAt'];
     }
 
-    get typeVehicleField() {
+    get landTransportsField() {
         return this.form.controls['typeVehicle'];
     }
 

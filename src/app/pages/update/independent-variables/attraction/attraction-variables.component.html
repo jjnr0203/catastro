@@ -1,20 +1,20 @@
 <p-fluid>
     <form [formGroup]="form">
         <!-- Componente Registro de turismo -->
-            <h1 class="text-3xl font-bold mb-8">Datos Independientes de Parques de atracción estable</h1>
-            <div class="grid grid-cols-12 gap-6">
+        <h1 class="text-3xl font-bold mb-8">Datos Independientes de Parques de atracción estable</h1>
+        <div class="grid grid-cols-12 gap-6">
 
-                 <!-- Total capacidades otras actividades  -->
-                <div class="col-span-4 flex flex-col gap-2">
-                    <label appLabel label="Total capacidades otras actividades"> </label>
-                    <input pInputText type="text" formControlName="totalRooms" />
-                </div>
-
-                 <!--Modalidades de turismo de aventura -->
-                <div class="col-span-4 flex flex-col gap-2">
-                    <label appLabel label="Modalidades de turismo de aventura "> </label>
-                    <input pInputText type="text" formControlName="aventureTourismModalities" />
-                </div>
+            <!-- Total capacidades otras actividades  -->
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Total capacidades otras actividades"> </label>
+                <input pInputText type="text" formControlName="totalRooms" />
             </div>
+
+            <!--Modalidades de turismo de aventura -->
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Modalidades de turismo de aventura "> </label>
+                <input pInputText type="text" formControlName="aventureTourismModalities" />
+            </div>
+        </div>
     </form>
 </p-fluid>

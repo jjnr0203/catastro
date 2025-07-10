@@ -1,11 +1,19 @@
 import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl, ReactiveFormsModule } from '@angular/forms';
 import { PrimeIcons } from 'primeng/api';
+import { CardModule } from 'primeng/card';
+import { FluidModule } from 'primeng/fluid';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { InputTextModule } from 'primeng/inputtext';
+import { PanelModule } from 'primeng/panel';
+import { SelectModule } from 'primeng/select';
+import { TagModule } from 'primeng/tag';
 import { debounceTime, distinctUntilChanged } from 'rxjs';
+import { CustomLabelDirective } from '../../../../shared/directives/custom-label.directive';
 
 @Component({
     selector: 'app-guidance-variables',
-    imports: [],
+    imports: [ReactiveFormsModule, CustomLabelDirective, SelectModule, PanelModule, FluidModule, InputTextModule, InputNumberModule, CardModule, TagModule, SelectModule],
     templateUrl: './guidance-variables.component.html',
     styleUrl: './guidance-variables.component.scss'
 })

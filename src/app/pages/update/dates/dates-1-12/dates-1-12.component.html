@@ -12,13 +12,13 @@
                 <!-- Código de Establecimiento RUC-->
                 <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Código de establecimiento RUC"> </label>
-                    <input pInputText type="text" formControlName="establishmentCode" />
+                    <input pInputText type="text" formControlName="code" />
                 </div>
 
                 <!-- Estado RUC-->
                 <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Estado RUC"> </label>
-                    <input pInputText type="text" formControlName="stateRuc" />
+                    <input pInputText type="text" formControlName="state" />
                 </div>
 
                 <!-- Nombre Comercial-->
@@ -66,16 +66,10 @@
                 <!-- Respresentante legal-->
                 <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Representante legal"> </label>
-                    <input pInputText type="text" formControlName="legalRepresentative" />
+                    <input pInputText type="text" formControlName="legalName" />
                 </div>
 
-                <!-- Tipo de Local -->
-                @if (showLocalType()) {
-                    <div class="col-span-4 flex flex-col gap-2">
-                        <label appLabel label="Tipo de Local"> </label>
-                        <p-select optionLabel="label" formControlName="localType" placeholder="Seleccione un local"/>
-                    </div>
-                }
+               
             </div>
     </form>
 </p-fluid>

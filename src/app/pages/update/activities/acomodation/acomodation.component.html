@@ -1,7 +1,9 @@
 <p-fluid>
     <p-panel>
         
-        <app-dates-1-12 [showLocalType]="true" />
+        <app-dates-1-12 
+        (dataOut)="saveForm($event, 'dates1_12')"
+        [showLocalType]="true" />
         <p-divider />
         <app-dates-14-37 />
         <p-divider />

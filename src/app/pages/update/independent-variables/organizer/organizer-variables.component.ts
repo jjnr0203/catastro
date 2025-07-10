@@ -29,7 +29,7 @@ export class OrganizerVariablesComponent implements OnInit {
 
     buildForm() {
         this.form = this.formBuilder.group({
-            localTypeId: ['', [Validators.required]],
+            localType: ['', [Validators.required]],
             totalCapacity: ['', [Validators.required]]
         });
         this.watchFormChanges();
@@ -50,7 +50,7 @@ export class OrganizerVariablesComponent implements OnInit {
     getFormErrors(): string[] {
         const errors: string[] = [];
 
-        if (this.localTypeIdField.invalid) errors.push('El tipo de local es obligatorio.');
+        if (this.localTypeField.invalid) errors.push('El tipo de local es obligatorio.');
         if (this.totalCapacityField.invalid) errors.push('La capacidad total es obligatoria.');
 
         if (errors.length > 0) {
@@ -62,8 +62,8 @@ export class OrganizerVariablesComponent implements OnInit {
 
     loadData() {}
 
-    get localTypeIdField() {
-        return this.form.controls['localTypeId'];
+    get localTypeField() {
+        return this.form.controls['localType'];
     }
 
     get totalCapacityField() {

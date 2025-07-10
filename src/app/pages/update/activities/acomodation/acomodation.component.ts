@@ -1,7 +1,7 @@
 import { Component, inject, QueryList, ViewChildren } from '@angular/core';
 import { PanelModule } from 'primeng/panel';
 import { FluidModule } from 'primeng/fluid';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CardModule } from 'primeng/card';
@@ -51,17 +51,31 @@ export class AcomodationComponent {
     //protected readonly customMessageService = inject(CustomMessageService);
 
     constructor() {
-        this.mainForm = this.formBuilder.group({});
+        this.mainForm = this.formBuilder.group({
+            dates1_12: this.formBuilder.group({}),
+            dates_14_37: this.formBuilder.group({}),
+            accommodationVariables: this.formBuilder.group({}),
+            dates_79_84: this.formBuilder.group({})
+        }); 
     }
 
-    saveForm(childForm: FormGroup) {
-        Object.keys(childForm.controls).forEach((controlName) => {
+    saveForm(childForm: FormGroup, componentName: string) {
+       /*  Object.keys(childForm.controls).forEach((controlName) => {
             if (!this.mainForm.contains(controlName)) {
                 this.mainForm.addControl(controlName, this.formBuilder.control(childForm.get(controlName)?.value));
             } else {
                 this.mainForm.get(controlName)?.patchValue(childForm.get(controlName)?.value);
             }
-        });
+
+        }); */
+
+         switch (componentName) {
+                case 'dates1_12': 
+                this.dates1_12Field.patchValue(childForm.value) 
+                break
+
+                }
+                console.log('Form updated:', this.mainForm.value);
     }
 
     onSubmit() {
@@ -89,4 +103,8 @@ export class AcomodationComponent {
 
         return true;
     }
+
+    get dates1_12Field(): AbstractControl { 
+            return this.mainForm.controls['dates1_12'] ; 
+        }
 }

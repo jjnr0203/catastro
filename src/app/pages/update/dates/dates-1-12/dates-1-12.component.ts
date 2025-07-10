@@ -49,7 +49,7 @@ export class Dates1_12Component implements OnInit {
         this.form = this.formBuilder.group({
             ruc: ['', Validators.required],
             code: ['', Validators.required],
-            stateRuc: ['', Validators.required], //review name variable
+            state: ['', Validators.required], //review name variable
             tradeName: ['', [Validators.required]],
             registerNumber: ['', [Validators.required]],
             registeredAt: ['', [Validators.required]],
@@ -76,7 +76,7 @@ export class Dates1_12Component implements OnInit {
 
         if(this.rucField.invalid) errors.push('Su ruc es.');
         if(this.codeField.invalid) errors.push('Codigo.')
-        if(this.stateRucField.invalid) errors.push('Estado del RUC.');
+        if(this.stateField.invalid) errors.push('Estado del RUC.');
         if(this.tradeNameField.invalid) errors.push('Nombre comercial.');
         if(this.registerNumberField.invalid) errors.push('Numero de registro.');
         if(this.registeredAtField.invalid) errors.push('Fecha de registro.');
@@ -105,8 +105,8 @@ export class Dates1_12Component implements OnInit {
         return this.form.controls['code'];
     };
 
-    get stateRucField(): AbstractControl {
-        return this.form.controls['stateRuc'];
+    get stateField(): AbstractControl {
+        return this.form.controls['state'];
     };
 
     get tradeNameField(): AbstractControl {

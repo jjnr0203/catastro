@@ -11,7 +11,7 @@ import { PrimeIcons } from 'primeng/api';
 
 @Component({
     selector: 'app-guidance',
-    imports: [Dates1_12Component, Dates_14_37Component, Dates_79_84Component, PanelModule, FluidModule, DividerModule],
+    imports: [Dates1_12Component, Dates_14_37Component, Dates_79_84Component, PanelModule, FluidModule, DividerModule, GuidanceVariablesComponent],
     templateUrl: './guidance.component.html',
     styleUrl: './guidance.component.scss'
 })

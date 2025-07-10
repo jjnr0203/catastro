@@ -38,8 +38,8 @@ export class Dates_14_37Component implements OnInit {
         this.form = this.formBuilder.group({
             establishments: ['', Validators.required],
             name: ['', Validators.required],
-            juridicalPersons: ['', Validators.required],
-            legalStatus: ['', Validators.required],
+            type: ['', Validators.required],
+            legalEntity: ['', Validators.required],
             province: ['', [Validators.required]],
             canton: ['', [Validators.required]],
             parish: ['', [Validators.required]],
@@ -52,7 +52,7 @@ export class Dates_14_37Component implements OnInit {
             webPage: ['', [Validators.required]],
             latitude: ['', [Validators.required]],
             longitude: ['', [Validators.required]],
-            establishmentStatus: ['', Validators.required],
+            state: ['', Validators.required],
             systemOrigin: ['', Validators.required],
             hasDebt: ['', [Validators.required]],
             totalMen: ['', [Validators.required]],
@@ -78,9 +78,9 @@ export class Dates_14_37Component implements OnInit {
 
         if(this.nameField.invalid) errors.push('Nombre')
 
-        if(this.juridicalPersonsField.invalid) errors.push('Tipo de Personería')
+        if(this.typeField.invalid) errors.push('Tipo de Personería')
 
-        if(this.legalStatusField.invalid) errors.push('Personería jurídica')
+        if(this.legalEntityField.invalid) errors.push('Personería jurídica')
 
         if(this.provinceField.invalid) errors.push('Provincia')
 
@@ -106,7 +106,7 @@ export class Dates_14_37Component implements OnInit {
 
         if(this.webPageField.invalid) errors.push('Dirección Web')
 
-        if(this.establishmentStatusField.invalid) errors.push('Estado Registro del establecimiento')
+        if(this.stateField.invalid) errors.push('Estado Registro del establecimiento')
 
         if(this.systemOriginField.invalid) errors.push('Sistema de origen')
 
@@ -120,7 +120,7 @@ export class Dates_14_37Component implements OnInit {
 
         if(this.totalWomenDisabilityField.invalid) errors.push('Total de trabajadores Mujeres con discapacidad')
 
-        if(this.totalWorker.invalid) errors.push('Total trabajadores ')
+        if(this.totalWorkerField.invalid) errors.push('Total trabajadores ')
 
         if (errors.length > 0) {
             this.form.markAllAsTouched();
@@ -140,12 +140,12 @@ export class Dates_14_37Component implements OnInit {
         return this.form.controls['name'];
     }
 
-    get juridicalPersonsField(): AbstractControl {
-        return this.form.controls['juridicalPersons'];
+    get typeField(): AbstractControl {
+        return this.form.controls['type'];
     }
 
-    get legalStatusField(): AbstractControl {
-        return this.form.controls['legalStatus'];
+    get legalEntityField(): AbstractControl {
+        return this.form.controls['legalEntity'];
     }
 
     get provinceField(): AbstractControl {
@@ -196,8 +196,8 @@ export class Dates_14_37Component implements OnInit {
         return this.form.controls['webPage'];
     }
 
-    get establishmentStatusField(): AbstractControl {
-        return this.form.controls['establishmentStatus'];
+    get stateField(): AbstractControl {
+        return this.form.controls['state'];
     }
 
     get systemOriginField(): AbstractControl {
@@ -224,7 +224,7 @@ export class Dates_14_37Component implements OnInit {
         return this.form.controls['totalWomenDisability'];
     }
 
-    get totalWorker(): AbstractControl {
+    get totalWorkerField(): AbstractControl {
         return this.form.controls['totalWomenDisability'];
     }
 }

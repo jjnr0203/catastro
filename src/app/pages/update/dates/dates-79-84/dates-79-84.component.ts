@@ -39,9 +39,9 @@ export class Dates_79_84Component implements OnInit {
         this.form = this.formBuilder.group({
             name: ['', Validators.required],
             email: ['', Validators.required],
-            typeProcedure: ['', Validators.required],
-            dateProcessing: ['', Validators.required],
-            systemModication: ['', Validators.required],
+            type: ['', Validators.required],
+            registeredAt: ['', Validators.required],
+            state: ['', Validators.required],
             observation: ['', Validators.required]
         });
         this.watchFormChanges();
@@ -60,10 +60,10 @@ export class Dates_79_84Component implements OnInit {
 
         if(this.nameField.invalid) errors.push('Su nombre es obligatorio.');
         if(this.emailField.invalid) errors.push('Su correo electrónico es obligatorio.');
-        if(this.typeProcedure.invalid) errors.push('El tipo de procedimiento es obligatorio.');
-        if(this.dateProcessing.invalid) errors.push('La fecha de procesamiento es obligatoria.');
-        if(this.systemModication.invalid) errors.push('El sistema de modificación es obligatorio.');
-        if(this.observation.invalid) errors.push('La observación es obligatoria.');
+        if(this.typeField.invalid) errors.push('El tipo de procedimiento es obligatorio.');
+        if(this.registeredAtField.invalid) errors.push('La fecha de procesamiento es obligatoria.');
+        if(this.stateField.invalid) errors.push('El sistema de modificación es obligatorio.');
+        if(this.observationField.invalid) errors.push('La observación es obligatoria.');
 
         if (errors.length > 0) {
             this.form.markAllAsTouched();
@@ -83,19 +83,19 @@ export class Dates_79_84Component implements OnInit {
         return this.form.controls['email'];
     }
 
-    get typeProcedure(): AbstractControl {
-        return this.form.controls['typeProcedure'];
+    get typeField(): AbstractControl {
+        return this.form.controls['type'];
     }
 
-    get dateProcessing(): AbstractControl {
-        return this.form.controls['dateProcessing'];
+    get registeredAtField(): AbstractControl {
+        return this.form.controls['registeredAt'];
     }
 
-    get systemModication(): AbstractControl {
+    get stateField(): AbstractControl {
         return this.form.controls['systemModication'];
     }
 
-    get observation(): AbstractControl {
+    get observationField(): AbstractControl {
         return this.form.controls['observation'];
     }
 }

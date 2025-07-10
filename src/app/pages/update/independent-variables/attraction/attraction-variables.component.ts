@@ -37,7 +37,7 @@ export class AttraccionVariablesComponent implements OnInit {
 
     buildForm() {
         this.form = this.formBuilder.group({
-            localTypeId: ['', [Validators.required]],
+            totalRooms: ['', [Validators.required]],
             totalCapacity: ['', [Validators.required]],
             aventureTourismModalities: ['', [Validators.required]]
         });
@@ -56,9 +56,9 @@ export class AttraccionVariablesComponent implements OnInit {
     getFormErrors(): string[] {
         const errors: string[] = [];
 
-        if (this.localTypeId.invalid) errors.push('El tipo de local es obligatorio.');
+        if (this.totalRoomsField.invalid) errors.push('El tipo de local es obligatorio.');
         if (this.totalCapacityField.invalid) errors.push('La capacidad total es obligatoria.');
-        if (this.aventureTourismModalities.invalid) errors.push('Las modalidades de turismo de aventura son obligatorias.');
+        if (this.aventureTourismModalitiesField.invalid) errors.push('Las modalidades de turismo de aventura son obligatorias.');
 
         if (errors.length > 0) {
             this.form.markAllAsTouched();
@@ -69,15 +69,15 @@ export class AttraccionVariablesComponent implements OnInit {
 
     loadData() {}
 
-    get localTypeId() {
-        return this.form.controls['localType'];
+    get totalRoomsField() {
+        return this.form.controls['totalRooms'];
     }
 
     get totalCapacityField() {
-        return this.form.controls['localTypeId'];
+        return this.form.controls['localCapacity'];
     }
 
-    get aventureTourismModalities() {
-        return this.form.controls['localTypeId'];
+    get aventureTourismModalitiesField() {
+        return this.form.controls['aventureTourismModalities'];
     }
 }

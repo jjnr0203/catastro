@@ -1,1 +1,27 @@
-<p>guidance-variables works!</p>
+<p-fluid>
+    <form [formGroup]="form">
+        <!-- Componente Registro de turismo -->
+            <h1 class="text-3xl font-bold mb-8">Datos Independientes de Guianza turística </h1>
+            <div class="grid grid-cols-12 gap-6">
+
+                 <!-- Número de credencial -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Número de credencial "> </label>
+                    <input pInputText type="text" formControlName="code" />
+                </div>
+
+                <!--Fecha de emisión de la licencia -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Fecha de emisión de la licencia "> </label>
+                    <input pInputText type="text" formControlName="issueAt" />
+                </div>
+                
+                 <!--Fecha de caducidad de la licencia -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Fecha de caducidad de la licencia"> </label>
+                    <input pInputText type="text" formControlName="expirationAt" />
+                </div>
+
+            </div>
+    </form>
+</p-fluid>

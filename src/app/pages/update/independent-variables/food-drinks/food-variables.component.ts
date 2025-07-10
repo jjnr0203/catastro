@@ -40,10 +40,8 @@ export class FoodVariablesComponent implements OnInit {
         this.form = this.formBuilder.group({
             totalTables: ['', [Validators.required]],
             totalCapacities: ['', [Validators.required]],
-            // kitchenTypes: ['', [Validators.required]],
             serviceType: ['', [Validators.required]],
             aventureTourismModalities: ['', [Validators.required]]
-            //ctcActivities: ['', [Validators.required]] //delete
         });
         this.watchFormChanges();
     }
@@ -81,9 +79,6 @@ export class FoodVariablesComponent implements OnInit {
         return this.form.controls['totalCapacities'];
     }
 
-    /* get kitchenTypes(): AbstractControl {
-        return this.form.controls['kitchenTypes'];
-    } */
 
     get serviceTypeField(): AbstractControl {
         return this.form.controls['serviceType'];
@@ -93,7 +88,4 @@ export class FoodVariablesComponent implements OnInit {
         return this.form.controls['aventureTourismModalities'];
     }
 
-    get ctcActivitiesField(): AbstractControl {
-        return this.form.controls['ctcActivities'];
-    }
 }

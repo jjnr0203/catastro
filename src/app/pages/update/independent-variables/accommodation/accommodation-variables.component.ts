@@ -22,7 +22,7 @@ export class AccommodationVariablesComponent implements OnInit {
     @Output() fieldErrorsOut = new EventEmitter<string[]>();
 
     private readonly formBuilder = inject(FormBuilder);
-    /* protected readonly _customMessageService = inject(CustomMessageService); */
+    /* protected readonly customMessageService = inject(CustomMessageService); */
     protected readonly PrimeIcons = PrimeIcons;
 
     protected form!: FormGroup;
@@ -37,7 +37,7 @@ export class AccommodationVariablesComponent implements OnInit {
 
     buildForm() {
         this.form = this.formBuilder.group({
-            localTypeId: ['', [Validators.required]],
+           /*  localType: ['', [Validators.required]], */
             totalRooms: ['', [Validators.required]],
             totalBeds: ['', [Validators.required]],
             totalPlaces: ['', [Validators.required]],
@@ -49,7 +49,6 @@ export class AccommodationVariablesComponent implements OnInit {
             placesTypeCapacity: ['', [Validators.required]],
             rateTypeCapacity: ['', [Validators.required]],
             aventureTourismModalities: ['', [Validators.required]]
-            /* ctcActivities: ['', [Validators.required]], */ //Eliminar
         });
 
         this.watchFormChanges();
@@ -66,7 +65,7 @@ export class AccommodationVariablesComponent implements OnInit {
     getFormErrors(): string[] {
         const errors: string[] = [];
 
-        if (this.localTypeIdField.invalid) errors.push('Su local es');
+        /* if (this.localTypeField.invalid) errors.push('Su local es'); */
 
         if (this.totalRoomsField.invalid) errors.push('Total Habitaciones');
 
@@ -90,8 +89,6 @@ export class AccommodationVariablesComponent implements OnInit {
 
         if (this.aventureTourismModalitiesField.invalid) errors.push('Modalidades de turismo aventura');
 
-        /*  if (this.ctcActivitiesField.invalid) errors.push('Actividades permitidas CTC'); */
-
         if (errors.length > 0) {
             this.form.markAllAsTouched();
             return errors;
@@ -102,9 +99,9 @@ export class AccommodationVariablesComponent implements OnInit {
 
     loadData() {}
 
-    get localTypeIdField(): AbstractControl {
-        return this.form.controls['localTypeId'];
-    }
+   /*  get localTypeField(): AbstractControl {
+        return this.form.controls['localType'];
+    } */
 
     get totalRoomsField(): AbstractControl {
         return this.form.controls['totalRooms'];
@@ -149,8 +146,4 @@ export class AccommodationVariablesComponent implements OnInit {
     get aventureTourismModalitiesField(): AbstractControl {
         return this.form.controls['aventureTourismModalities'];
     }
-
-    /*  get ctcActivitiesField(): AbstractControl {
-        return this.form.controls['ctcActivities'];
-    } */
 }
