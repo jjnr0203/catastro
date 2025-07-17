@@ -52,7 +52,7 @@ export class AcomodationComponent {
 
     constructor() {
         this.mainForm = this.formBuilder.group({
-            dates1_12: [null],
+            procedure: [null],
             dates_14_37: [null],
             accommodationVariables: [null],
             dates_79_84: [null]
@@ -71,7 +71,7 @@ export class AcomodationComponent {
 
          switch (componentName) {
                 case 'procedure': 
-                this.dates1_12Field.patchValue(childForm.value) 
+                this.procedureField.patchValue(childForm.value) 
                 break
 
                 case 'x': 
@@ -109,7 +109,7 @@ export class AcomodationComponent {
         return true;
     }
 
-    get dates1_12Field(): AbstractControl { 
+    get procedureField(): AbstractControl { 
             return this.mainForm.controls['procedure'] ; 
         }
 
