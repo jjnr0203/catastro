@@ -1,24 +1,24 @@
 import { Component, inject, QueryList, ViewChildren } from '@angular/core';
-import { Dates1_12Component } from '../../dates/dates-1-12/dates-1-12.component';
-import { Dates_14_37Component } from '../../dates/dates-14-37/dates-14-37.component';
-import { Dates_79_84Component } from '../../dates/dates-79-84/dates-79-84.component';
+import { Dates_14_37Component } from '../../sections/dates-14-37/dates-14-37.component';
+import { Dates_79_84Component } from '../../sections/dates-79-84/dates-79-84.component';
 import { FluidModule } from 'primeng/fluid';
 import { PanelModule } from 'primeng/panel';
 import { DividerModule } from 'primeng/divider';
 import { OrganizerVariablesComponent } from '../../independent-variables/organizer/organizer-variables.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { PrimeIcons } from 'primeng/api';
+import { ProcedureComponent } from '../../sections/procedure/procedure.component';
 
 @Component({
     selector: 'app-organizer',
-    imports: [Dates1_12Component, Dates_14_37Component, Dates_79_84Component, OrganizerVariablesComponent, FluidModule, PanelModule, DividerModule],
+    imports: [ProcedureComponent, Dates_14_37Component, Dates_79_84Component, OrganizerVariablesComponent, FluidModule, PanelModule, DividerModule],
     templateUrl: './organizer.component.html',
     styleUrl: './organizer.component.scss'
 })
 export class OrganizerComponent {
     protected readonly PrimeIcons = PrimeIcons;
 
-    @ViewChildren(Dates1_12Component) private dates1_12Component!: QueryList<Dates1_12Component>;
+    @ViewChildren(ProcedureComponent) private ProcedureComponent!: QueryList<ProcedureComponent>;
     @ViewChildren(Dates_14_37Component) private dates_14_37Component!: QueryList<Dates_14_37Component>;
     @ViewChildren(OrganizerVariablesComponent) private organizerVariablesComponent!: QueryList<OrganizerVariablesComponent>;
     @ViewChildren(Dates_79_84Component) private dates_79_84Component!: QueryList<Dates_79_84Component>;
@@ -55,7 +55,7 @@ export class OrganizerComponent {
 
     checkFormErrors() {
         const errors: string[] = [
-            ...this.dates1_12Component.toArray().flatMap((c) => c.getFormErrors()),
+            ...this.ProcedureComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.dates_14_37Component.toArray().flatMap((c) => c.getFormErrors()),
             ...this.organizerVariablesComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.dates_79_84Component.toArray().flatMap((c) => c.getFormErrors())

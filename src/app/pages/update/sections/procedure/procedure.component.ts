@@ -10,14 +10,15 @@ import { CustomLabelDirective } from '../../../../shared/directives/custom-label
 import { SelectModule } from 'primeng/select';
 import { PrimeIcons } from 'primeng/api';
 import { debounceTime, distinctUntilChanged } from 'rxjs';
+import { DatePickerModule } from 'primeng/datepicker';
 
 @Component({
-    selector: 'app-dates-1-12',
-    imports: [ReactiveFormsModule, CustomLabelDirective, SelectModule, PanelModule, FluidModule, InputTextModule, InputNumberModule, CardModule, TagModule, SelectModule],
-    templateUrl: './dates-1-12.component.html',
-    styleUrl: './dates-1-12.component.scss'
+    selector: 'app-procedure',
+    imports: [ReactiveFormsModule, CustomLabelDirective, SelectModule, PanelModule, FluidModule, InputTextModule, InputNumberModule, CardModule, TagModule, SelectModule, DatePickerModule],
+    templateUrl: './procedure.component.html',
+    styleUrl: './procedure.component.scss'
 })
-export class Dates1_12Component implements OnInit {
+export class ProcedureComponent implements OnInit {
 
     @Input() data!: string | undefined;
     @Output() dataOut = new EventEmitter<FormGroup>();
