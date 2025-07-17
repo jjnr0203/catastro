@@ -47,16 +47,16 @@ export class Dates1_12Component implements OnInit {
 
     buildForm() {
         this.form = this.formBuilder.group({
-            ruc: ['', Validators.required],
-            code: ['', Validators.required],
-            state: ['', Validators.required], //review name variable
-            tradeName: ['', [Validators.required]],
-            registerNumber: ['', [Validators.required]],
-            registeredAt: ['', [Validators.required]],
-            activities: ['', [Validators.required]],
-            sort: ['', [Validators.required]],
-            categorie: ['', [Validators.required]],
-            socialReason: ['', Validators.required], //review name variable
+            ruc: ['12345', Validators.required],
+            code: ['12312', Validators.required],
+            state: ['activo', Validators.required], //review name variable
+            tradeName: ['sads', [Validators.required]],
+            registerNumber: ['23232', [Validators.required]],
+            registeredAt: ['3443', [Validators.required]],
+            activities: ['fdf', [Validators.required]],
+            sort: ['dfd', [Validators.required]],
+            categorie: ['dfsf', [Validators.required]],
+            socialReason: ['fdfdf', Validators.required], //review name variable
             legalName: ['', Validators.required],
         });
 
@@ -68,6 +68,7 @@ export class Dates1_12Component implements OnInit {
             if (this.form.valid) {
                 this.dataOut.emit(this.form);
             }
+             console.log('Form changes detected:', this.form.value);
         });
     }
 

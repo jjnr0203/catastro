@@ -52,10 +52,10 @@ export class AcomodationComponent {
 
     constructor() {
         this.mainForm = this.formBuilder.group({
-            dates1_12: this.formBuilder.group({}),
-            dates_14_37: this.formBuilder.group({}),
-            accommodationVariables: this.formBuilder.group({}),
-            dates_79_84: this.formBuilder.group({})
+            dates1_12: [null],
+            dates_14_37: [null],
+            accommodationVariables: [null],
+            dates_79_84: [null]
         }); 
     }
 
@@ -74,8 +74,13 @@ export class AcomodationComponent {
                 this.dates1_12Field.patchValue(childForm.value) 
                 break
 
+                case 'x': 
+                this.dates14_37Field.patchValue(childForm.value) 
+                break
+
                 }
-                console.log('Form updated:', this.mainForm.value);
+                console.log('Form1 updated:', childForm.value);
+                console.log('Form2 updated:', this.mainForm.value);
     }
 
     onSubmit() {
@@ -106,5 +111,9 @@ export class AcomodationComponent {
 
     get dates1_12Field(): AbstractControl { 
             return this.mainForm.controls['dates1_12'] ; 
+        }
+
+        get dates14_37Field(): AbstractControl { 
+            return this.mainForm.controls['dates_14_37'] ; 
         }
 }
