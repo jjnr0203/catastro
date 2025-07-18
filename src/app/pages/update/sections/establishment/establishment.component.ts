@@ -36,16 +36,16 @@ export class EstablishmentComponent implements OnInit {
 
     buildForm() {
         this.form = this.formBuilder.group({
-            establishments: ['', Validators.required],
-            name: ['', Validators.required],
-            type: ['', Validators.required],
-            legalEntity: ['', Validators.required],
-            email: ['', [Validators.required, Validators.email]],
-            webPage: ['', [Validators.required]],
-            state: ['', Validators.required],
-            systemOrigin: ['', Validators.required],
-            hasDebt: ['', [Validators.required]],
-            number: ['', [Validators.required]],
+            establishments: ['fesfse', Validators.required],
+            name: ['sefes', Validators.required],
+            type: ['fsefsef', Validators.required],
+            legalEntity: ['fesfes', Validators.required],
+            email: ['fesf@gmail.com', [Validators.required, Validators.email]],
+            webPage: ['dwadawd', [Validators.required]],
+            state: ['dawdaw', Validators.required],
+            //systemOrigin: ['', Validators.required],
+            hasDebt: ['dawdawd', [Validators.required]],
+            number: ['dwada', [Validators.required]],
             tradeName: ['', [Validators.required]],
             
         });
@@ -76,13 +76,13 @@ export class EstablishmentComponent implements OnInit {
 
         if (this.stateField.invalid) errors.push('Estado Registro del establecimiento');
 
-        if (this.systemOriginField.invalid) errors.push('Sistema de origen');
+        //if (this.systemOriginField.invalid) errors.push('Sistema de origen');
 
         if (this.hasDebtField.invalid) errors.push('Estado del Registro con deuda');
 
-        if(this.numberField.invalid) errors.push('Número');
+        if (this.numberField.invalid) errors.push('Número');
 
-        if(this.tradeNameField.invalid) errors.push('Nombre comercial');
+        if (this.tradeNameField.invalid) errors.push('Nombre comercial');
 
         if (errors.length > 0) {
             this.form.markAllAsTouched();
@@ -122,9 +122,9 @@ export class EstablishmentComponent implements OnInit {
         return this.form.controls['state'];
     }
 
-    get systemOriginField(): AbstractControl {
+    /* get systemOriginField(): AbstractControl {
         return this.form.controls['systemOrigin'];
-    }
+    } */
 
     get hasDebtField(): AbstractControl {
         return this.form.controls['hasDebt'];

@@ -1,11 +1,13 @@
 <p-fluid>
     <p-panel>
         <app-procedure 
-        (dataOut)="saveForm($event, 'procedure')"
-        [showLocalType]="true" />
+        (dataOut)="saveForm($event, 'procedure')"/>
         <p-divider />
         <app-establishment
-         (dataOut)="saveForm($event, 'x')"/>
+        (dataOut)="saveForm($event, 'establishment')"/>
+        <p-divider />
+        <app-location
+        (dataOut)="saveForm($event, 'location')"/>
         <p-divider />
         <app-accommodation-variables 
          (dataOut)="saveForm($event, 'accommodation')"/>

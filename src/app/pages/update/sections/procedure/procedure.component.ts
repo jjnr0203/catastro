@@ -58,7 +58,7 @@ export class ProcedureComponent implements OnInit {
             sort: ['dfd', [Validators.required]],
             categorie: ['dfsf', [Validators.required]],
             socialReason: ['fdfdf', Validators.required], //review name variable
-            legalName: ['', Validators.required],
+            legalName: ['dawawd', Validators.required],
             type: ['', Validators.required],
             //!to do
             // registeredAt: ['', Validators.required],

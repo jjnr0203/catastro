@@ -1,0 +1,47 @@
+<p-fluid>
+    <form [formGroup]="form">
+        <h1 class="text-3xl font-bold mb-8">Ubicación del Establecimiento</h1>
+
+        <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Provincia"> </label>
+                <input pInputText type="text" formControlName="province" />
+            </div>
+
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Cantón"> </label>
+                <input pInputText type="text" formControlName="canton" />
+            </div>
+
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Parroquia"> </label>
+                <input pInputText type="text" formControlName="parish" />
+            </div>
+
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Tipo de Parroquia"> </label>
+                <input pInputText type="text" formControlName="parishType" />
+            </div>
+
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Dirección"> </label>
+                <input pInputText type="text" formControlName="address" />
+            </div>
+
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Calle de Referencia"> </label>
+                <input pInputText type="text" formControlName="referenceStreet" />
+            </div>
+
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Latitud"> </label>
+                <input pInputText type="text" formControlName="latitude"/>
+            </div>
+
+            <div class="col-span-4 flex flex-col gap-2">
+                <label appLabel label="Longitud"> </label>
+                <input pInputText type="text" formControlName="longitude"/>
+            </div>
+        </div>
+    </form>
+</p-fluid>

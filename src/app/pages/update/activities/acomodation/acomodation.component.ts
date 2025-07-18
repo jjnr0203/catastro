@@ -14,6 +14,7 @@ import { ButtonModule } from 'primeng/button';
 import { PrimeIcons } from 'primeng/api';
 import { ProcedureComponent } from '../../sections/procedure/procedure.component';
 import { EstablishmentComponent } from '../../sections/establishment/establishment.component';
+import { LocationComponent } from '../../sections/location/location.component';
 
 @Component({
     selector: 'app-acomodation',
@@ -31,7 +32,8 @@ import { EstablishmentComponent } from '../../sections/establishment/establishme
         EstablishmentComponent,
         Dates_79_84Component,
         AccommodationVariablesComponent,
-        ButtonModule, 
+        ButtonModule,
+        LocationComponent
     ],
     templateUrl: './acomodation.component.html',
     styleUrl: './acomodation.component.scss'
@@ -41,6 +43,7 @@ export class AcomodationComponent {
 
     @ViewChildren(ProcedureComponent) private procedureComponent!: QueryList<ProcedureComponent>;
     @ViewChildren(EstablishmentComponent) private establishmentComponent!: QueryList<EstablishmentComponent>;
+    @ViewChildren(LocationComponent) private locationComponent!: QueryList<LocationComponent>;
     @ViewChildren(AccommodationVariablesComponent) private accommodationVariablesComponet!: QueryList<AccommodationVariablesComponent>;
     @ViewChildren(Dates_79_84Component) private dates_79_84Componet!: QueryList<Dates_79_84Component>;
 
@@ -54,13 +57,14 @@ export class AcomodationComponent {
         this.mainForm = this.formBuilder.group({
             procedure: [null],
             establishment: [null],
+            location: [null],
             accommodationVariables: [null],
             dates_79_84: [null]
-        }); 
+        });
     }
 
     saveForm(childForm: FormGroup, componentName: string) {
-       /*  Object.keys(childForm.controls).forEach((controlName) => {
+        /*  Object.keys(childForm.controls).forEach((controlName) => {
             if (!this.mainForm.contains(controlName)) {
                 this.mainForm.addControl(controlName, this.formBuilder.control(childForm.get(controlName)?.value));
             } else {
@@ -69,18 +73,22 @@ export class AcomodationComponent {
 
         }); */
 
-         switch (componentName) {
-                case 'procedure': 
-                this.procedureField.patchValue(childForm.value) 
-                break
+        switch (componentName) {
+            case 'procedure':
+                this.procedureField.patchValue(childForm.value);
+                break;
 
-                case 'x': 
-                this.dates14_37Field.patchValue(childForm.value) 
-                break
+            case 'establishment':
+                this.establishmentField.patchValue(childForm.value);
+                break;
 
-                }
-                console.log('Form1 updated:', childForm.value);
-                console.log('Form2 updated:', this.mainForm.value);
+            case 'location':
+                this.locationField.patchValue(childForm.value);
+                break;
+        }
+        console.log('Form1 updated:', this.mainForm.value);
+        console.log('Form2 updated:', childForm.value);
+        //console.log('Form3 updated:', childForm.value);
     }
 
     onSubmit() {
@@ -97,6 +105,7 @@ export class AcomodationComponent {
         const errors: string[] = [
             ...this.procedureComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.establishmentComponent.toArray().flatMap((c) => c.getFormErrors()),
+            ...this.locationComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.accommodationVariablesComponet.toArray().flatMap((c) => c.getFormErrors()),
             ...this.dates_79_84Componet.toArray().flatMap((c) => c.getFormErrors())
         ];
@@ -109,11 +118,15 @@ export class AcomodationComponent {
         return true;
     }
 
-    get procedureField(): AbstractControl { 
-            return this.mainForm.controls['procedure'] ; 
-        }
+    get procedureField(): AbstractControl {
+        return this.mainForm.controls['procedure'];
+    }
 
-        get dates14_37Field(): AbstractControl { 
-            return this.mainForm.controls['dates_14_37'] ; 
-        }
+    get establishmentField(): AbstractControl {
+        return this.mainForm.controls['establishment'];
+    }
+    
+    get locationField(): AbstractControl {
+        return this.mainForm.controls['location'];
+    }
 }
