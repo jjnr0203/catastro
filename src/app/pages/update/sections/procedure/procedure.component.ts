@@ -59,6 +59,9 @@ export class ProcedureComponent implements OnInit {
             categorie: ['dfsf', [Validators.required]],
             socialReason: ['fdfdf', Validators.required], //review name variable
             legalName: ['', Validators.required],
+            type: ['', Validators.required],
+            //!to do
+            // registeredAt: ['', Validators.required],
         });
 
         this.watchFormChanges();
@@ -87,6 +90,9 @@ export class ProcedureComponent implements OnInit {
         if(this.categorieField.invalid) errors.push('Categoria.');
         if(this.socialReasonField.invalid) errors.push('Razón social.');
         if(this.legalNameField.invalid) errors.push('Nombre legal.');
+        if(this.typeField.invalid) errors.push('Tipo Trámite');
+        //!to do
+        //agregar la fecha al correguir
 
         if (errors.length > 0) {
             this.form.markAllAsTouched();
@@ -142,4 +148,11 @@ export class ProcedureComponent implements OnInit {
     get legalNameField(): AbstractControl {
         return this.form.controls['legalName'];
     };
+
+    get typeField(): AbstractControl {
+        return this.form.controls['type'];
+    };
+
+    //! To do
+    //getter fecha de tramite
 }

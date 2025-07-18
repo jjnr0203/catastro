@@ -39,8 +39,6 @@ export class Dates_79_84Component implements OnInit {
         this.form = this.formBuilder.group({
             name: ['', Validators.required],
             email: ['', Validators.required],
-            type: ['', Validators.required],
-            registeredAt: ['', Validators.required],
             state: ['', Validators.required],
             observation: ['', Validators.required]
         });
