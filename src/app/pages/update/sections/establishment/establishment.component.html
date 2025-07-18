@@ -1,7 +1,7 @@
 <p-fluid>
     <form [formGroup]="form">
         <!-- Componente Registro de turismo -->
-            <h1 class="text-3xl font-bold mb-8">Datos 14-37</h1>
+            <h1 class="text-3xl font-bold mb-8">Establecimiento</h1>
             <div class="grid grid-cols-12 gap-6">
                 <!-- Tipo de Establecimieto-->
                 <div class="col-span-4 flex flex-col gap-2">
@@ -27,65 +27,72 @@
                     <input pInputText type="text" formControlName="legalEntity" />
                 </div>
 
+                <!-- provincia, cantón, parroquia y tipo de parroquia van en dpa
+ -->
                 <!--Provincia-->
-                <div class="col-span-4 flex flex-col gap-2">
+               <!--  <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Provincia"> </label>
                     <input pInputText type="text" formControlName="province" />
-                </div>
+                </div> -->
 
                  <!--Cantón -->
-                <div class="col-span-4 flex flex-col gap-2">
+               <!--  <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Cantón"> </label>
                     <input pInputText type="text" formControlName="canton" />
-                </div>
+                </div> -->
 
                 <!--Parroquia -->
-                <div class="col-span-4 flex flex-col gap-2">
+                <!-- <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Parroquia"> </label>
                     <input pInputText type="text" formControlName="parish" />
-                </div>
+                </div> -->
 
                 <!--Tipo de parroquia-->
-                <div class="col-span-4 flex flex-col gap-2">
+                <!-- <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Tipo de parroquia "> </label>
                     <input pInputText type="text" formControlName="parishType" />
-                </div>
+                </div> -->
 
+                <!-- calle y referencia de dirección van en ubicación -->
                 <!--Dirección -->
-                <div class="col-span-4 flex flex-col gap-2">
+                <!-- <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Dirección"> </label>
                     <input pInputText type="text" formControlName="address" />
-                </div>
+                </div> -->
 
                 <!--Referencia de dirección-->
-                <div class="col-span-4 flex flex-col gap-2">
+               <!--  <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Referencia de dirección"> </label>
                     <input pInputText type="text" formControlName="referenceStreet" />
                 </div>
+ -->
+               <!--  Telefono principal y secundario van en persona de contacto -->
 
                 <!--Teléfono principal -->
-                <div class="col-span-4 flex flex-col gap-2">
+                <!-- <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Teléfono principal"> </label>
                     <input pInputText type="text" formControlName="phone" />
-                </div>
+                </div> -->
 
                 <!--Teléfono secundario-->
-                <div class="col-span-4 flex flex-col gap-2">
+                <!-- <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Teléfono secundario"> </label>
                     <input pInputText type="text" formControlName="secondaryPhone" />
-                </div>
+                </div> -->
+
+                <!-- latitud y longitud van en ubicación -->
 
                 <!--Latitud-->
-                <div class="col-span-4 flex flex-col gap-2">
+               <!--  <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Latitud"> </label>
                     <input pInputText type="text" formControlName="latitude" />
-                </div>
+                </div> -->
 
                 <!--Longitud-->
-                <div class="col-span-4 flex flex-col gap-2">
+                <!-- <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Longitud"> </label>
                     <input pInputText type="text" formControlName="longitude" />
-                </div>
+                </div> -->
 
                 <!-- Correo electrónico-->
                 <div class="col-span-4 flex flex-col gap-2">
@@ -93,9 +100,9 @@
                     <input pInputText type="text" formControlName="email" />
                 </div>
 
-                 <!-- Dirección Web -->
+                 <!-- Página Web -->
                 <div class="col-span-4 flex flex-col gap-2">
-                    <label appLabel label="Dirección Web "> </label>
+                    <label appLabel label="Página Web "> </label>
                     <input pInputText type="text" formControlName="webPage" />
                 </div>
                 
@@ -105,11 +112,12 @@
                     <input pInputText type="text" formControlName="state" />
                 </div>
 
+                <!-- no mostrar -->
                 <!-- Sistema de origen-->
-                <div class="col-span-4 flex flex-col gap-2">
+               <!--  <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Sistema de origen"> </label>
                     <input pInputText type="text" formControlName="systemOrigin" />
-                </div>
+                </div> -->
 
                 <!-- Estado del Registro con deuda -->
                 <div class="col-span-4 flex flex-col gap-2">
@@ -117,36 +125,44 @@
                     <input pInputText type="text" formControlName="hasDebt" />
                 </div>
 
+                 <!-- Número -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Número"> </label>
+                    <input pInputText type="text" formControlName="number" />
+                </div>
+
+                 <!-- Nombre Comercial -->
+                <div class="col-span-4 flex flex-col gap-2">
+                    <label appLabel label="Nombre Comercial"> </label>
+                    <input pInputText type="text" formControlName="tradeName" />
+                </div>
+
+               <!--  total de trabajadores hombres, mujeres y con discapacidad van en personal del establecimiento -->
                 
                 <!-- Total de trabajadores Hombres  -->
-                <div class="col-span-4 flex flex-col gap-2">
+               <!--  <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Total  trabajadores Hombres  "> </label>
                     <input pInputText type="number" formControlName="totalMen" />
-                </div>
+                </div> -->
                 
                 <!-- Total de trabajadores Mujeres -->
-                <div class="col-span-4 flex flex-col gap-2">
+               <!--  <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Total trabajadores Mujeres "> </label>
                     <input pInputText type="number" formControlName="totalWomen" />
-                </div>
+                </div> -->
 
                  <!-- Total de trabajadores Hombres con discapacidad  -->
-                <div class="col-span-4 flex flex-col gap-2">
+                <!-- <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Total trabajadores Hombres con discapacidad  "> </label>
                     <input pInputText type="number" formControlName="totalMenDisability" />
-                </div>
+                </div> -->
 
                  <!-- Total de trabajadores Mujeres con discapacidad -->
-                <div class="col-span-4 flex flex-col gap-2">
+               <!--  <div class="col-span-4 flex flex-col gap-2">
                     <label appLabel label="Total trabajadores Mujeres con discapacidad "> </label>
                     <input pInputText type="number" formControlName="totalWomenDisability" />
-                </div>
+                </div> -->
 
-                <!-- Total trabajadores-->
-                <div class="col-span-4 flex flex-col gap-2">
-                    <label appLabel label="Total trabajadores"> </label>
-                    <input pInputText type="text" formControlName="totalWorker" />
-                </div>
             </div>
     </form>
 </p-fluid>

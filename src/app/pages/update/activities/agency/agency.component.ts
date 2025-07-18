@@ -1,5 +1,4 @@
 import { Component, inject, QueryList, ViewChildren } from '@angular/core';
-import { Dates_14_37Component } from '../../sections/dates-14-37/dates-14-37.component';
 import { Dates_79_84Component } from '../../sections/dates-79-84/dates-79-84.component';
 import { PanelModule } from 'primeng/panel';
 import { FluidModule } from 'primeng/fluid';
@@ -8,18 +7,19 @@ import { AgencyVariablesComponent } from '../../independent-variables/agency/age
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { PrimeIcons } from 'primeng/api';
 import { ProcedureComponent } from '../../sections/procedure/procedure.component';
+import { EstablishmentComponent } from '../../sections/establishment/establishment.component';
 
 @Component({
     selector: 'app-agency',
-    imports: [ProcedureComponent, Dates_14_37Component, Dates_79_84Component, PanelModule, FluidModule, DividerModule, AgencyVariablesComponent],
+    imports: [ProcedureComponent, EstablishmentComponent, Dates_79_84Component, PanelModule, FluidModule, DividerModule, AgencyVariablesComponent],
     templateUrl: './agency.component.html',
     styleUrl: './agency.component.scss'
 })
 export class AgencyComponent {
     protected readonly PrimeIcons = PrimeIcons;
 
-    @ViewChildren(ProcedureComponent) private dates1_12Componet!: QueryList<ProcedureComponent>;
-    @ViewChildren(Dates_14_37Component) private dates_14_37Componet!: QueryList<Dates_14_37Component>;
+    @ViewChildren(ProcedureComponent) private procedureComponent!: QueryList<ProcedureComponent>;
+    @ViewChildren(EstablishmentComponent) private establishmentComponent!: QueryList<EstablishmentComponent>;
     @ViewChildren(AgencyVariablesComponent) private agencyVariablesComponet!: QueryList<AgencyVariablesComponent>;
     @ViewChildren(Dates_79_84Component) private dates_79_84Componet!: QueryList<Dates_79_84Component>;
 
@@ -55,8 +55,8 @@ export class AgencyComponent {
 
     checkFormErrors() {
         const errors: string[] = [
-            ...this.dates1_12Componet.toArray().flatMap((c) => c.getFormErrors()),
-            ...this.dates_14_37Componet.toArray().flatMap((c) => c.getFormErrors()),
+            ...this.procedureComponent.toArray().flatMap((c) => c.getFormErrors()),
+            ...this.establishmentComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.agencyVariablesComponet.toArray().flatMap((c) => c.getFormErrors()),
             ...this.dates_79_84Componet.toArray().flatMap((c) => c.getFormErrors())
         ];

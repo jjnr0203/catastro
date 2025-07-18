@@ -6,7 +6,6 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CardModule } from 'primeng/card';
 import { TagModule } from 'primeng/tag';
-import { Dates_14_37Component } from '../../sections/dates-14-37/dates-14-37.component';
 import { SelectModule } from 'primeng/select';
 import { DividerModule } from 'primeng/divider';
 import { Dates_79_84Component } from '../../sections/dates-79-84/dates-79-84.component';
@@ -14,6 +13,7 @@ import { AccommodationVariablesComponent } from '../../independent-variables/acc
 import { ButtonModule } from 'primeng/button';
 import { PrimeIcons } from 'primeng/api';
 import { ProcedureComponent } from '../../sections/procedure/procedure.component';
+import { EstablishmentComponent } from '../../sections/establishment/establishment.component';
 
 @Component({
     selector: 'app-acomodation',
@@ -28,7 +28,7 @@ import { ProcedureComponent } from '../../sections/procedure/procedure.component
         CardModule,
         TagModule,
         ProcedureComponent,
-        Dates_14_37Component,
+        EstablishmentComponent,
         Dates_79_84Component,
         AccommodationVariablesComponent,
         ButtonModule, 
@@ -40,7 +40,7 @@ export class AcomodationComponent {
     protected readonly PrimeIcons = PrimeIcons;
 
     @ViewChildren(ProcedureComponent) private procedureComponent!: QueryList<ProcedureComponent>;
-    @ViewChildren(Dates_14_37Component) private dates_14_37Componet!: QueryList<Dates_14_37Component>;
+    @ViewChildren(EstablishmentComponent) private establishmentComponent!: QueryList<EstablishmentComponent>;
     @ViewChildren(AccommodationVariablesComponent) private accommodationVariablesComponet!: QueryList<AccommodationVariablesComponent>;
     @ViewChildren(Dates_79_84Component) private dates_79_84Componet!: QueryList<Dates_79_84Component>;
 
@@ -53,7 +53,7 @@ export class AcomodationComponent {
     constructor() {
         this.mainForm = this.formBuilder.group({
             procedure: [null],
-            dates_14_37: [null],
+            establishment: [null],
             accommodationVariables: [null],
             dates_79_84: [null]
         }); 
@@ -96,7 +96,7 @@ export class AcomodationComponent {
     checkFormErrors() {
         const errors: string[] = [
             ...this.procedureComponent.toArray().flatMap((c) => c.getFormErrors()),
-            ...this.dates_14_37Componet.toArray().flatMap((c) => c.getFormErrors()),
+            ...this.establishmentComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.accommodationVariablesComponet.toArray().flatMap((c) => c.getFormErrors()),
             ...this.dates_79_84Componet.toArray().flatMap((c) => c.getFormErrors())
         ];
