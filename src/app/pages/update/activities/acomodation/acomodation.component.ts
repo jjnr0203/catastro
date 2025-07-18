@@ -15,6 +15,7 @@ import { PrimeIcons } from 'primeng/api';
 import { ProcedureComponent } from '../../sections/procedure/procedure.component';
 import { EstablishmentComponent } from '../../sections/establishment/establishment.component';
 import { LocationComponent } from '../../sections/location/location.component';
+import { ContactPersonComponent } from '../../sections/contact-person/contact-person.component';
 
 @Component({
     selector: 'app-acomodation',
@@ -30,10 +31,10 @@ import { LocationComponent } from '../../sections/location/location.component';
         TagModule,
         ProcedureComponent,
         EstablishmentComponent,
-        Dates_79_84Component,
         AccommodationVariablesComponent,
         ButtonModule,
-        LocationComponent
+        LocationComponent,
+        ContactPersonComponent
     ],
     templateUrl: './acomodation.component.html',
     styleUrl: './acomodation.component.scss'
@@ -44,8 +45,8 @@ export class AcomodationComponent {
     @ViewChildren(ProcedureComponent) private procedureComponent!: QueryList<ProcedureComponent>;
     @ViewChildren(EstablishmentComponent) private establishmentComponent!: QueryList<EstablishmentComponent>;
     @ViewChildren(LocationComponent) private locationComponent!: QueryList<LocationComponent>;
+    @ViewChildren(ContactPersonComponent) private contactPersonComponent!: QueryList<ContactPersonComponent>;
     @ViewChildren(AccommodationVariablesComponent) private accommodationVariablesComponet!: QueryList<AccommodationVariablesComponent>;
-    @ViewChildren(Dates_79_84Component) private dates_79_84Componet!: QueryList<Dates_79_84Component>;
 
     private formBuilder = inject(FormBuilder);
 
@@ -58,8 +59,8 @@ export class AcomodationComponent {
             procedure: [null],
             establishment: [null],
             location: [null],
+            contactPerson: [null],
             accommodationVariables: [null],
-            dates_79_84: [null]
         });
     }
 
@@ -85,6 +86,10 @@ export class AcomodationComponent {
             case 'location':
                 this.locationField.patchValue(childForm.value);
                 break;
+
+            case 'contact-person':
+                this.contactPersonField.patchValue(childForm.value);
+                break;
         }
         console.log('Form1 updated:', this.mainForm.value);
         console.log('Form2 updated:', childForm.value);
@@ -106,8 +111,8 @@ export class AcomodationComponent {
             ...this.procedureComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.establishmentComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.locationComponent.toArray().flatMap((c) => c.getFormErrors()),
+            ...this.contactPersonComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.accommodationVariablesComponet.toArray().flatMap((c) => c.getFormErrors()),
-            ...this.dates_79_84Componet.toArray().flatMap((c) => c.getFormErrors())
         ];
 
         if (errors.length > 0) {
@@ -128,5 +133,9 @@ export class AcomodationComponent {
     
     get locationField(): AbstractControl {
         return this.mainForm.controls['location'];
+    }
+
+    get contactPersonField(): AbstractControl {
+        return this.mainForm.controls['contactPerson'];
     }
 }

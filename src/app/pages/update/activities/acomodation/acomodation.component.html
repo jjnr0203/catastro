@@ -9,11 +9,11 @@
         <app-location
         (dataOut)="saveForm($event, 'location')"/>
         <p-divider />
+        <app-contact-person
+        (dataOut)="saveForm($event, 'contact-person')"/>
+        <p-divider />
         <app-accommodation-variables 
          (dataOut)="saveForm($event, 'accommodation')"/>
-        <p-divider />
-        <app-dates-79-84 
-         (dataOut)="saveForm($event, 'dates79_84')"/>
         <p-divider />
         <div class="justify-content-end align-items-right flex flex-wrap gap-2">
             <p-button (onClick)="onSubmit()" icon="pi pi-pencil" size="small" label="Editar" [raised]="true" severity="contrast" />
