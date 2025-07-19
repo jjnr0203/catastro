@@ -10,19 +10,22 @@ import { ContactPersonComponent } from '../../sections/contact-person/contact-pe
 import { LocationComponent } from '../../sections/location/location.component';
 import { AgencyVariablesComponent } from '../../independent-variables/agency/agency-variables.component';
 import { ButtonModule } from 'primeng/button';
+import { EstablishmentStaffComponent } from "../../sections/establishment-staff/establishment-staff.component";
 
 @Component({
     selector: 'app-agency',
     imports: [
-        ProcedureComponent, 
-        EstablishmentComponent, 
-        PanelModule, 
-        FluidModule, 
-        DividerModule,
-        LocationComponent,
-        ContactPersonComponent,
-        AgencyVariablesComponent,
-        ButtonModule],
+    ProcedureComponent,
+    EstablishmentComponent,
+    PanelModule,
+    FluidModule,
+    DividerModule,
+    LocationComponent,
+    ContactPersonComponent,
+    AgencyVariablesComponent,
+    ButtonModule,
+    EstablishmentStaffComponent
+],
     templateUrl: './agency.component.html',
     styleUrl: './agency.component.scss'
 })
@@ -32,6 +35,7 @@ export class AgencyComponent {
     @ViewChildren(ProcedureComponent) private procedureComponent!: QueryList<ProcedureComponent>;
     @ViewChildren(EstablishmentComponent) private establishmentComponent!: QueryList<EstablishmentComponent>;
     @ViewChildren(LocationComponent) private locationComponent!: QueryList<LocationComponent>;
+    @ViewChildren(EstablishmentStaffComponent) private establishmentStaffComponent!: QueryList<EstablishmentStaffComponent>;
     @ViewChildren(ContactPersonComponent) private contactPersonComponent!: QueryList<ContactPersonComponent>;
 
     private formBuilder = inject(FormBuilder);
@@ -46,6 +50,7 @@ export class AgencyComponent {
             establishment: [null],
             location: [null],
             contactPerson: [null],
+            establishmentStaff: [null],
         });
     }
     saveForm(childForm: FormGroup, componentName: string) {
@@ -73,6 +78,10 @@ export class AgencyComponent {
             case 'contact-person':
                 this.contactPersonField.patchValue(childForm.value);
                 break;
+
+            case 'establishment-staff':
+                this.establishmentStaffField.patchValue(childForm.value);
+                break;
         }
         console.log('Form1 updated:', this.mainForm.value);
         console.log('Form2 updated:', childForm.value);
@@ -93,6 +102,7 @@ export class AgencyComponent {
             ...this.procedureComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.establishmentComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.locationComponent.toArray().flatMap((c) => c.getFormErrors()),
+            ...this.establishmentStaffComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.contactPersonComponent.toArray().flatMap((c) => c.getFormErrors())
         ];
 
@@ -118,5 +128,9 @@ export class AgencyComponent {
 
     get contactPersonField(): AbstractControl {
         return this.mainForm.controls['contactPerson'];
+    }
+
+    get establishmentStaffField(): AbstractControl {
+        return this.mainForm.controls['establishmentStaff'];
     }
 }

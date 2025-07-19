@@ -15,26 +15,28 @@ import { ProcedureComponent } from '../../sections/procedure/procedure.component
 import { EstablishmentComponent } from '../../sections/establishment/establishment.component';
 import { LocationComponent } from '../../sections/location/location.component';
 import { ContactPersonComponent } from '../../sections/contact-person/contact-person.component';
+import { EstablishmentStaffComponent } from "../../sections/establishment-staff/establishment-staff.component";
 
 @Component({
     selector: 'app-acomodation',
     imports: [
-        ReactiveFormsModule,
-        SelectModule,
-        DividerModule,
-        PanelModule,
-        FluidModule,
-        InputTextModule,
-        InputNumberModule,
-        CardModule,
-        TagModule,
-        ProcedureComponent,
-        EstablishmentComponent,
-        AccommodationVariablesComponent,
-        ButtonModule,
-        LocationComponent,
-        ContactPersonComponent
-    ],
+    ReactiveFormsModule,
+    SelectModule,
+    DividerModule,
+    PanelModule,
+    FluidModule,
+    InputTextModule,
+    InputNumberModule,
+    CardModule,
+    TagModule,
+    ProcedureComponent,
+    EstablishmentComponent,
+    AccommodationVariablesComponent,
+    ButtonModule,
+    LocationComponent,
+    ContactPersonComponent,
+    EstablishmentStaffComponent
+],
     templateUrl: './acomodation.component.html',
     styleUrl: './acomodation.component.scss'
 })
@@ -45,6 +47,7 @@ export class AcomodationComponent {
     @ViewChildren(EstablishmentComponent) private establishmentComponent!: QueryList<EstablishmentComponent>;
     @ViewChildren(LocationComponent) private locationComponent!: QueryList<LocationComponent>;
     @ViewChildren(ContactPersonComponent) private contactPersonComponent!: QueryList<ContactPersonComponent>;
+    @ViewChildren(EstablishmentStaffComponent) private establishmentStaffComponent!: QueryList<EstablishmentStaffComponent>;
     @ViewChildren(AccommodationVariablesComponent) private accommodationVariablesComponet!: QueryList<AccommodationVariablesComponent>;
 
     private formBuilder = inject(FormBuilder);
@@ -59,6 +62,7 @@ export class AcomodationComponent {
             establishment: [null],
             location: [null],
             contactPerson: [null],
+            establishmentStaff: [null],
             accommodationVariables: [null],
         });
     }
@@ -89,6 +93,10 @@ export class AcomodationComponent {
             case 'contact-person':
                 this.contactPersonField.patchValue(childForm.value);
                 break;
+
+            case 'establishment-staff':
+                this.establishmentStaffField.patchValue(childForm.value);
+                break;  
         }
         console.log('Form1 updated:', this.mainForm.value);
         console.log('Form2 updated:', childForm.value);
@@ -111,6 +119,7 @@ export class AcomodationComponent {
             ...this.establishmentComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.locationComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.contactPersonComponent.toArray().flatMap((c) => c.getFormErrors()),
+            ...this.establishmentStaffComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.accommodationVariablesComponet.toArray().flatMap((c) => c.getFormErrors()),
         ];
 
@@ -137,4 +146,8 @@ export class AcomodationComponent {
     get contactPersonField(): AbstractControl {
         return this.mainForm.controls['contactPerson'];
     }
+    
+    get establishmentStaffField(): AbstractControl {
+        return this.mainForm.controls['establishmentStaff'];
+    }   
 }

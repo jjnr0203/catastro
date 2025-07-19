@@ -10,20 +10,22 @@ import { EstablishmentComponent } from '../../sections/establishment/establishme
 import { ContactPersonComponent } from "../../sections/contact-person/contact-person.component";
 import { LocationComponent } from "../../sections/location/location.component";
 import { ButtonModule } from 'primeng/button';
+import { EstablishmentStaffComponent } from "../../sections/establishment-staff/establishment-staff.component";
 
 @Component({
     selector: 'app-guidance',
     imports: [
-        ProcedureComponent,
-        EstablishmentComponent, 
-        PanelModule, 
-        FluidModule, 
-        DividerModule, 
-        GuidanceVariablesComponent, 
-        ContactPersonComponent, 
-        LocationComponent,
-        ButtonModule
-    ],
+    ProcedureComponent,
+    EstablishmentComponent,
+    PanelModule,
+    FluidModule,
+    DividerModule,
+    GuidanceVariablesComponent,
+    ContactPersonComponent,
+    LocationComponent,
+    ButtonModule,
+    EstablishmentStaffComponent
+],
     templateUrl: './guidance.component.html',
     styleUrl: './guidance.component.scss'
 })
@@ -34,6 +36,7 @@ export class GuidanceComponent {
     @ViewChildren(EstablishmentComponent) private establishmentComponent!: QueryList<EstablishmentComponent>;
     @ViewChildren(LocationComponent) private locationComponent!: QueryList<LocationComponent>;
     @ViewChildren(ContactPersonComponent) private contactPersonComponent!: QueryList<ContactPersonComponent>;
+    @ViewChildren(EstablishmentStaffComponent) private establishmentStaffComponent!: QueryList<EstablishmentStaffComponent>;
 
     private formBuilder = inject(FormBuilder);
 
@@ -47,6 +50,7 @@ export class GuidanceComponent {
             establishment: [null],
             location: [null],
             contactPerson: [null],
+            establishmentStaff: [null]
         });
     }
 
@@ -75,6 +79,10 @@ export class GuidanceComponent {
             case 'contact-person':
                 this.contactPersonField.patchValue(childForm.value);
                 break;
+
+            case 'establishment-staff':
+                this.establishmentStaffField.patchValue(childForm.value);
+                break;
         }
         console.log('Form1 updated:', this.mainForm.value);
         console.log('Form2 updated:', childForm.value);
@@ -97,6 +105,7 @@ export class GuidanceComponent {
             ...this.establishmentComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.locationComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.contactPersonComponent.toArray().flatMap((c) => c.getFormErrors()),
+            ...this.establishmentStaffComponent.toArray().flatMap((c) => c.getFormErrors()), 
         ];
 
         if (errors.length > 0) {
@@ -122,4 +131,8 @@ export class GuidanceComponent {
     get contactPersonField(): AbstractControl {
         return this.mainForm.controls['contactPerson'];
     }
+
+    get establishmentStaffField(): AbstractControl {
+        return this.mainForm.controls['establishmentStaff'];
+    }   
 }
