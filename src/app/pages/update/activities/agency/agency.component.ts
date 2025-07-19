@@ -1,17 +1,28 @@
 import { Component, inject, QueryList, ViewChildren } from '@angular/core';
-import { Dates_79_84Component } from '../../sections/dates-79-84/dates-79-84.component';
 import { PanelModule } from 'primeng/panel';
 import { FluidModule } from 'primeng/fluid';
 import { DividerModule } from 'primeng/divider';
-import { AgencyVariablesComponent } from '../../independent-variables/agency/agency-variables.component';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { PrimeIcons } from 'primeng/api';
 import { ProcedureComponent } from '../../sections/procedure/procedure.component';
 import { EstablishmentComponent } from '../../sections/establishment/establishment.component';
+import { ContactPersonComponent } from '../../sections/contact-person/contact-person.component';
+import { LocationComponent } from '../../sections/location/location.component';
+import { AgencyVariablesComponent } from '../../independent-variables/agency/agency-variables.component';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
     selector: 'app-agency',
-    imports: [ProcedureComponent, EstablishmentComponent, Dates_79_84Component, PanelModule, FluidModule, DividerModule, AgencyVariablesComponent],
+    imports: [
+        ProcedureComponent, 
+        EstablishmentComponent, 
+        PanelModule, 
+        FluidModule, 
+        DividerModule,
+        LocationComponent,
+        ContactPersonComponent,
+        AgencyVariablesComponent,
+        ButtonModule],
     templateUrl: './agency.component.html',
     styleUrl: './agency.component.scss'
 })
@@ -20,8 +31,8 @@ export class AgencyComponent {
 
     @ViewChildren(ProcedureComponent) private procedureComponent!: QueryList<ProcedureComponent>;
     @ViewChildren(EstablishmentComponent) private establishmentComponent!: QueryList<EstablishmentComponent>;
-    @ViewChildren(AgencyVariablesComponent) private agencyVariablesComponet!: QueryList<AgencyVariablesComponent>;
-    @ViewChildren(Dates_79_84Component) private dates_79_84Componet!: QueryList<Dates_79_84Component>;
+    @ViewChildren(LocationComponent) private locationComponent!: QueryList<LocationComponent>;
+    @ViewChildren(ContactPersonComponent) private contactPersonComponent!: QueryList<ContactPersonComponent>;
 
     private formBuilder = inject(FormBuilder);
 
@@ -29,18 +40,42 @@ export class AgencyComponent {
 
     //protected readonly customMessageService = inject(CustomMessageService);
 
-    constructor() {
-        this.mainForm = this.formBuilder.group({});
+   constructor() {
+        this.mainForm = this.formBuilder.group({
+            procedure: [null],
+            establishment: [null],
+            location: [null],
+            contactPerson: [null],
+        });
     }
-
-    saveForm(childForm: FormGroup) {
-        Object.keys(childForm.controls).forEach((controlName) => {
+    saveForm(childForm: FormGroup, componentName: string) {
+        /* Object.keys(childForm.controls).forEach((controlName) => {
             if (!this.mainForm.contains(controlName)) {
                 this.mainForm.addControl(controlName, this.formBuilder.control(childForm.get(controlName)?.value));
             } else {
                 this.mainForm.get(controlName)?.patchValue(childForm.get(controlName)?.value);
             }
-        });
+        }); */
+
+        switch (componentName) {
+            case 'procedure':
+                this.procedureField.patchValue(childForm.value);
+                break;
+
+            case 'establishment':
+                this.establishmentField.patchValue(childForm.value);
+                break;
+
+            case 'location':
+                this.locationField.patchValue(childForm.value);
+                break;
+
+            case 'contact-person':
+                this.contactPersonField.patchValue(childForm.value);
+                break;
+        }
+        console.log('Form1 updated:', this.mainForm.value);
+        console.log('Form2 updated:', childForm.value);
     }
 
     onSubmit() {
@@ -57,8 +92,8 @@ export class AgencyComponent {
         const errors: string[] = [
             ...this.procedureComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.establishmentComponent.toArray().flatMap((c) => c.getFormErrors()),
-            ...this.agencyVariablesComponet.toArray().flatMap((c) => c.getFormErrors()),
-            ...this.dates_79_84Componet.toArray().flatMap((c) => c.getFormErrors())
+            ...this.locationComponent.toArray().flatMap((c) => c.getFormErrors()),
+            ...this.contactPersonComponent.toArray().flatMap((c) => c.getFormErrors())
         ];
 
         if (errors.length > 0) {
@@ -67,5 +102,21 @@ export class AgencyComponent {
         }
 
         return true;
+    }
+
+    get procedureField(): AbstractControl {
+        return this.mainForm.controls['procedure'];
+    }
+
+    get establishmentField(): AbstractControl {
+        return this.mainForm.controls['establishment'];
+    }
+
+    get locationField(): AbstractControl {
+        return this.mainForm.controls['location'];
+    }
+
+    get contactPersonField(): AbstractControl {
+        return this.mainForm.controls['contactPerson'];
     }
 }
