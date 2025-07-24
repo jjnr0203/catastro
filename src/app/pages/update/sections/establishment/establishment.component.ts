@@ -9,10 +9,21 @@ import { CustomLabelDirective } from '../../../../shared/directives/custom-label
 import { SelectModule } from 'primeng/select';
 import { PrimeIcons } from 'primeng/api';
 import { debounceTime, distinctUntilChanged } from 'rxjs';
+import { ToggleSwitchModule } from 'primeng/toggleswitch';
 
 @Component({
     selector: 'app-establishment',
-    imports: [ReactiveFormsModule, PanelModule, InputTextModule, FluidModule, CardModule, TagModule, CustomLabelDirective, SelectModule],
+    imports: [
+        ReactiveFormsModule, 
+        PanelModule, 
+        InputTextModule, 
+        FluidModule, 
+        CardModule, 
+        TagModule, 
+        CustomLabelDirective, 
+        SelectModule,
+        ToggleSwitchModule,
+    ],
     templateUrl: './establishment.component.html',
     styleUrl: './establishment.component.scss'
 })
