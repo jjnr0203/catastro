@@ -36,13 +36,16 @@ export class EstablishmentComponent implements OnInit {
 
     buildForm() {
         this.form = this.formBuilder.group({
+            ruc: ['12345', Validators.required],
+            code: ['12312', Validators.required],
+            state: ['activo', Validators.required], //review name variable
             establishments: ['fesfse', Validators.required],
             name: ['sefes', Validators.required],
             type: ['fsefsef', Validators.required],
             legalEntity: ['fesfes', Validators.required],
             email: ['fesf@gmail.com', [Validators.required, Validators.email]],
             webPage: ['dwadawd', [Validators.required]],
-            state: ['dawdaw', Validators.required],
+            //state: ['dawdaw', Validators.required],
             //systemOrigin: ['', Validators.required],
             hasDebt: ['dawdawd', [Validators.required]],
             number: ['dwada', [Validators.required]],
