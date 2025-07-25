@@ -59,8 +59,8 @@ export class EstablishmentComponent implements OnInit {
             //state: ['dawdaw', Validators.required],
             //systemOrigin: ['', Validators.required],
             hasDebt: ['dawdawd', [Validators.required]],
-            number: ['dwada', [Validators.required]],
-            tradeName: ['', [Validators.required]],
+            tradeName: ['local', [Validators.required]],
+            number: ['', [Validators.required]],
             
         });
         this.watchFormChanges();

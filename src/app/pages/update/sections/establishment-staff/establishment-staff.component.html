@@ -11,7 +11,10 @@
                 <!-- Total de trabajadores Hombres con discapacidad  -->
                <div class="col-span-6 flex flex-col gap-2">
                    <label appLabel label="Del total hombres, cuantos tienen discapacidad"> </label>
-                   <input pInputText type="number" formControlName="totalMenDisability" />
+                   <p-inputNumber id="totalAccreditedStaffLanguage"
+                                  formControlName="totalMenDisability"
+                                  [showButtons]="true" buttonLayout="horizontal">
+                    </p-inputNumber>
                </div>
                 
                 <!-- Total de trabajadores Mujeres -->

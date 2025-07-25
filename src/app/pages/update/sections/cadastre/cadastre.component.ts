@@ -59,8 +59,8 @@ export class CadastreComponent implements OnInit{
 
     buildForm() {
         this.form = this.formBuilder.group({
-            registerNumber: ['', [Validators.required]],
-            registeredAt: ['', [Validators.required]],
+            registerNumber: ['213', [Validators.required]],
+            registeredAt: ['123', [Validators.required]],
             state: ['', Validators.required], //review name variable
         });
 
@@ -80,8 +80,8 @@ export class CadastreComponent implements OnInit{
         const errors: string[] = [];
 
         if(this.registerNumberField.invalid) errors.push('Número de registro.');
-        if(this.registeredAtField.invalid) errors.push('Fecha de Registro.')
-        if(this.stateField.invalid) errors.push('Estado.')
+        if(this.registeredAtField.invalid) errors.push('Fecha de Registro.');
+        if(this.stateField.invalid) errors.push('Estado.');
 
         if (errors.length > 0) {
             this.form.markAllAsTouched();

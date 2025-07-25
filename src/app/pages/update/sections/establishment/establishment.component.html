@@ -36,7 +36,7 @@
             <!-- Nombre(Franquicia o Cadena)-->
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Nombre"> </label>
-                <p-select optionLabel="label" formControlName="name" placeholder="Seleccione un nombre"> </p-select>
+                 <input pInputText type="text" formControlName="name" />
             </div>
 
             <!-- Tipo de Personería-->
@@ -48,7 +48,7 @@
             <!-- Personería Jurídica-->
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Personería jurídica"> </label>
-                <input pInputText type="text" formControlName="legalEntity" />
+                 <p-select optionLabel="label" formControlName="legalEntity" placeholder="Seleccione una opción"> </p-select>
             </div>
 
             <!-- Correo electrónico-->
@@ -66,7 +66,7 @@
             <!-- Estado Registro del establecimiento-->
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Estado Registro del establecimiento"> </label>
-                <input pInputText type="text" formControlName="state" />
+                 <p-select optionLabel="label" formControlName="state" placeholder="Seleccione una opción"> </p-select>
             </div>
 
             <!-- no mostrar -->

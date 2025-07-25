@@ -16,6 +16,7 @@ import { EstablishmentComponent } from '../../sections/establishment/establishme
 import { LocationComponent } from '../../sections/location/location.component';
 import { ContactPersonComponent } from '../../sections/contact-person/contact-person.component';
 import { EstablishmentStaffComponent } from "../../sections/establishment-staff/establishment-staff.component";
+import { CadastreComponent } from "../../sections/cadastre/cadastre.component";
 
 @Component({
     selector: 'app-acomodation',
@@ -35,7 +36,8 @@ import { EstablishmentStaffComponent } from "../../sections/establishment-staff/
     ButtonModule,
     LocationComponent,
     ContactPersonComponent,
-    EstablishmentStaffComponent
+    EstablishmentStaffComponent,
+    CadastreComponent
 ],
     templateUrl: './acomodation.component.html',
     styleUrl: './acomodation.component.scss'
@@ -48,6 +50,7 @@ export class AcomodationComponent {
     @ViewChildren(LocationComponent) private locationComponent!: QueryList<LocationComponent>;
     @ViewChildren(ContactPersonComponent) private contactPersonComponent!: QueryList<ContactPersonComponent>;
     @ViewChildren(EstablishmentStaffComponent) private establishmentStaffComponent!: QueryList<EstablishmentStaffComponent>;
+    @ViewChildren(CadastreComponent) private cadastreComponent!: QueryList<CadastreComponent>;
     @ViewChildren(AccommodationVariablesComponent) private accommodationVariablesComponet!: QueryList<AccommodationVariablesComponent>;
 
     private formBuilder = inject(FormBuilder);
@@ -63,6 +66,7 @@ export class AcomodationComponent {
             location: [null],
             contactPerson: [null],
             establishmentStaff: [null],
+            cadastre: [null],
             accommodationVariables: [null],
         });
     }
@@ -78,6 +82,8 @@ export class AcomodationComponent {
         }); */
 
         switch (componentName) {
+            
+
             case 'procedure':
                 this.procedureField.patchValue(childForm.value);
                 break;
@@ -97,6 +103,10 @@ export class AcomodationComponent {
             case 'establishment-staff':
                 this.establishmentStaffField.patchValue(childForm.value);
                 break;  
+
+            case 'cadastre':
+                this.cadastreField.patchValue(childForm.value);
+                break;    
         }
         console.log('Form1 updated:', this.mainForm.value);
         console.log('Form2 updated:', childForm.value);
@@ -120,6 +130,7 @@ export class AcomodationComponent {
             ...this.locationComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.contactPersonComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.establishmentStaffComponent.toArray().flatMap((c) => c.getFormErrors()),
+            ...this.cadastreComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.accommodationVariablesComponet.toArray().flatMap((c) => c.getFormErrors()),
         ];
 
@@ -147,7 +158,12 @@ export class AcomodationComponent {
         return this.mainForm.controls['contactPerson'];
     }
     
+    get cadastreField(): AbstractControl {
+        return this.mainForm.controls['cadastre'];
+    }
+    
     get establishmentStaffField(): AbstractControl {
         return this.mainForm.controls['establishmentStaff'];
     }   
+
 }

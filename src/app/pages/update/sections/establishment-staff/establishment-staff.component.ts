@@ -10,10 +10,11 @@ import { TagModule } from 'primeng/tag';
 import { distinctUntilChanged } from 'rxjs';
 import { debounceTime } from 'rxjs/internal/operators/debounceTime';
 import { CustomLabelDirective } from '../../../../shared/directives/custom-label.directive';
+import { InputNumber } from 'primeng/inputnumber';
 
 @Component({
   selector: 'app-establishment-staff',
-  imports: [ReactiveFormsModule, PanelModule, InputTextModule, FluidModule, CardModule, TagModule, CustomLabelDirective, SelectModule],
+  imports: [ReactiveFormsModule, PanelModule, InputTextModule, FluidModule, CardModule, InputNumber, TagModule, CustomLabelDirective, SelectModule],
   templateUrl: './establishment-staff.component.html',
   styleUrl: './establishment-staff.component.scss'
 })

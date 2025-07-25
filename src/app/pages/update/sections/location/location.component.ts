@@ -5,10 +5,12 @@ import { FluidModule } from 'primeng/fluid';
 import { InputTextModule } from 'primeng/inputtext';
 import { debounceTime, distinctUntilChanged } from 'rxjs';
 import { CustomLabelDirective } from '../../../../shared/directives/custom-label.directive';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { SelectModule } from 'primeng/select';
 
 @Component({
     selector: 'app-location',
-    imports: [ReactiveFormsModule, FluidModule, InputTextModule, CustomLabelDirective],
+    imports: [ReactiveFormsModule, FluidModule, InputTextModule, CustomLabelDirective, SelectButtonModule, SelectModule],
     templateUrl: './location.component.html',
     styleUrl: './location.component.scss'
 })

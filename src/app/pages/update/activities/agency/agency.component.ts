@@ -11,6 +11,7 @@ import { LocationComponent } from '../../sections/location/location.component';
 import { AgencyVariablesComponent } from '../../independent-variables/agency/agency-variables.component';
 import { ButtonModule } from 'primeng/button';
 import { EstablishmentStaffComponent } from "../../sections/establishment-staff/establishment-staff.component";
+import { CadastreComponent } from "../../sections/cadastre/cadastre.component";
 
 @Component({
     selector: 'app-agency',
@@ -24,7 +25,8 @@ import { EstablishmentStaffComponent } from "../../sections/establishment-staff/
     ContactPersonComponent,
     AgencyVariablesComponent,
     ButtonModule,
-    EstablishmentStaffComponent
+    EstablishmentStaffComponent,
+    CadastreComponent
 ],
     templateUrl: './agency.component.html',
     styleUrl: './agency.component.scss'
@@ -37,6 +39,7 @@ export class AgencyComponent {
     @ViewChildren(LocationComponent) private locationComponent!: QueryList<LocationComponent>;
     @ViewChildren(EstablishmentStaffComponent) private establishmentStaffComponent!: QueryList<EstablishmentStaffComponent>;
     @ViewChildren(ContactPersonComponent) private contactPersonComponent!: QueryList<ContactPersonComponent>;
+    @ViewChildren(CadastreComponent) private cadastreComponent!: QueryList<CadastreComponent>;
 
     private formBuilder = inject(FormBuilder);
 
@@ -51,6 +54,7 @@ export class AgencyComponent {
             location: [null],
             contactPerson: [null],
             establishmentStaff: [null],
+            cadastre: [null],
         });
     }
     saveForm(childForm: FormGroup, componentName: string) {
@@ -82,6 +86,10 @@ export class AgencyComponent {
             case 'establishment-staff':
                 this.establishmentStaffField.patchValue(childForm.value);
                 break;
+
+            case 'cadastre':
+                this.cadastreField.patchValue(childForm.value);
+                break;     
         }
         console.log('Form1 updated:', this.mainForm.value);
         console.log('Form2 updated:', childForm.value);
@@ -103,7 +111,8 @@ export class AgencyComponent {
             ...this.establishmentComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.locationComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.establishmentStaffComponent.toArray().flatMap((c) => c.getFormErrors()),
-            ...this.contactPersonComponent.toArray().flatMap((c) => c.getFormErrors())
+            ...this.contactPersonComponent.toArray().flatMap((c) => c.getFormErrors()),
+            ...this.cadastreComponent.toArray().flatMap((c) => c.getFormErrors()),
         ];
 
         if (errors.length > 0) {
@@ -132,5 +141,9 @@ export class AgencyComponent {
 
     get establishmentStaffField(): AbstractControl {
         return this.mainForm.controls['establishmentStaff'];
+    }
+
+    get cadastreField(): AbstractControl {
+        return this.mainForm.controls['cadastre'];
     }
 }

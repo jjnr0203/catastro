@@ -11,6 +11,7 @@ import { LocationComponent } from "../../sections/location/location.component";
 import { ContactPersonComponent } from "../../sections/contact-person/contact-person.component";
 import { ButtonModule } from 'primeng/button';
 import { EstablishmentStaffComponent } from "../../sections/establishment-staff/establishment-staff.component";
+import { CadastreComponent } from "../../sections/cadastre/cadastre.component";
 
 @Component({
     selector: 'app-transport',
@@ -24,7 +25,8 @@ import { EstablishmentStaffComponent } from "../../sections/establishment-staff/
     LocationComponent,
     ContactPersonComponent,
     ButtonModule,
-    EstablishmentStaffComponent
+    EstablishmentStaffComponent,
+    CadastreComponent
 ],
         
     templateUrl: './transport.component.html',
@@ -38,6 +40,7 @@ export class TransportComponent {
     @ViewChildren(LocationComponent) private locationComponent!: QueryList<LocationComponent>;
     @ViewChildren(ContactPersonComponent) private contactPersonComponent!: QueryList<ContactPersonComponent>;
     @ViewChildren(EstablishmentStaffComponent) private establishmentStaffComponent!: QueryList<EstablishmentStaffComponent>;
+    @ViewChildren(CadastreComponent) private cadastreComponent!: QueryList<CadastreComponent>;
 
     private formBuilder = inject(FormBuilder);
 
@@ -52,6 +55,7 @@ export class TransportComponent {
             location: [null],
             contactPerson: [null],
             establishmentStaff: [null],
+            cadastre: [null],
         });
     }
 
@@ -84,6 +88,10 @@ export class TransportComponent {
             case 'establishment-staff':
                 this.establishmentStaffField.patchValue(childForm.value);
                 break;
+
+            case 'cadastre':
+                this.cadastreField.patchValue(childForm.value);
+                break;
         }
         console.log('Form1 updated:', this.mainForm.value);
         console.log('Form2 updated:', childForm.value);
@@ -106,7 +114,8 @@ export class TransportComponent {
             ...this.establishmentComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.locationComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.contactPersonComponent.toArray().flatMap((c) => c.getFormErrors()),
-            ...this.establishmentStaffComponent.toArray().flatMap((c) => c.getFormErrors()), 
+            ...this.establishmentStaffComponent.toArray().flatMap((c) => c.getFormErrors()),
+            ...this.cadastreComponent.toArray().flatMap((c) => c.getFormErrors()), 
         ];
 
         if (errors.length > 0) {
@@ -135,5 +144,9 @@ export class TransportComponent {
 
      get establishmentStaffField(): AbstractControl {
         return this.mainForm.controls['establishmentStaff'];
-    }   
+    }
+    
+    get cadastreField(): AbstractControl {
+        return this.mainForm.controls['cadastre'];
+    } 
 }
