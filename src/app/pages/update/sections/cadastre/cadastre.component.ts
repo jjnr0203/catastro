@@ -11,21 +11,24 @@ import { SelectModule } from 'primeng/select';
 import { TagModule } from 'primeng/tag';
 import { debounceTime, distinctUntilChanged } from 'rxjs';
 import { CustomLabelDirective } from '../../../../shared/directives/custom-label.directive';
+import { Divider } from "primeng/divider";
 
 @Component({
   selector: 'app-cadastre',
   imports: [
-    ReactiveFormsModule, 
-    CustomLabelDirective, 
-    SelectModule, 
-    PanelModule, 
-    FluidModule, 
-    InputTextModule, 
-    InputNumberModule, 
-    CardModule, 
-    TagModule, 
-    SelectModule, 
-    DatePickerModule],
+    ReactiveFormsModule,
+    CustomLabelDirective,
+    SelectModule,
+    PanelModule,
+    FluidModule,
+    InputTextModule,
+    InputNumberModule,
+    CardModule,
+    TagModule,
+    SelectModule,
+    DatePickerModule,
+    Divider
+],
   templateUrl: './cadastre.component.html',
   styleUrl: './cadastre.component.scss'
 })

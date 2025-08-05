@@ -1,7 +1,7 @@
 <p-fluid>
     <form [formGroup]="form">
-        <h1 class="text-3xl font-bold mb-8">Ubicación del Establecimiento</h1>
-
+        <div class="md:col-span-12 font-semibold text-xl">Ubicación del Establecimiento</div>
+        <br>
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Provincia"> </label>
@@ -35,12 +35,12 @@
 
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Latitud"> </label>
-                <input pInputText type="text" formControlName="latitude"/>
+                <input pInputText type="text" formControlName="latitude" />
             </div>
 
             <div class="col-span-4 flex flex-col gap-2">
                 <label appLabel label="Longitud"> </label>
-                <input pInputText type="text" formControlName="longitude"/>
+                <input pInputText type="text" formControlName="longitude" />
             </div>
         </div>
     </form>
