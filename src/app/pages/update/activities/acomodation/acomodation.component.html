@@ -21,6 +21,9 @@
         <app-accommodation-variables 
          (dataOut)="saveForm($event, 'accommodation')"/>
         <p-divider />
+        <app-adventure-modalities 
+        (dataOut)="saveForm($event, 'adventureModalities')"/>
+        <p-divider />
         <div class="justify-content-end align-items-right flex flex-wrap gap-2">
             <p-button (onClick)="onSubmit()" icon="pi pi-pencil" size="small" label="Editar" [raised]="true" severity="contrast" />
         </div>

@@ -12,6 +12,7 @@ import { LocationComponent } from '../../sections/location/location.component';
 import { ButtonModule } from 'primeng/button';
 import { EstablishmentStaffComponent } from "../../sections/establishment-staff/establishment-staff.component";
 import { CadastreComponent } from "../../sections/cadastre/cadastre.component";
+import { AdventureModalitiesComponent } from "../../sections/adventure-modalities/adventure-modalities.component";
 
 @Component({
     selector: 'app-community',
@@ -26,7 +27,8 @@ import { CadastreComponent } from "../../sections/cadastre/cadastre.component";
     ContactPersonComponent,
     ButtonModule,
     EstablishmentStaffComponent,
-    CadastreComponent
+    CadastreComponent,
+    AdventureModalitiesComponent
 ],
     templateUrl: './community.component.html',
     styleUrl: './community.component.scss'
@@ -40,6 +42,7 @@ export class CommunityComponent {
     @ViewChildren(ContactPersonComponent) private contactPersonComponent!: QueryList<ContactPersonComponent>;
     @ViewChildren(EstablishmentStaffComponent) private establishmentStaffComponent!: QueryList<EstablishmentStaffComponent>;
     @ViewChildren(CadastreComponent) private cadastreComponent!: QueryList<CadastreComponent>;
+    @ViewChildren(AdventureModalitiesComponent) private adventureModalitiesComponent!: QueryList<AdventureModalitiesComponent>;
 
     private formBuilder = inject(FormBuilder);
 
@@ -55,6 +58,7 @@ export class CommunityComponent {
             contactPerson: [null],
             establishmentStaff: [null],
             cadastre: [null],
+            adventureModalities: [null]
         });
     }
 
@@ -91,6 +95,10 @@ export class CommunityComponent {
             case 'cadastre':
                 this.cadastreField.patchValue(childForm.value);
                 break;
+
+            case 'adventureModalities':
+                this.adventureModalitiesField.patchValue(childForm.value);
+                break;
         }
         console.log('Form1 updated:', this.mainForm.value);
         console.log('Form2 updated:', childForm.value);
@@ -113,7 +121,8 @@ export class CommunityComponent {
             ...this.locationComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.contactPersonComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.establishmentStaffComponent.toArray().flatMap((c) => c.getFormErrors()),
-            ...this.cadastreComponent.toArray().flatMap((c) => c.getFormErrors()),          
+            ...this.cadastreComponent.toArray().flatMap((c) => c.getFormErrors()),
+            ...this.adventureModalitiesComponent.toArray().flatMap((c) => c.getFormErrors()),          
             
         ];
 
@@ -147,5 +156,9 @@ export class CommunityComponent {
     
     get cadastreField(): AbstractControl {
         return this.mainForm.controls['cadastre'];
+    }
+
+    get adventureModalitiesField(): AbstractControl {
+        return this.mainForm.controls['adventureModalities'];
     }
 }

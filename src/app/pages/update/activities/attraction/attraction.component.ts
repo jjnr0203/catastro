@@ -12,9 +12,9 @@ import { AttraccionVariablesComponent } from '../../independent-variables/attrac
 import { ButtonModule } from 'primeng/button';
 import { EstablishmentStaffComponent } from "../../sections/establishment-staff/establishment-staff.component";
 import { CadastreComponent } from "../../sections/cadastre/cadastre.component";
+import { AdventureModalitiesComponent } from "../../sections/adventure-modalities/adventure-modalities.component";
 
 @Component({
-    selector: 'app-attraction',
     imports: [
     EstablishmentComponent,
     ProcedureComponent,
@@ -26,7 +26,10 @@ import { CadastreComponent } from "../../sections/cadastre/cadastre.component";
     AttraccionVariablesComponent,
     ButtonModule,
     EstablishmentStaffComponent,
-    CadastreComponent
+    CadastreComponent,
+    AdventureModalitiesComponent,
+   CadastreComponent,
+    AdventureModalitiesComponent
 ],
     templateUrl: './attraction.component.html',
     styleUrl: './attraction.component.scss'
@@ -40,6 +43,7 @@ export class AttractionComponent {
     @ViewChildren(ContactPersonComponent) private contactPersonComponent!: QueryList<ContactPersonComponent>;
     @ViewChildren(EstablishmentStaffComponent) private establishmentStaffComponent!: QueryList<EstablishmentStaffComponent>;
     @ViewChildren(CadastreComponent) private cadastreComponent!: QueryList<CadastreComponent>;
+    @ViewChildren(AdventureModalitiesComponent) private adventureModalitiesComponent!: QueryList<AdventureModalitiesComponent>;
 
     private formBuilder = inject(FormBuilder);
 
@@ -55,6 +59,7 @@ export class AttractionComponent {
             contactPerson: [null],
             establishmentStaff: [null],
             cadastre: [null],
+            adventureModalities: [null]
         });
     }
 
@@ -90,7 +95,11 @@ export class AttractionComponent {
 
             case 'cadastre':
                 this.cadastreField.patchValue(childForm.value);
-                break;    
+                break;
+                
+            case 'adventureModalities':
+                this.adventureModalitiesField.patchValue(childForm.value);
+                break;  
         }
         console.log('Form1 updated:', this.mainForm.value);
         console.log('Form2 updated:', childForm.value);
@@ -114,6 +123,7 @@ export class AttractionComponent {
             ...this.contactPersonComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.establishmentStaffComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.cadastreComponent.toArray().flatMap((c) => c.getFormErrors()),
+             ...this.adventureModalitiesComponent.toArray().flatMap((c) => c.getFormErrors()),
         ];
 
         if (errors.length > 0) {
@@ -146,5 +156,9 @@ export class AttractionComponent {
 
     get cadastreField(): AbstractControl {
         return this.mainForm.controls['cadastre'];
+    }
+
+    get adventureModalitiesField(): AbstractControl {
+        return this.mainForm.controls['adventureModalities'];
     }
 }
