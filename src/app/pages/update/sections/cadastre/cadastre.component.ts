@@ -27,7 +27,6 @@ import { Divider } from "primeng/divider";
     TagModule,
     SelectModule,
     DatePickerModule,
-    Divider
 ],
   templateUrl: './cadastre.component.html',
   styleUrl: './cadastre.component.scss'

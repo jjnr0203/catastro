@@ -51,8 +51,6 @@ export class EstablishmentCapacityComponent implements OnInit {
         this.form = this.formBuilder.group({
             tables: ['1', [Validators.required]],
             capacity: ['', [Validators.required]],
-            /* serviceTypes: [[], [Validators.required]],
-            kitchenTypes: [[], [Validators.required]] */
         });
 
         this.watchFormChanges();

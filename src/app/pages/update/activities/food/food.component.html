@@ -15,9 +15,13 @@
          <app-establishment-staff 
          (dataOut)="saveForm($event, 'establishment-staff')"/>          
         <p-divider />
-        <app-food-variables 
-         (dataOut)="saveForm($event, 'food')"/>
+        <app-establishment-capacity 
+         (dataOut)="saveForm($event, 'establishmentCapacity')"/>
         <p-divider />
+        <app-establishment-services 
+        (dataOut)="saveForm($event, 'adventureModalities')"/>
+        <p-divider />
+        <app-adventure-modalities (dataOut)="saveForm($event, 'establishmentServices')"/>
         <div class="justify-content-end align-items-right flex flex-wrap gap-2">
             <p-button (onClick)="onSubmit()" icon="pi pi-pencil" size="small" label="Editar" [raised]="true" severity="contrast" />
         </div>

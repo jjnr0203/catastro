@@ -11,6 +11,9 @@ import { LocationComponent } from '../../sections/location/location.component';
 import { ContactPersonComponent } from '../../sections/contact-person/contact-person.component';
 import { ButtonModule } from 'primeng/button';
 import { EstablishmentStaffComponent } from "../../sections/establishment-staff/establishment-staff.component";
+import { EstablishmentCapacityComponent } from './shared/establishment-capacity/establishment-capacity.component';
+import { EstablishmentServicesComponent } from './shared/establishment-services/establishment-services.component';
+import { AdventureModalitiesComponent } from "../../sections/adventure-modalities/adventure-modalities.component";
 
 @Component({
     selector: 'app-food',
@@ -20,11 +23,13 @@ import { EstablishmentStaffComponent } from "../../sections/establishment-staff/
     PanelModule,
     FluidModule,
     DividerModule,
-    FoodVariablesComponent,
     LocationComponent,
     ContactPersonComponent,
     ButtonModule,
-    EstablishmentStaffComponent
+    EstablishmentStaffComponent,
+    EstablishmentServicesComponent,
+    EstablishmentCapacityComponent,
+    AdventureModalitiesComponent
 ],
     templateUrl: './food.component.html',
     styleUrl: './food.component.scss'
@@ -37,7 +42,9 @@ export class FoodComponent {
     @ViewChildren(LocationComponent) private locationComponent!: QueryList<LocationComponent>;
     @ViewChildren(ContactPersonComponent) private contactPersonComponent!: QueryList<ContactPersonComponent>;
     @ViewChildren(EstablishmentStaffComponent) private establishmentStaffComponent!: QueryList<EstablishmentStaffComponent>;
-   
+    @ViewChildren(EstablishmentCapacityComponent) private establishmentCapacityComponent!: QueryList<EstablishmentCapacityComponent>;
+    @ViewChildren(EstablishmentServicesComponent) private establishmentServicesComponent!: QueryList<EstablishmentServicesComponent>;
+    @ViewChildren(AdventureModalitiesComponent) private adventureModalitiesComponent!: QueryList<AdventureModalitiesComponent>;
     private formBuilder = inject(FormBuilder);
 
     protected mainForm!: FormGroup;
@@ -50,7 +57,10 @@ export class FoodComponent {
             establishment: [null],
             location: [null],
             contactPerson: [null],
-            establishmentStaff: [null]
+            establishmentStaff: [null],
+            establishmentServices: [null],
+            establishmentCapacity: [null],
+            adventureModalities: [null]
         });
     }
 
@@ -83,6 +93,19 @@ export class FoodComponent {
             case 'establishment-staff':
                 this.establishmentStaffField.patchValue(childForm.value);
                 break;
+
+            case 'establishmentCapacity':
+                this.establishmentCapacityField.patchValue(childForm.value);
+                break;
+
+            case 'establishmentServices':
+                this.establishmentServicesField.patchValue(childForm.value);
+                break;
+            case 'adventureModalities':
+                this.adventureModalitiesField.patchValue(childForm.value);
+                break;
+
+
         }
         console.log('Form1 updated:', this.mainForm.value);
         console.log('Form2 updated:', childForm.value);
@@ -105,6 +128,9 @@ export class FoodComponent {
             ...this.locationComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.contactPersonComponent.toArray().flatMap((c) => c.getFormErrors()),
             ...this.establishmentStaffComponent.toArray().flatMap((c) => c.getFormErrors()),   
+            ...this.establishmentCapacityComponent.toArray().flatMap((c) => c.getFormErrors()),   
+            ...this.establishmentServicesComponent.toArray().flatMap((c) => c.getFormErrors()),   
+            ...this.adventureModalitiesComponent.toArray().flatMap((c) => c.getFormErrors()),   
         ];
 
         if (errors.length > 0) {
@@ -134,4 +160,17 @@ export class FoodComponent {
     get establishmentStaffField(): AbstractControl {
         return this.mainForm.controls['establishmentStaff'];
     }   
+
+    get establishmentCapacityField(): AbstractControl {
+        return this.mainForm.controls['establishmentCapacity'];
+    }  
+
+    get establishmentServicesField(): AbstractControl {
+        return this.mainForm.controls['establishmentServices'];
+    }   
+
+    get adventureModalitiesField(): AbstractControl {
+        return this.mainForm.controls['adventureModalities'];
+    }   
 }
+
