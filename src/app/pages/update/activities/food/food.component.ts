@@ -14,6 +14,7 @@ import { EstablishmentStaffComponent } from "../../sections/establishment-staff/
 import { EstablishmentCapacityComponent } from './shared/establishment-capacity/establishment-capacity.component';
 import { EstablishmentServicesComponent } from './shared/establishment-services/establishment-services.component';
 import { AdventureModalitiesComponent } from "../../sections/adventure-modalities/adventure-modalities.component";
+import { CadastreComponent } from "../../sections/cadastre/cadastre.component";
 
 @Component({
     selector: 'app-food',
@@ -29,7 +30,8 @@ import { AdventureModalitiesComponent } from "../../sections/adventure-modalitie
     EstablishmentStaffComponent,
     EstablishmentServicesComponent,
     EstablishmentCapacityComponent,
-    AdventureModalitiesComponent
+    AdventureModalitiesComponent,
+    CadastreComponent
 ],
     templateUrl: './food.component.html',
     styleUrl: './food.component.scss'
